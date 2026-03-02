@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "tagline": "Ethical Genesis Products",
+    "mainHeading": "Engineered for the Enterprise. Built for Impact.",
+    "subHeading": "Explore our ecosystem of flagship platforms and highly specialized, industry-ready AI products designed to solve complex operational bottlenecks."
+  },
+  "flagship": {
+    "id": "jureo",
+    "label": "Flagship Platform",
+    "title": "Jureo — The AI Paralegal.",
+    "desc": "Revolutionizing legal research and compliance for law firms with zero-hallucination semantic search, intelligent fact extraction, and comprehensive precedent mapping.",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "link": "/products/jureo"
+  },
+  "grid": {
+    "title": "Industry Intelligence",
+    "products": [
+      {
+        "id": "legal-compliance",
+        "title": "Legal Compliance Engine",
+        "desc": "Automated risk extraction and clause analysis for massive corporate contracts.",
+        "image": "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?q=80&w=800&auto=format&fit=crop",
+        "span": "wide",
+        "link": "/products/legal-compliance"
+      },
+      {
+        "id": "fragrance-ai",
+        "title": "Fragrance Intelligence",
+        "desc": "AI-driven olfactory formulation and market trend prediction.",
+        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop",
+        "span": "square",
+        "link": "/products/fragrance-ai"
+      },
+      {
+        "id": "enterprise-chatbot",
+        "title": "Enterprise Chatbot",
+        "desc": "Secure, internal RAG assistants grounded strictly in your company data.",
+        "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop",
+        "span": "square",
+        "link": "/products/enterprise-chatbot"
+      },
+      {
+        "id": "automotive-ai",
+        "title": "Automotive AI Hub",
+        "desc": "Predictive telematics and intelligent supply chain optimization.",
+        "image": "https://images.unsplash.com/photo-1563720225642-1e9a21e428d0?q=80&w=800&auto=format&fit=crop",
+        "span": "square",
+        "link": "/products/automotive-ai"
+      },
+      {
+        "id": "bidding-system",
+        "title": "Smart Bidding System",
+        "desc": "Algorithmic, real-time auction intelligence to maximize ROI and win rates.",
+        "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&auto=format&fit=crop",
+        "span": "wide-alt",
+        "link": "/products/bidding-system"
+      }
+    ]
+  },
+  "banner": {
+    "text": "All products are powered by the Ethical Genesis Zero-Retention Framework. Your data never leaves your environment.",
+    "button": "Discuss a Custom Build",
+    "link": "/connect"
+  }
+}

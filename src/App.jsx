@@ -11,6 +11,7 @@ import IntelligencePage from './pages/intelligence';
 import JoinUsPage from './pages/join';
 import CompanyPage from './pages/company';
 import ConnectPage from './pages/connect';
+import ProductsPage from './pages/products';
 
 // --- IMPORT ASSETS HERE ---
 import logo from './img/logo.png';
@@ -782,13 +783,14 @@ export default function App() {
         </button>
 
         <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+          <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
           <li><Link to="/capabilities" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</Link></li>
           <li><Link to="/solution" onClick={() => setIsMobileMenuOpen(false)}>Solutions</Link></li>
           <li><Link to="/intelligence" onClick={() => setIsMobileMenuOpen(false)}>Intelligence</Link></li>
           <li><Link to="/company" onClick={() => setIsMobileMenuOpen(false)}>Company</Link></li>
           <li><Link to="/connect" onClick={() => setIsMobileMenuOpen(false)}>Connect</Link></li>
           <li><Link to="/join-us" onClick={() => setIsMobileMenuOpen(false)}>Join Us</Link></li>
-
+          <li><Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products</Link></li>
         </ul>
       </nav>
 
@@ -804,6 +806,7 @@ export default function App() {
         <Route path="/join-us" element={<JoinUsPage />} />
         <Route path="/company" element={<CompanyPage />} />
         <Route path="/connect" element={<ConnectPage />} />
+        <Route path="/products" element={<ProductsPage />} />
       </Routes>
 
       {/* Global Footer */}

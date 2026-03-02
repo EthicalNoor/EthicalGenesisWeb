@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "tagline": "Careers at Ethical Genesis",
+    "mainHeading": "Build the Future of Responsible AI.",
+    "subHeading": "We are a team of engineers, researchers, and builders solving the hardest problems in enterprise AI. No fluff. Just impact. Join us to engineer systems built on trust, scale, and zero-bias."
+  },
+  "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
+  "perks": [
+    {
+      "title": "Autonomy",
+      "desc": "Own your architecture from day one. We hire smart people and get out of their way."
+    },
+    {
+      "title": "Impact",
+      "desc": "Deploy enterprise-grade systems that solve real, massive operational bottlenecks."
+    },
+    {
+      "title": "Ethics First",
+      "desc": "Build technology that strictly prioritizes security, data privacy, and zero-bias outputs."
+    }
+  ],
+  "openings": {
+    "title": "Current Openings",
+    "roles": [
+      {
+        "id": "role-1",
+        "title": "Senior Machine Learning Engineer",
+        "type": "Remote / Full-Time",
+        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20Senior%20ML%20Engineer"
+      },
+      {
+        "id": "role-2",
+        "title": "AI Solutions Architect",
+        "type": "Remote / Full-Time",
+        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20AI%20Solutions%20Architect"
+      },
+      {
+        "id": "role-3",
+        "title": "Full Stack Engineer (AI Platforms)",
+        "type": "Remote / Full-Time",
+        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20Full%20Stack%20Engineer"
+      }
+    ]
+  },
+  "cta": {
+    "text": "Don't see your exact role? We are always looking for exceptional talent.",
+    "button": "Pitch Us Your Role",
+    "email": "careers@ethicalgenesis.ai"
+  }
+}

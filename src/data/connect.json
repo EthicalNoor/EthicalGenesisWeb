@@ -1,0 +1,37 @@
+{
+  "background": {
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop"
+  },
+  "info": {
+    "heading": "Initiate a Strategic Partnership.",
+    "subHeading": "Ready to move from AI hype to enterprise-grade deployment? Connect with our architectural team to discuss your operational bottlenecks, compliance needs, and AI roadmap.",
+    "channels": [
+      {
+        "label": "Enterprise Inquiries",
+        "value": "strategy@ethicalgenesis.ai"
+      },
+      {
+        "label": "Careers",
+        "value": "careers@ethicalgenesis.ai"
+      },
+      {
+        "label": "Global HQ",
+        "value": "Tech Innovation Park, Silicon Valley"
+      }
+    ]
+  },
+  "form": {
+    "interests": [
+      "Select an Area of Interest...",
+      "Generative AI Solutions",
+      "Agentic Autonomous Systems",
+      "LLM Fine-Tuning & RAG",
+      "MLOps & Infrastructure",
+      "Other"
+    ],
+    "successMessage": {
+      "title": "Request Received.",
+      "desc": "Your inquiry has been routed to our architectural team. An enterprise specialist will contact you within 24 hours."
+    }
+  }
+}

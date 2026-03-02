@@ -1,0 +1,80 @@
+/* src/index.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Modern Professional Color Palette */
+  --bg-primary: #0b0f19; /* Deep slate background */
+  --bg-secondary: #111827; /* Lighter slate for sections */
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --accent-color: #3b82f6; /* Professional blue, adjust to complement your logo */
+  --accent-hover: #2563eb;
+  --nav-bg: rgba(11, 15, 25, 0.85);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Global Animation Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+
+/* ==========================================================================
+   GLOBAL SECTION HEADING CONSISTENCY
+   Ensures all section titles across all pages use the exact same styling
+   ========================================================================== */
+.section-main-heading,
+.jureo-title,
+.capabilities-title,
+.why-main-title,
+.success-main-title,
+.cp-flowchart-container h3,
+.cp-snapshot h4, .cp-cases h4,
+.sol-section-title,
+.int-section-header h2,
+.int-editorial-title,
+.cmp-section-title,
+.join-section-title {
+  font-size: clamp(2.2rem, 4vw, 2.8rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--text-primary);
+}

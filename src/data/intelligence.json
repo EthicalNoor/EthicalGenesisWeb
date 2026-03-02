@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "tagline": "Research, Ethics, and the Future of Work.",
+    "mainHeading": "Thinking Deeply About the Tools We Build.",
+    "subHeading": "Technology moves fast, but principles matter. Here, we share our ongoing research, our ethical standards, and our technical notes on how to build software that respects privacy and human agency."
+  },
+  "framework": {
+    "tagline": "Our Core Philosophy",
+    "title": "How We Build Responsibly.",
+    "items": [
+      {
+        "id": "zero-bias",
+        "title": "Fairness First",
+        "desc": "Software often repeats human prejudices. We actively study and correct our systems to ensure they make decisions that are fair, balanced, and objective.",
+        "span": "small"
+      },
+      {
+        "id": "transparency",
+        "title": "No Secret Logic",
+        "desc": "We refuse to build 'black boxes' where the computer hides its work. Our goal is to ensure you can always trace exactly why a system made a specific decision.",
+        "span": "small"
+      },
+      {
+        "id": "sovereignty",
+        "title": "Absolute Data Ownership",
+        "desc": "We believe companies should own their knowledge. We design infrastructure where your information remains entirely yours, never leaking into the public domain.",
+        "span": "small"
+      }
+    ]
+  },
+  "lab": {
+    "title": "Inside the Research Lab",
+    "desc": "What we are exploring today to ensure our engineering remains reliable for tomorrow.",
+    "projects": [
+      {
+        "id": "swarms",
+        "category": "System Design",
+        "title": "Collaborative Software",
+        "desc": "Studying how multiple smaller programs can talk to each other to solve complex problems faster than one giant program.",
+        "bgImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "slm",
+        "category": "Efficiency",
+        "title": "Compact Intelligence",
+        "desc": "Researching how to make software much smaller and cheaper to run, so it can live directly on a laptop instead of massive cloud servers.",
+        "bgImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "synthetic",
+        "category": "Privacy",
+        "title": "Artificial Test Data",
+        "desc": "Learning how to generate completely fake, mathematically identical data so we can test software without ever touching real human records.",
+        "bgImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
+  "insights": {
+    "title": "Research Notes & Technical Writing",
+    "articles": [
+      {
+        "type": "Architecture Note",
+        "title": "Why smaller, focused programs are outperforming massive systems in corporate offices.",
+        "desc": "An analysis on reducing server costs and improving reliability by breaking big problems into smaller pieces.",
+        "readTime": "12 Min Read",
+        "link": "#"
+      },
+      {
+        "type": "Engineering Blog",
+        "title": "The danger of trusting chatbots: Why linking data is the only path to truth.",
+        "desc": "Exploring why modern text generators make things up, and how strict data mapping forces them to stick to the facts.",
+        "readTime": "10 Min Read",
+        "link": "#"
+      },
+      {
+        "type": "Deployment Brief",
+        "title": "Building a digital wall: Keeping corporate secrets safe from public software.",
+        "desc": "A look at the technical steps required to guarantee your company information never leaves your private network.",
+        "readTime": "8 Min Read",
+        "link": "#"
+      }
+    ]
+  },
+  "synergy": {
+    "title": "Tools for People. Not Instead of People.",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+    "paragraphs": [
+      "We believe the goal of technology is not to replace the human mind, but to free it.",
+      "For too long, highly skilled workers have been forced to act like computers—moving data between spreadsheets, writing the same emails over and over, and digging through disorganized files.",
+      "By shifting these dull, robotic tasks to software, we give your employees their time back. We build tools that handle the processing, so your people can focus on the strategy, the creativity, and the human relationships that actually drive your business forward.",
+      "The computer does the chores. The human makes the decisions."
+    ]
+  },
+  "cta": {
+    "heading": "Follow our ongoing research.",
+    "text": "Subscribe to get occasional notes on how we think about technology, privacy, and building better software.",
+    "placeholder": "Enter your work email address",
+    "button": "Subscribe"
+  }
+}

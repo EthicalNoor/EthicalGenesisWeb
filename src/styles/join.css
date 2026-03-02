@@ -1,0 +1,259 @@
+/* src/styles/join.css */
+
+.join-page-container {
+  background: var(--bg-primary, #0b0f19);
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Base Animations */
+.join-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.join-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ASYMMETRIC SPLIT LAYOUT */
+.join-split-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left Pane (Scrollable Content) */
+.join-content-pane {
+  flex: 1.1; /* Takes up slightly more than half on wide screens */
+  padding: 180px 5rem 6rem 5rem;
+  display: flex;
+  justify-content: flex-end; /* Aligns content near the center split */
+}
+
+.join-content-inner {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Right Pane (Sticky Image) */
+.join-image-pane {
+  flex: 0.9;
+  position: relative;
+}
+
+.join-sticky-image-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.join-sticky-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.join-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--bg-primary) 0%, transparent 15%, transparent 100%);
+  pointer-events: none;
+}
+
+/* 1. HERO SECTION */
+.join-hero {
+  margin-bottom: 5rem;
+}
+
+.join-tagline {
+  display: inline-block;
+  color: var(--accent-color, #3b82f6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.join-title {
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.join-subtitle {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+/* 2. PERKS GRID */
+.join-perks {
+  margin-bottom: 6rem;
+}
+
+.join-perks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.join-perk-item {
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.join-perk-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #f8fafc;
+}
+
+.join-perk-item p {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3. OPEN POSITIONS */
+.join-openings {
+  margin-bottom: 6rem;
+}
+
+.join-section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.join-roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.join-role-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.join-role-card:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateX(5px);
+}
+
+.join-role-info h4 {
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+}
+
+.join-role-info span {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.join-role-action {
+  color: var(--accent-color, #3b82f6);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.join-role-card:hover .join-role-action {
+  transform: translateX(5px);
+}
+
+/* 4. CTA SECTION */
+.join-cta-box {
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.08), rgba(11, 15, 25, 0.8));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.join-cta-box p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .join-section {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+  .join-content-pane { padding: 150px 3rem 4rem 3rem; }
+}
+
+@media (max-width: 992px) {
+  .join-split-layout {
+    flex-direction: column-reverse; /* Put image at the top on mobile/tablet */
+  }
+
+  .join-content-pane {
+    flex: none;
+    padding: 4rem 2rem 6rem 2rem;
+    justify-content: flex-start;
+  }
+
+  .join-content-inner {
+    max-width: 100%;
+  }
+
+  .join-image-pane {
+    flex: none;
+    height: 50vh; /* Fixed height banner on smaller screens */
+    width: 100%;
+  }
+
+  .join-sticky-image-wrapper {
+    position: relative;
+    height: 100%;
+  }
+
+  /* Adjust gradient for top-stacking */
+  .join-image-overlay {
+    background: linear-gradient(180deg, transparent 50%, var(--bg-primary) 100%);
+  }
+
+  .join-title { font-size: 2.8rem; }
+}
+
+@media (max-width: 768px) {
+  .join-title { font-size: 2.2rem; }
+  .join-role-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .join-role-action { align-self: flex-start; }
+}

@@ -1,0 +1,603 @@
+[
+  {
+    "slug": "generative-ai",
+    "title": "Generative AI Solutions",
+    "shortDescription": "Software that can automatically draft text, write code, and create media to save your team time.",
+    "elevatorPitch": "We build secure systems that help your team create documents, emails, and code on demand. This removes the repetitive drafting from your daily operations while keeping all your company data strictly private.",
+    "metrics": [
+      { "label": "Delivery Time", "value": "4–6 weeks" },
+      { "label": "Typical ROI", "value": "3× within 6 months" },
+      { "label": "Cost Reduction", "value": "≈40% manual effort" }
+    ],
+    "outcomes": [
+      "Automatically draft routine reports and documentation",
+      "Speed up software development with coding assistants",
+      "Create text and images directly inside your existing tools"
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Discovery & Planning",
+        "summary": "We meet with your team to figure out exactly what manual tasks take up the most time.",
+        "criteria": "A clear list of tasks to automate and a project timeline.",
+        "inputsOutputs": "Inputs: Your business goals. Outputs: A simple project blueprint.",
+        "tools": "Whiteboarding, process mapping",
+        "security": "Determine exactly who is allowed to see the data.",
+        "time": "1–2 weeks",
+        "risk": "Trying to do too much at once — we fix this by starting small."
+      },
+      {
+        "id": 2,
+        "title": "Choosing the Right Technology",
+        "summary": "We test different software engines to find the one that gives the best results for the lowest cost.",
+        "criteria": "A selected software engine that passes our quality tests.",
+        "inputsOutputs": "Inputs: Sample questions. Outputs: The chosen technology plan.",
+        "tools": "Testing scripts, cost calculators",
+        "security": "Reviewing the technology provider's privacy rules.",
+        "time": "1 week",
+        "risk": "Getting locked into one vendor — we build it so you can switch later."
+      },
+      {
+        "id": 3,
+        "title": "Preparing Your Data",
+        "summary": "We organize and clean up your files so the software can read them properly.",
+        "criteria": "Files are organized, clean, and ready to be searched.",
+        "inputsOutputs": "Inputs: Your messy files. Outputs: Clean, organized data.",
+        "tools": "Data cleaning scripts, secure databases",
+        "security": "Removing personal information before processing.",
+        "time": "2 weeks",
+        "risk": "Messy original files — we use scripts to auto-correct errors."
+      },
+      {
+        "id": 4,
+        "title": "Teaching the Software",
+        "summary": "We write specific instructions so the software answers exactly the way your business talks.",
+        "criteria": "The software answers test questions accurately and safely.",
+        "inputsOutputs": "Inputs: Rules and tone guidelines. Outputs: Tested instruction templates.",
+        "tools": "Instruction testing tools, manual review",
+        "security": "Adding rules to block inappropriate answers.",
+        "time": "1 week",
+        "risk": "The software making things up — we restrict it to only use your facts."
+      },
+      {
+        "id": 5,
+        "title": "Connecting to Your Apps",
+        "summary": "We plug this new tool directly into the software your team already uses every day.",
+        "criteria": "The tool works quickly and smoothly inside your apps.",
+        "inputsOutputs": "Inputs: Your existing apps. Outputs: Working connections.",
+        "tools": "Cloud servers, connection gateways",
+        "security": "Adding passwords and secure logins.",
+        "time": "2 weeks",
+        "risk": "Slow loading times — we add memory tricks to speed it up."
+      },
+      {
+        "id": 6,
+        "title": "Maintenance & Updates",
+        "summary": "We watch the system to ensure it stays fast, accurate, and cheap to run.",
+        "criteria": "Dashboards are live to track usage and errors.",
+        "inputsOutputs": "Inputs: Daily usage. Outputs: Weekly health reports.",
+        "tools": "Tracking dashboards, alert systems",
+        "security": "Logging who uses the system to prevent misuse.",
+        "time": "ongoing",
+        "risk": "Costs creeping up — we set hard daily spending limits."
+      }
+    ],
+    "securityChecklist": [
+      "Follows strict corporate privacy rules",
+      "Works within regional data laws",
+      "Locks down data so only authorized staff can read it",
+      "Automatically hides names and private details",
+      "Stores files in secure, encrypted vaults"
+    ],
+    "caseStudies": [
+      {
+        "title": "Financial Report Automation",
+        "metric": "300% ROI",
+        "desc": "Built a system that automatically writes first drafts of weekly financial reports, saving the finance team hundreds of hours."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/gen-ai-spec.pdf"
+    }
+  },
+  {
+    "slug": "agentic-ai",
+    "title": "Agentic AI Systems",
+    "shortDescription": "Smart digital assistants that can actually click buttons, use tools, and finish tasks for you.",
+    "elevatorPitch": "Instead of just answering questions, these systems take action. We build software assistants that understand an instruction, figure out the steps, log into your tools, and do the work—always asking for your approval before doing anything risky.",
+    "metrics": [
+      { "label": "Delivery Time", "value": "6–8 weeks" },
+      { "label": "Task Completion", "value": "≥90% success" },
+      { "label": "Error Rate", "value": "<1% after setup" }
+    ],
+    "outcomes": [
+      "Automatically finish processes that require multiple steps",
+      "Reduce the time workers spend passing tasks back and forth",
+      "Keep humans in charge of all final decisions"
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mapping the Work",
+        "summary": "We sit down with you to write out exactly how a human does the job today.",
+        "criteria": "A step-by-step diagram of the task.",
+        "inputsOutputs": "Inputs: Employee interviews. Outputs: Step-by-step maps.",
+        "tools": "Flowchart software",
+        "security": "Decide which steps the assistant is never allowed to do.",
+        "time": "1 week",
+        "risk": "Forgetting small steps — we test by watching real work."
+      },
+      {
+        "id": 2,
+        "title": "Giving the Software Hands",
+        "summary": "We securely connect the assistant to your email, databases, or software tools.",
+        "criteria": "The assistant can successfully read and write to your tools.",
+        "inputsOutputs": "Inputs: Passwords and app manuals. Outputs: Working connections.",
+        "tools": "Secure password vaults, connection tools",
+        "security": "Hiding passwords so the assistant uses them without seeing them.",
+        "time": "2 weeks",
+        "risk": "Apps changing their layout — we build flexible connections."
+      },
+      {
+        "id": 3,
+        "title": "Building the Brain",
+        "summary": "We teach the assistant how to look at a problem and make a plan to solve it.",
+        "criteria": "The assistant writes correct plans during tests.",
+        "inputsOutputs": "Inputs: Task requests. Outputs: Step-by-step plans.",
+        "tools": "Logic engines",
+        "security": "Creating hard rules it cannot break.",
+        "time": "2 weeks",
+        "risk": "The assistant getting stuck in a loop — we add automatic stop buttons."
+      },
+      {
+        "id": 4,
+        "title": "Adding the Human Check",
+        "summary": "We build a simple screen where the assistant pauses and asks a human for permission.",
+        "criteria": "The system correctly pauses and waits for a human click.",
+        "inputsOutputs": "Inputs: Proposed actions. Outputs: Approved or rejected tasks.",
+        "tools": "Review dashboards",
+        "security": "Keeping a permanent record of who clicked approve.",
+        "time": "1 week",
+        "risk": "Waiting too long for humans — we automatically reroute urgent tasks."
+      },
+      {
+        "id": 5,
+        "title": "Safe Practice Runs",
+        "summary": "We let the assistant practice in a fake environment so it can make mistakes safely.",
+        "criteria": "The assistant completes practice tasks perfectly without breaking rules.",
+        "inputsOutputs": "Inputs: Fake practice data. Outputs: Grading scorecards.",
+        "tools": "Isolated testing servers",
+        "security": "Ensuring the practice area cannot touch real company files.",
+        "time": "1 week",
+        "risk": "Practice doesn't match reality — we carefully mimic real data."
+      },
+      {
+        "id": 6,
+        "title": "Going Live",
+        "summary": "We turn the system on for real work while watching it very closely.",
+        "criteria": "The assistant is doing real work smoothly without causing errors.",
+        "inputsOutputs": "Inputs: Real daily tasks. Outputs: Finished work.",
+        "tools": "Live monitoring screens",
+        "security": "Watching for any strange or unusual actions in real time.",
+        "time": "1–2 weeks",
+        "risk": "Unexpected surprises — we start with only 1% of the work and slowly increase."
+      }
+    ],
+    "securityChecklist": [
+      "Hard limits on what the assistant is allowed to click",
+      "Mandatory human approval for sending money or deleting files",
+      "A permanent, unchangeable record of every action taken",
+      "Secure handling of all company passwords"
+    ],
+    "caseStudies": [
+      {
+        "title": "Helpdesk Assistant",
+        "metric": "80% less waiting",
+        "desc": "Created a digital assistant that instantly fixes common IT problems like password resets without bothering the tech team."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/agentic-ai-spec.pdf"
+    }
+  },
+  {
+    "slug": "llm-rag",
+    "title": "LLM Fine-Tuning & RAG",
+    "shortDescription": "Search tools and chatbots that actually know your company's private rules and documents.",
+    "elevatorPitch": "Public chatbots don't know your business. We connect smart chat technology directly to your own manuals, HR policies, and past projects. When your team asks a question, they get a correct answer with a link to the exact page it came from.",
+    "metrics": [
+      { "label": "Answer Accuracy", "value": "≥95%" },
+      { "label": "Uptime", "value": "99.9%" },
+      { "label": "Avg Response Time", "value": "<500 ms" }
+    ],
+    "outcomes": [
+      "Get instant, correct answers from thousands of pages of text",
+      "Stop wasting time searching through messy shared drives",
+      "Always know where an answer came from with direct source links"
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Gathering the Files",
+        "summary": "We collect all the documents, PDFs, and databases you want the system to read.",
+        "criteria": "All chosen files are securely copied and ready.",
+        "inputsOutputs": "Inputs: Your files. Outputs: A central reading pile.",
+        "tools": "Secure file transfer tools",
+        "security": "Checking permissions so we only use approved files.",
+        "time": "1 week",
+        "risk": "Missing important files — we do a thorough check with your team."
+      },
+      {
+        "id": 2,
+        "title": "Cleaning the Text",
+        "summary": "We remove weird formatting, blank pages, and hidden code so the text is easy to read.",
+        "criteria": "Text is clean and broken into readable paragraphs.",
+        "inputsOutputs": "Inputs: Messy files. Outputs: Clean paragraphs.",
+        "tools": "Text fixing scripts",
+        "security": "Scrubbing out names and credit cards if necessary.",
+        "time": "1 week",
+        "risk": "Losing important charts — we handle tables with special tools."
+      },
+      {
+        "id": 3,
+        "title": "Building the Index",
+        "summary": "We turn the paragraphs into a super-fast, searchable database.",
+        "criteria": "The database can find the right paragraph in milliseconds.",
+        "inputsOutputs": "Inputs: Clean text. Outputs: A searchable index.",
+        "tools": "Specialized search databases",
+        "security": "Locking the database behind company firewalls.",
+        "time": "1–2 weeks",
+        "risk": "Old data staying in the system — we set up daily refreshes."
+      },
+      {
+        "id": 4,
+        "title": "Improving the Search",
+        "summary": "We tweak the search so it understands what you mean, not just the exact words you typed.",
+        "criteria": "The search finds the right document 9 times out of 10.",
+        "inputsOutputs": "Inputs: Practice questions. Outputs: A tuned search engine.",
+        "tools": "Meaning-based search tools",
+        "security": "Keeping track of what people search for safely.",
+        "time": "1 week",
+        "risk": "Bringing up the wrong document — we add a double-checking step."
+      },
+      {
+        "id": 5,
+        "title": "Connecting the Chatbot",
+        "summary": "We attach the search engine to a chatbot so it can read the document and summarize it for you.",
+        "criteria": "The chatbot gives good summaries and provides source links.",
+        "inputsOutputs": "Inputs: Found documents. Outputs: Human-friendly answers.",
+        "tools": "Text summarizing engines",
+        "security": "Forcing the chatbot to say 'I don't know' instead of guessing.",
+        "time": "1 week",
+        "risk": "Answers getting too long — we force the bot to be concise."
+      },
+      {
+        "id": 6,
+        "title": "Testing with Users",
+        "summary": "We let a few employees try it out and adjust it based on their feedback.",
+        "criteria": "Employees say the tool is helpful and fast.",
+        "inputsOutputs": "Inputs: Employee questions. Outputs: A polished final system.",
+        "tools": "Feedback buttons (Thumbs up/down)",
+        "security": "Ensuring the tool respects employee access levels.",
+        "time": "1–2 weeks",
+        "risk": "Users asking bad questions — we provide a short training guide."
+      }
+    ],
+    "securityChecklist": [
+      "The system only reads files you explicitly give it",
+      "Answers change depending on what the logged-in user is allowed to see",
+      "No company data is ever used to train public chatbots",
+      "Full records of every question asked and answered"
+    ],
+    "caseStudies": [
+      {
+        "title": "HR Policy Assistant",
+        "metric": "75% fewer emails to HR",
+        "desc": "Built a private tool where employees can ask questions about benefits and instantly get the right answer from the employee handbook."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/llm-rag-spec.pdf"
+    }
+  },
+  {
+    "slug": "knowledge-graphs",
+    "title": "Knowledge Graphs",
+    "shortDescription": "A visual map that connects your scattered data so you can see the big picture.",
+    "elevatorPitch": "Your business data is likely trapped in a dozen different programs. We build a mapping system that links a customer in your sales software to their support tickets and contracts, letting you search and understand your business as one connected web.",
+    "metrics": [
+      { "label": "Data Silos Fixed", "value": "≈90%" },
+      { "label": "Search Speed", "value": "Instant" },
+      { "label": "Data Accuracy", "value": "≈95%" }
+    ],
+    "outcomes": [
+      "See everything about a customer or project in one place",
+      "Find hidden connections between different departments",
+      "Make reporting much faster since data is already linked"
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Defining the Map",
+        "summary": "We figure out the main things your business cares about, like 'Customers', 'Products', and 'Orders'.",
+        "criteria": "A clear whiteboard map of how your business works.",
+        "inputsOutputs": "Inputs: Your business terms. Outputs: A master blueprint.",
+        "tools": "Whiteboarding, spreadsheets",
+        "security": "Deciding which departments own which data.",
+        "time": "1 week",
+        "risk": "Making it too complicated — we focus only on what matters."
+      },
+      {
+        "id": 2,
+        "title": "Finding the Clues",
+        "summary": "We read through your databases and documents to find those customers and products.",
+        "criteria": "The system successfully spots names and items in messy text.",
+        "inputsOutputs": "Inputs: Your databases. Outputs: Lists of people and things.",
+        "tools": "Smart reading tools",
+        "security": "Keeping personal names secure during the scan.",
+        "time": "1–2 weeks",
+        "risk": "Missing spelled-wrong names — we add fuzzy matching."
+      },
+      {
+        "id": 3,
+        "title": "Drawing the Lines",
+        "summary": "We figure out how things connect. E.g., 'John' -> 'Bought' -> 'Product A'.",
+        "criteria": "Connections make logical sense to your team.",
+        "inputsOutputs": "Inputs: Lists of things. Outputs: Connected lines.",
+        "tools": "Matching rules",
+        "security": "Keeping track of where every connection came from.",
+        "time": "1–2 weeks",
+        "risk": "Connecting the wrong John — we require exact ID matches."
+      },
+      {
+        "id": 4,
+        "title": "Building the Database",
+        "summary": "We store this massive web of connections in a special database made just for this.",
+        "criteria": "The database is built and answers questions instantly.",
+        "inputsOutputs": "Inputs: Connections. Outputs: A live graph database.",
+        "tools": "Graph software",
+        "security": "Locking the database behind strict passwords.",
+        "time": "1–2 weeks",
+        "risk": "It gets too slow — we organize it for fast reading."
+      },
+      {
+        "id": 5,
+        "title": "Adding Outside Information",
+        "summary": "We can pull in public information, like company sizes or stock prices, to add more detail.",
+        "criteria": "Outside data matches up perfectly with your internal data.",
+        "inputsOutputs": "Inputs: Public websites. Outputs: A richer map.",
+        "tools": "Data fetching scripts",
+        "security": "Ensuring we are allowed to use the outside data.",
+        "time": "2 weeks",
+        "risk": "Outside data is messy — we filter it before adding it."
+      },
+      {
+        "id": 6,
+        "title": "Creating the Search Bar",
+        "summary": "We give you a simple screen where you can search the map and see the results.",
+        "criteria": "The search bar works and shows clear answers.",
+        "inputsOutputs": "Inputs: Search terms. Outputs: Answers and charts.",
+        "tools": "Custom screens, reporting tools",
+        "security": "Limiting search results based on who is searching.",
+        "time": "1–2 weeks",
+        "risk": "Too much information on screen — we keep the design very clean."
+      }
+    ],
+    "securityChecklist": [
+      "Strict rules on who can view connected information",
+      "Always showing the original source for any piece of data",
+      "Keeping the entire map locked inside your company network",
+      "No sharing of your map with any outside companies"
+    ],
+    "caseStudies": [
+      {
+        "title": "Sales & Support Merger",
+        "metric": "5× faster insights",
+        "desc": "Connected the sales database with the customer complaints desk so managers could instantly see if angry customers were about to cancel big contracts."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/knowledge-graphs-spec.pdf"
+    }
+  },
+  {
+    "slug": "ml-engineering",
+    "title": "Machine Learning Engineering",
+    "shortDescription": "The behind-the-scenes maintenance and plumbing that keeps smart software running safely.",
+    "elevatorPitch": "Building a smart tool is only half the battle; keeping it running every day is the hard part. We build the automated testing, monitoring, and update systems required to ensure your software stays accurate and never breaks down when you need it.",
+    "metrics": [
+      { "label": "Update Speed", "value": "Weekly" },
+      { "label": "System Uptime", "value": "≥99.5%" },
+      { "label": "Maintenance Saved", "value": "Hundreds of hours" }
+    ],
+    "outcomes": [
+      "Update your software safely without breaking it",
+      "Automatically catch errors before your users see them",
+      "Keep all your data organized and backed up properly"
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Organizing the Data",
+        "summary": "We set up a system to safely store and track the information used to run your software.",
+        "criteria": "All data is backed up and easy to find.",
+        "inputsOutputs": "Inputs: Your data files. Outputs: A neat storage system.",
+        "tools": "Cloud storage tools",
+        "security": "Hiding sensitive columns like credit cards.",
+        "time": "1–2 weeks",
+        "risk": "Data gets mixed up — we label everything with dates."
+      },
+      {
+        "id": 2,
+        "title": "Building the Math Formulas",
+        "summary": "We write the reliable code that turns your raw data into useful insights.",
+        "criteria": "The formulas run automatically every day without crashing.",
+        "inputsOutputs": "Inputs: Raw data. Outputs: Useful numbers.",
+        "tools": "Data processing code",
+        "security": "Keeping track of who changes the formulas.",
+        "time": "1–2 weeks",
+        "risk": "Code breaking on weird data — we add safety checks."
+      },
+      {
+        "id": 3,
+        "title": "Training the System",
+        "summary": "We set up servers that teach the software how to do its job, over and over again.",
+        "criteria": "The system successfully learns the patterns in the data.",
+        "inputsOutputs": "Inputs: Useful numbers. Outputs: A trained system.",
+        "tools": "Training servers",
+        "security": "Locking down the servers so no one can interfere.",
+        "time": "1–3 weeks",
+        "risk": "Servers get too expensive — we turn them off when not in use."
+      },
+      {
+        "id": 4,
+        "title": "Testing for Mistakes",
+        "summary": "We run tests to make sure the system isn't making unfair decisions or dumb mistakes.",
+        "criteria": "The system passes a strict safety exam.",
+        "inputsOutputs": "Inputs: A trained system. Outputs: A passing report card.",
+        "tools": "Automated testing scripts",
+        "security": "Saving the test results for audits.",
+        "time": "1 week",
+        "risk": "The system acts biased — we adjust the math to fix it."
+      },
+      {
+        "id": 5,
+        "title": "Putting it to Work",
+        "summary": "We carefully package the software and make it available for your company to use.",
+        "criteria": "The software is live and running quickly.",
+        "inputsOutputs": "Inputs: Passed system. Outputs: A live tool.",
+        "tools": "Cloud hosting tools",
+        "security": "Checking the package for viruses before launching.",
+        "time": "1–2 weeks",
+        "risk": "It crashes when everyone logs in — we start with a small group first."
+      },
+      {
+        "id": 6,
+        "title": "Watching and Fixing",
+        "summary": "We set up alarms that text us if the system starts acting weird or slowing down.",
+        "criteria": "Dashboards show exactly how healthy the system is.",
+        "inputsOutputs": "Inputs: Live usage. Outputs: Warning alerts if needed.",
+        "tools": "Monitoring dashboards",
+        "security": "Ensuring only authorized admins can see the alarm details.",
+        "time": "ongoing",
+        "risk": "The system gets dumber over time — we set it to automatically re-learn."
+      }
+    ],
+    "securityChecklist": [
+      "Strict control over who can change the live software",
+      "Automatic tracking of every code change for safety audits",
+      "Masking all personal data before it hits the math formulas",
+      "Alarms that ring immediately if the software acts unusual"
+    ],
+    "caseStudies": [
+      {
+        "title": "Retail Stock Predictor",
+        "metric": "+20% accuracy",
+        "desc": "Built a reliable system that predicts what items a store will sell out of, running automatically every night without human help."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/ml-engineering-spec.pdf"
+    }
+  },
+  {
+    "slug": "autonomous-workflows",
+    "title": "Autonomous AI Workflows",
+    "shortDescription": "Turn slow, manual computer tasks into fast, self-running background processes.",
+    "elevatorPitch": "We take the most boring, repetitive parts of your business—like moving data between spreadsheets, sorting emails, or generating standard forms—and build reliable software pipelines that do it automatically, alerting you only if something needs a human decision.",
+    "metrics": [
+      { "label": "Time Saved", "value": "+60%" },
+      { "label": "Fewer Mistakes", "value": "≈70% drop" },
+      { "label": "Coverage", "value": "≈80% of daily tasks" }
+    ],
+    "outcomes": [
+      "Get work done instantly without waiting for an employee to click buttons",
+      "Catch and fix minor computer errors without waking up the IT team",
+      "See exactly how fast work is moving on a simple dashboard"
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Finding the Bottlenecks",
+        "summary": "We find the exact manual tasks that slow your team down the most.",
+        "criteria": "A list of tasks ranked by how much time they waste.",
+        "inputsOutputs": "Inputs: Team complaints. Outputs: A target list.",
+        "tools": "Stopwatches, interviews",
+        "security": "Reviewing if the tasks handle sensitive info.",
+        "time": "1–2 weeks",
+        "risk": "Picking a task that is too complicated — we start with the easy wins."
+      },
+      {
+        "id": 2,
+        "title": "Designing the Pipeline",
+        "summary": "We draw a map of exactly how the computer will do the task step-by-step.",
+        "criteria": "A clear map that shows what happens if a step fails.",
+        "inputsOutputs": "Inputs: The target task. Outputs: An automation map.",
+        "tools": "Drawing tools",
+        "security": "Making sure the computer is allowed to access the required apps.",
+        "time": "1–2 weeks",
+        "risk": "A website breaks the pipeline — we add backup plans."
+      },
+      {
+        "id": 3,
+        "title": "Setting up the Tracking",
+        "summary": "We build a screen so you can watch the computer do the work in real time.",
+        "criteria": "A dashboard showing 'Tasks Finished' and 'Errors'.",
+        "inputsOutputs": "Inputs: The pipeline. Outputs: A live tracking screen.",
+        "tools": "Dashboard software",
+        "security": "Making sure the dashboard doesn't show secret company data.",
+        "time": "1 week",
+        "risk": "Too much information — we keep the screen simple."
+      },
+      {
+        "id": 4,
+        "title": "Writing the Safety Rules",
+        "summary": "We program hard stops. If the computer sees something weird, it stops and emails a human.",
+        "criteria": "The system safely stops when given bad data.",
+        "inputsOutputs": "Inputs: The rules. Outputs: Safety barriers.",
+        "tools": "Rule programming",
+        "security": "Recording every time the system had to stop.",
+        "time": "1 week",
+        "risk": "Stopping too often — we tweak the rules to be reasonable."
+      },
+      {
+        "id": 5,
+        "title": "Making it Smarter",
+        "summary": "We let the system run and tweak the code so it handles more exceptions automatically.",
+        "criteria": "The system requires less human help every week.",
+        "inputsOutputs": "Inputs: Human corrections. Outputs: Smarter code.",
+        "tools": "Code updates",
+        "security": "Reviewing every update before it goes live.",
+        "time": "2–4 weeks",
+        "risk": "An update breaks something — we keep an 'undo' button ready."
+      },
+      {
+        "id": 6,
+        "title": "Training Your Team",
+        "summary": "We show your staff how to use the new system and what to do when it asks for help.",
+        "criteria": "Employees know how to click 'Approve' or 'Fix'.",
+        "inputsOutputs": "Inputs: The finished system. Outputs: A short training guide.",
+        "tools": "Screen sharing, short manuals",
+        "security": "Ensuring only managers can change the system settings.",
+        "time": "1–2 weeks",
+        "risk": "Employees ignoring the system — we make it very easy to use."
+      }
+    ],
+    "securityChecklist": [
+      "The system only has the minimum passwords required to do the job",
+      "Every single click the system makes is written down in a log",
+      "Personal information is hidden from the tracking screens",
+      "Big red 'Stop Everything' buttons are available to managers"
+    ],
+    "caseStudies": [
+      {
+        "title": "Automated IT Fixes",
+        "metric": "70% faster fixes",
+        "desc": "Created a background program that automatically restarts broken servers in the middle of the night so the IT team can sleep."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/autonomous-workflows-spec.pdf"
+    }
+  }
+]

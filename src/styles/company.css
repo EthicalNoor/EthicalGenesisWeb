@@ -1,0 +1,342 @@
+/* src/styles/company.css */
+
+.cmp-page-container {
+  background: var(--bg-primary, #0b0f19);
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.cmp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Animations */
+@keyframes cmpFadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: cmpFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+
+.cmp-split-left, .cmp-split-right, .cmp-section-title, .cmp-values-grid, 
+.cmp-section-header, .cmp-team-grid, .cmp-vision-box {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reusable Parallax Background */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* 1. HERO SECTION */
+.cmp-hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 2rem 4rem 2rem; /* Adjusted for navbar */
+}
+
+.cmp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 15, 25, 0.4) 0%, rgba(11, 15, 25, 1) 100%);
+  z-index: 1;
+}
+
+.cmp-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.cmp-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.cmp-subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* GENERAL SECTIONS */
+.cmp-section {
+  padding: 6rem 0;
+}
+
+.cmp-section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+.cmp-section-title.center, .cmp-section-header.center {
+  text-align: center;
+}
+
+.cmp-section-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 1rem auto 3rem auto;
+}
+
+/* 2. OUR ORIGIN (SPLIT SCREEN) */
+.cmp-split-layout {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.cmp-split-left {
+  flex: 1;
+}
+
+.cmp-split-left h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: #f8fafc;
+}
+
+.cmp-split-left p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.cmp-split-right {
+  flex: 1;
+}
+
+.cmp-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cmp-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.cmp-image-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), transparent);
+  pointer-events: none;
+}
+
+/* 3. CORE VALUES */
+.cmp-values {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, #080b14 100%);
+}
+
+.cmp-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cmp-value-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.cmp-value-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.cmp-value-num {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.cmp-value-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.cmp-value-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 4. THE TEAM */
+.cmp-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+}
+
+.cmp-team-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cmp-team-image {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #1e293b;
+}
+
+.cmp-team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2); /* Black and white by default */
+  transition: filter 0.5s ease, transform 0.8s ease;
+}
+
+.cmp-team-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(11, 15, 25, 0.95) 100%);
+  transition: opacity 0.5s ease;
+}
+
+.cmp-team-card:hover .cmp-team-image img {
+  filter: grayscale(0%) contrast(1); /* Color on hover */
+  transform: scale(1.05);
+}
+
+.cmp-team-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.cmp-team-card:hover .cmp-team-info {
+  transform: translateY(0);
+}
+
+.cmp-team-info h4 {
+  font-size: 1.3rem;
+  margin: 0 0 0.25rem 0;
+  color: #fff;
+}
+
+.cmp-team-info span {
+  font-size: 0.9rem;
+  color: var(--accent-color, #3b82f6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 5. LOOKING AHEAD (VISION PARALLAX) */
+.cmp-vision {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 6rem 0;
+}
+
+.cmp-vision-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 15, 25, 0.8); /* Dark overlay to make text pop */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.cmp-vision-box {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  background: rgba(11, 15, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem;
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.cmp-vision-box h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.cmp-vision-box p {
+  font-size: 1.15rem;
+  color: #e2e8f0;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .parallax-bg { background-attachment: scroll; }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .cmp-split-layout {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .cmp-split-left h2 { font-size: 2.5rem; }
+  .cmp-vision-box { padding: 3rem 2rem; }
+  .cmp-vision-box h2 { font-size: 2.2rem; }
+  /* Parallax often bugs out on mobile browsers, safer to disable it on tablets/phones */
+  .parallax-bg { background-attachment: scroll; } 
+}
+
+@media (max-width: 768px) {
+  .cmp-hero { min-height: 70vh; padding-top: 100px; }
+  .cmp-title { font-size: 2.5rem; }
+  .cmp-split-left h2 { font-size: 2.2rem; }
+  .cmp-section-title { font-size: 2rem; }
+  .cmp-team-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}

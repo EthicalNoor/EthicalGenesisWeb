@@ -1,0 +1,311 @@
+/* src/styles/connect.css */
+
+.conn-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #fff;
+  padding: 120px 2rem 4rem 2rem; /* Accounts for navbar */
+  overflow: hidden;
+}
+
+/* Cinematic Background */
+.conn-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+.conn-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.7) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: -1;
+}
+
+/* Container & Animations */
+.conn-container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes connFadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: connFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Glassmorphism Panel */
+.conn-glass-panel {
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  overflow: hidden;
+}
+
+/* LEFT SIDE: Brand & Info */
+.conn-info-side {
+  flex: 1;
+  padding: 4rem;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.conn-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.conn-logo-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-color, #3b82f6);
+}
+
+.conn-logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.conn-heading {
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  color: #f8fafc;
+}
+
+.conn-subheading {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.conn-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.conn-channel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.conn-channel-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.conn-channel-value {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.3s ease;
+}
+
+a.conn-channel-value:hover {
+  color: var(--accent-color, #3b82f6);
+}
+
+/* RIGHT SIDE: Form */
+.conn-form-side {
+  flex: 1.2;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.conn-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.conn-form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.conn-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.conn-input-group label {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.conn-input-group input, 
+.conn-input-group select, 
+.conn-input-group textarea {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.conn-input-group input::placeholder,
+.conn-input-group textarea::placeholder {
+  color: #475569;
+}
+
+.conn-input-group input:focus, 
+.conn-input-group select:focus, 
+.conn-input-group textarea:focus {
+  border-color: var(--accent-color, #3b82f6);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.conn-input-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Custom Select Dropdown Arrow */
+.conn-select-wrapper {
+  position: relative;
+}
+.conn-select-wrapper::after {
+  content: '▼';
+  font-size: 0.8rem;
+  color: #94a3b8;
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.conn-input-group select {
+  appearance: none;
+  cursor: pointer;
+}
+.conn-input-group select option {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* Submit Button */
+.conn-submit-btn {
+  background: var(--accent-color, #3b82f6);
+  color: #fff;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.conn-submit-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Success State */
+.conn-success-state {
+  text-align: center;
+  padding: 2rem;
+}
+
+.conn-success-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem auto;
+}
+
+.conn-success-state h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.conn-success-state p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .conn-glass-panel {
+    flex-direction: column;
+  }
+  .conn-info-side {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+  }
+  .conn-form-side {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .conn-page-wrapper {
+    padding: 100px 1rem 2rem 1rem;
+  }
+  .conn-form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .conn-info-side, .conn-form-side {
+    padding: 2rem 1.5rem;
+  }
+  .conn-heading {
+    font-size: 2rem;
+  }
+}

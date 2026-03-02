@@ -336,7 +336,7 @@ const WhyChooseSection = () => {
                 </div>
                 <div className="why-active-back">
                   <div className="waf-header">
-                     <h4 className="wc-back-heading">Impact & Scale</h4>
+                    <h4 className="wc-back-heading">Impact & Scale</h4>
                   </div>
                   <div className="waf-body centered-body">
                     <div className="wc-metrics-grid">
@@ -435,9 +435,9 @@ const SuccessStoriesSection = () => {
   const [ref, isVisible] = useScrollReveal();
 
   return (
-    <section 
-      className="success-section" 
-      id="success-stories" 
+    <section
+      className="success-section"
+      id="success-stories"
       ref={ref}
       style={{ backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop')" }}
     >
@@ -623,10 +623,9 @@ export default function App() {
       <nav className="navbar">
         <div className="nav-logo">
           <Link to="/">
-            <img 
-              src={logo} 
-              alt="Ethical Genesis Logo" 
-              style={{ filter: theme === 'light' ? 'brightness(0)' : 'none', transition: 'filter 0.3s ease' }}
+            <img
+              src={logo}
+              alt="Ethical Genesis Logo"
             />
           </Link>
         </div>
@@ -646,7 +645,7 @@ export default function App() {
           <li><Link to="/company" onClick={() => setIsMobileMenuOpen(false)}>Company</Link></li>
           <li><Link to="/connect" onClick={() => setIsMobileMenuOpen(false)}>Connect</Link></li>
           <li><Link to="/join-us" onClick={() => setIsMobileMenuOpen(false)}>Join Us</Link></li>
-        
+
         </ul>
       </nav>
 
@@ -711,11 +710,11 @@ export default function App() {
             <a href="#linkedin" aria-label="LinkedIn">in</a>
             <a href="#twitter" aria-label="Twitter">𝕏</a>
             <a href="#youtube" aria-label="YouTube">▶</a>
-            
+
             {/* Scroll To Top Button */}
             <button onClick={scrollToTop} className="scroll-to-top" aria-label="Scroll to top">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 19V5M5 12l7-7 7 7"/>
+                <path d="M12 19V5M5 12l7-7 7 7" />
               </svg>
             </button>
           </div>

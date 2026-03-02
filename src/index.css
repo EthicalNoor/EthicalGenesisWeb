@@ -28,6 +28,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Ensure the logo turns crisp black in light mode */
+body.light-theme .nav-logo img {
+  filter: brightness(0) contrast(1.2);
+}
+
 a {
   text-decoration: none;
   color: inherit;

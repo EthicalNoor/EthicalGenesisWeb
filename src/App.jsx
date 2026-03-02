@@ -50,6 +50,146 @@ const useScrollReveal = () => {
   return [ref, isVisible];
 };
 
+
+// --- LOADER ---
+
+const splashCSS = `
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap');
+
+  .lw-loader-wrap {
+    position: fixed;
+    z-index: 99999999999999;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .lw-loader-wrap svg {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 110vh;
+    fill: #1d1d1d;
+  }
+
+  .lw-loader-wrap-heading {
+    position: relative;
+    z-index: 20;
+  }
+
+  .lw-load-text {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+  }
+
+  .lw-load-text span {
+    display: inline-block;
+    animation: lw-loading 1s infinite alternate;
+  }
+
+  .lw-load-text span:nth-child(1) { animation-delay: 0s; }
+  .lw-load-text span:nth-child(2) { animation-delay: 0.1s; }
+  .lw-load-text span:nth-child(3) { animation-delay: 0.2s; }
+  .lw-load-text span:nth-child(4) { animation-delay: 0.3s; }
+  .lw-load-text span:nth-child(5) { animation-delay: 0.4s; }
+  .lw-load-text span:nth-child(6) { animation-delay: 0.5s; }
+  .lw-load-text span:nth-child(7) { animation-delay: 0.6s; }
+
+  @keyframes lw-loading {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+  }
+`;
+
+
+
+ function SplashScreen({ onComplete }) {
+  const wrapRef = useRef(null);
+  const pathRef = useRef(null);
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const path = pathRef.current;
+    if (!wrap || !path) return;
+
+    const timer = setTimeout(() => {
+      const morphAnim = path.animate(
+        [
+          { d: "M0,1005S175,995,500,995s500,5,500,5V0H0Z" },
+          { d: "M0,800S175,750,500,750s500,50,500,50V0H0Z" },
+          { d: "M0,400S175,350,500,350s500,50,500,50V0H0Z" },
+          { d: "M0,0S175,0,500,0s500,0,500,0V0H0Z" },
+        ],
+        {
+          duration: 800,
+          easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+          fill: "forwards",
+        }
+      );
+
+    
+      wrap.animate(
+        [
+          { transform: "translateY(0%)" },
+          { transform: "translateY(-100%)" },
+        ],
+        {
+          duration: 800,
+          delay: 150,
+          easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+          fill: "forwards",
+        }
+      );
+
+      morphAnim.onfinish = () => {
+        setTimeout(() => {
+          if (wrap) wrap.style.display = "none";
+          if (onComplete) onComplete();
+        }, 200);
+      };
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, [onComplete]);
+
+  return (
+    <>
+      <style>{splashCSS}</style>
+      <div className="lw-loader-wrap" ref={wrapRef}>
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+          <path
+            ref={pathRef}
+            d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"
+          />
+        </svg>
+        <div className="lw-loader-wrap-heading">
+          <div className="lw-load-text">
+            <span>L</span>
+            <span>o</span>
+            <span>a</span>
+            <span>d</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+
 // --- PREMIUM CAPABILITIES SLIDER ---
 const capabilitiesData = [
   { id: 1, tag: "Capability", title: "Generative AI Solutions", desc: "Deploy custom LLMs and multimodal models to automate content, code, and design generation seamlessly into your enterprise ecosystem.", img: cap1 },
@@ -595,10 +735,13 @@ function HomePage() {
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [footerRef, footerVisible] = useScrollReveal();
+  
 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'dark';
   });
+  const [done, setDone] = useState(false);
+
 
   useEffect(() => {
     if (theme === 'light') {
@@ -650,6 +793,9 @@ export default function App() {
       </nav>
 
       {/* Route Switcher */}
+      
+      {!done && <SplashScreen onComplete={() => setDone(true)} />}
+      
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/capabilities" element={<CapabilitiesPage />} />

@@ -1,26 +1,26 @@
 {
   "hero": {
-    "tagline": "Careers at Ethical Genesis",
-    "mainHeading": "Build the Future of Responsible AI.",
-    "subHeading": "We are a team of engineers, researchers, and builders solving the hardest problems in enterprise AI. No fluff. Just impact. Join us to engineer systems built on trust, scale, and zero-bias."
+    "tagline": "AI Engineering Careers at Ethical Genesis",
+    "mainHeading": "Architect the Future of Enterprise AI Solutions.",
+    "subHeading": "Join a premier team of machine learning engineers, data scientists, and AI researchers solving complex challenges in enterprise automation. We build scalable, highly secure generative AI and data intelligence systems that drive measurable digital transformation."
   },
   "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
   "perks": [
     {
-      "title": "Autonomy",
-      "desc": "Own your architecture from day one. We hire smart people and get out of their way."
+      "title": "Architectural Autonomy",
+      "desc": "Take ownership of complex machine learning architectures from day one. We empower our engineering teams to innovate, experiment, and deploy high-performance AI solutions independently."
     },
     {
-      "title": "Impact",
-      "desc": "Deploy enterprise-grade systems that solve real, massive operational bottlenecks."
+      "title": "Enterprise-Scale Impact",
+      "desc": "Develop and deploy production-ready automation systems that resolve critical operational bottlenecks, directly accelerating digital transformation for global businesses."
     },
     {
-      "title": "Ethics First",
-      "desc": "Build technology that strictly prioritizes security, data privacy, and zero-bias outputs."
+      "title": "Secure & Ethical AI by Design",
+      "desc": "Engineer robust data intelligence platforms that strictly enforce corporate data privacy, algorithmic fairness, and highly secure, zero-bias generative AI outputs."
     }
   ],
   "openings": {
-    "title": "Current Openings",
+    "title": "Current Opportunities in AI & Machine Learning",
     "roles": [
       {
         "id": "role-1",
@@ -30,21 +30,21 @@
       },
       {
         "id": "role-2",
-        "title": "AI Solutions Architect",
+        "title": "Enterprise AI Solutions Architect",
         "type": "Remote / Full-Time",
         "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20AI%20Solutions%20Architect"
       },
       {
         "id": "role-3",
-        "title": "Full Stack Engineer (AI Platforms)",
+        "title": "Full Stack Engineer (AI Automation Platforms)",
         "type": "Remote / Full-Time",
         "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20Full%20Stack%20Engineer"
       }
     ]
   },
   "cta": {
-    "text": "Don't see your exact role? We are always looking for exceptional talent.",
-    "button": "Pitch Us Your Role",
+    "text": "Don't see your exact role? We are actively seeking exceptional talent to drive innovation in machine learning and data intelligence.",
+    "button": "Pitch Your AI Engineering Role",
     "email": "careers@ethicalgenesis.ai"
   }
 }

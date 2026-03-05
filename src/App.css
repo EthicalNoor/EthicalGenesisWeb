@@ -56,10 +56,14 @@
   font-weight: 500;
   color: var(--text-primary);
   text-transform: capitalize;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+/* This makes it blue when you hover AND when you are on the page */
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--accent-color);
+  font-weight: 600;
 }
 
 /* --- Hero Section --- */
@@ -256,6 +260,67 @@
 .cap-slider-wrapper {
   position: relative;
   width: 100%;
+}
+
+/* --- Homepage Slider Arrows --- */
+.hm-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55px;
+  height: 55px;
+  background: rgba(11, 15, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hm-slider-arrow:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+  transform: translateY(-50%) scale(1.1);
+  color: #fff;
+}
+
+.hm-slider-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Position arrows hanging off the edges of the box */
+.hm-slider-arrow.left {
+  left: -25px;
+}
+
+.hm-slider-arrow.right {
+  right: -25px;
+}
+
+body.light-theme .hm-slider-arrow {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .hm-slider-arrow:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hm-slider-arrow {
+    display: none; /* Hide arrows on mobile so users naturally swipe/scroll */
+  }
 }
 
 .cap-slides-container {

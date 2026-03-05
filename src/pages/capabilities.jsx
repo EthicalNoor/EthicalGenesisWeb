@@ -132,6 +132,8 @@ export default function CapabilitiesPage() {
       setSelectedCap(null);
       setSelectedStep(null);
       setIsFlowHovered(false);
+      
+      window.scrollTo(0, 0); 
     }
   }, [location.hash]);
 

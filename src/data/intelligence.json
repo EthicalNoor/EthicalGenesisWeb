@@ -1,100 +1,101 @@
 {
   "hero": {
-    "tagline": "Research, Ethics, and the Future of Work.",
-    "mainHeading": "Thinking Deeply About the Tools We Build.",
-    "subHeading": "Technology moves fast, but principles matter. Here, we share our ongoing research, our ethical standards, and our technical notes on how to build software that respects privacy and human agency."
+    "tagline": "AI Research, Ethics, and the Future of Enterprise Automation.",
+    "mainHeading": "Architecting Responsible Enterprise AI Solutions.",
+    "subHeading": "As artificial intelligence accelerates, foundational principles remain critical. Explore our ongoing machine learning research, ethical AI frameworks, and technical insights on engineering secure digital transformation tools that empower human agency.",
+    "bgImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920&auto=format&fit=crop"
   },
   "framework": {
-    "tagline": "Our Core Philosophy",
-    "title": "How We Build Responsibly.",
+    "tagline": "Our Enterprise AI Philosophy",
+    "title": "Engineering Responsible and Secure AI Systems.",
     "items": [
       {
         "id": "zero-bias",
-        "title": "Fairness First",
-        "desc": "Software often repeats human prejudices. We actively study and correct our systems to ensure they make decisions that are fair, balanced, and objective.",
+        "title": "Algorithmic Fairness",
+        "desc": "Machine learning models can inadvertently amplify bias. We actively audit and refine our generative AI and predictive algorithms to ensure they deliver fair, balanced, and objective data-driven decisions.",
         "span": "small"
       },
       {
         "id": "transparency",
-        "title": "No Secret Logic",
-        "desc": "We refuse to build 'black boxes' where the computer hides its work. Our goal is to ensure you can always trace exactly why a system made a specific decision.",
+        "title": "Explainable AI Architectures",
+        "desc": "We reject 'black box' AI models. Our engineering teams prioritize explainable AI, ensuring that every automated workflow and intelligent recommendation is fully traceable and transparent.",
         "span": "small"
       },
       {
         "id": "sovereignty",
-        "title": "Absolute Data Ownership",
-        "desc": "We believe companies should own their knowledge. We design infrastructure where your information remains entirely yours, never leaking into the public domain.",
+        "title": "Absolute Data Sovereignty",
+        "desc": "Data intelligence belongs to your enterprise. We architect isolated machine learning infrastructure that guarantees your proprietary data remains strictly private and never trains public AI models.",
         "span": "small"
       }
     ]
   },
   "lab": {
-    "title": "Inside the Research Lab",
-    "desc": "What we are exploring today to ensure our engineering remains reliable for tomorrow.",
+    "title": "Inside Our AI Innovation Lab",
+    "desc": "Discover the advanced machine learning and automation technologies we are developing to drive the next wave of enterprise digital transformation.",
     "projects": [
       {
         "id": "swarms",
-        "category": "System Design",
-        "title": "Collaborative Software",
-        "desc": "Studying how multiple smaller programs can talk to each other to solve complex problems faster than one giant program.",
+        "category": "Agentic AI Architecture",
+        "title": "Autonomous AI Agents",
+        "desc": "Researching multi-agent systems where specialized AI models collaborate to execute complex enterprise workflows and scale business automation.",
         "bgImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
       },
       {
         "id": "slm",
-        "category": "Efficiency",
-        "title": "Compact Intelligence",
-        "desc": "Researching how to make software much smaller and cheaper to run, so it can live directly on a laptop instead of massive cloud servers.",
+        "category": "Edge Computing",
+        "title": "Small Language Models (SLMs)",
+        "desc": "Optimizing compact machine learning models to run efficiently on local enterprise hardware, reducing cloud compute costs while maintaining high-performance generative AI capabilities.",
         "bgImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800"
       },
       {
         "id": "synthetic",
-        "category": "Privacy",
-        "title": "Artificial Test Data",
-        "desc": "Learning how to generate completely fake, mathematically identical data so we can test software without ever touching real human records.",
+        "category": "Data Privacy",
+        "title": "Synthetic Data Generation",
+        "desc": "Developing highly accurate synthetic datasets to securely train and validate machine learning systems without exposing sensitive corporate or customer information.",
         "bgImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800"
       }
     ]
   },
   "insights": {
-    "title": "Research Notes & Technical Writing",
+    "title": "AI Engineering Insights & Research Notes",
     "articles": [
       {
-        "type": "Architecture Note",
-        "title": "Why smaller, focused programs are outperforming massive systems in corporate offices.",
-        "desc": "An analysis on reducing server costs and improving reliability by breaking big problems into smaller pieces.",
+        "type": "AI Architecture",
+        "title": "Why modular Agentic AI systems are outperforming monolithic foundation models in the enterprise.",
+        "desc": "An engineering analysis on reducing inference costs and improving system reliability by deploying specialized, task-specific machine learning agents.",
         "readTime": "12 Min Read",
         "link": "#"
       },
       {
-        "type": "Engineering Blog",
-        "title": "The danger of trusting chatbots: Why linking data is the only path to truth.",
-        "desc": "Exploring why modern text generators make things up, and how strict data mapping forces them to stick to the facts.",
+        "type": "Data Intelligence",
+        "title": "Mitigating AI hallucinations: Why Retrieval-Augmented Generation (RAG) is essential for accuracy.",
+        "desc": "Exploring how grounding enterprise LLMs in private corporate knowledge graphs ensures highly accurate, reliable, and verifiable AI outputs.",
         "readTime": "10 Min Read",
         "link": "#"
       },
       {
-        "type": "Deployment Brief",
-        "title": "Building a digital wall: Keeping corporate secrets safe from public software.",
-        "desc": "A look at the technical steps required to guarantee your company information never leaves your private network.",
+        "type": "Enterprise Security",
+        "title": "Securing your AI infrastructure: Isolating enterprise data from public language models.",
+        "desc": "A technical overview of the deployment strategies required to guarantee your proprietary data intelligence never leaves your secure corporate firewall.",
         "readTime": "8 Min Read",
         "link": "#"
       }
     ]
   },
   "synergy": {
-    "title": "Tools for People. Not Instead of People.",
+    "title": "Intelligent Automation to Augment Human Potential.",
     "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
     "paragraphs": [
-      "We believe the goal of technology is not to replace the human mind, but to free it.",
-      "For too long, highly skilled workers have been forced to act like computers—moving data between spreadsheets, writing the same emails over and over, and digging through disorganized files.",
-      "By shifting these dull, robotic tasks to software, we give your employees their time back. We build tools that handle the processing, so your people can focus on the strategy, the creativity, and the human relationships that actually drive your business forward.",
-      "The computer does the chores. The human makes the decisions."
+      "We believe the true value of enterprise AI solutions lies in augmenting human capabilities, not replacing them.",
+      "For decades, highly skilled professionals have been burdened with repetitive, manual tasks—routing data across legacy systems, drafting routine communications, and navigating fragmented knowledge bases.",
+      "By delegating these operational bottlenecks to autonomous workflows and generative AI, we accelerate your digital transformation. We engineer intelligent systems that handle heavy data processing, allowing your workforce to focus on high-level strategy, creative problem-solving, and relationship building.",
+      "Machine learning handles the execution. Human intelligence drives the innovation."
     ]
   },
   "cta": {
-    "heading": "Follow our ongoing research.",
-    "text": "Subscribe to get occasional notes on how we think about technology, privacy, and building better software.",
-    "placeholder": "Enter your work email address",
-    "button": "Subscribe"
+    "heading": "Stay informed on the future of enterprise AI.",
+    "text": "Subscribe to receive expert engineering insights, research notes, and updates on deploying secure, scalable machine learning solutions.",
+    "placeholder": "Enter your corporate email address",
+    "button": "Subscribe to Insights"
   }
 }

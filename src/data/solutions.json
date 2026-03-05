@@ -1,101 +1,101 @@
 {
   "hero": {
-    "tagline": "Practical Software Solutions",
-    "mainHeading": "Fixing Business Bottlenecks with Smart Technology.",
-    "subHeading": "We replace slow, manual processes with reliable software that gets work done. From better search tools to automated paperwork, our focus is on saving your team time and cutting operational costs."
+    "tagline": "Enterprise AI & Automation Solutions",
+    "mainHeading": "Accelerating Digital Transformation with Enterprise AI.",
+    "subHeading": "We replace manual bottlenecks with intelligent automation and machine learning systems. From predictive analytics to generative AI search, we engineer secure solutions that optimize efficiency and drive data-driven decision making."
   },
   "solutions": [
     {
       "id": "enterprise-search",
-      "title": "Find Internal Documents Instantly",
-      "shortDesc": "A search bar that actually understands what your team is looking for.",
-      "challenge": "Employees waste hours every week digging through messy shared folders, old emails, and massive PDF manuals just to find a single policy or fact.",
-      "solution": "We build a smart search engine for your private company files. Instead of typing exact keywords, your team asks a normal question and gets the exact paragraph they need, instantly.",
+      "title": "Intelligent Enterprise Search & Data Retrieval",
+      "shortDesc": "Semantic search powered by generative AI that understands the precise context of your queries.",
+      "challenge": "Enterprise teams lose valuable hours navigating fragmented databases, legacy systems, and unstructured documents to locate critical corporate intelligence.",
+      "solution": "We engineer secure Retrieval-Augmented Generation (RAG) systems tailored to your proprietary data. By utilizing natural language processing, your workforce can query internal knowledge bases and receive instantaneous, highly accurate answers.",
       "outcomes": [
-        "Drastically cut the time spent looking for internal files.",
-        "Answers always include a link to the original document.",
-        "Connects your drives, wikis, and chat apps into one search."
+        "Dramatically accelerate document retrieval and boost workforce productivity.",
+        "Ensure absolute accuracy with AI responses that include direct citations to source files.",
+        "Unify disparate data silos into a single, cohesive enterprise knowledge graph."
       ],
-      "poweredBy": "Core Technology: Document Indexing and Natural Language Search."
+      "poweredBy": "Core Technologies: Retrieval-Augmented Generation (RAG), Semantic Search, and Large Language Models (LLMs)."
     },
     {
       "id": "autonomous-support",
-      "title": "Automate IT and Customer Helpdesks",
-      "shortDesc": "Digital assistants that actually resolve tickets, not just link to articles.",
-      "challenge": "Support teams are drowning in the same basic requests every day—like resetting passwords or checking order statuses—leaving them no time for complex customer issues.",
-      "solution": "We build software that handles routine support tickets from start to finish. It reads the request, checks the system, safely clicks the buttons to fix it, and replies to the user.",
+      "title": "Autonomous AI Agents for IT & Support",
+      "shortDesc": "Intelligent agentic systems capable of autonomously executing and resolving complex support workflows.",
+      "challenge": "Support and IT departments are frequently overwhelmed by high-volume, repetitive service requests, creating operational bottlenecks and delaying the resolution of critical infrastructure issues.",
+      "solution": "We deploy autonomous AI workflows that manage routine service tickets end-to-end. These machine learning systems comprehend user intent, securely interface with enterprise software to execute fixes, and communicate resolutions in real time.",
       "outcomes": [
-        "Automatically resolve the majority of basic helpdesk tickets.",
-        "Provide instant answers to users, day or night.",
-        "Automatically pass difficult problems to human staff."
+        "Achieve autonomous resolution for the majority of Tier 1 support and IT tickets.",
+        "Deliver instantaneous, 24/7 service availability to internal teams and external customers.",
+        "Implement intelligent escalation protocols to route complex edge cases to human specialists seamlessly."
       ],
-      "poweredBy": "Core Technology: Workflow Automation and Logic Engines."
+      "poweredBy": "Core Technologies: Agentic AI, Natural Language Processing (NLP), and Robotic Process Automation (RPA)."
     },
     {
       "id": "legal-compliance",
-      "title": "Speed Up Document Review and Compliance",
-      "shortDesc": "Software that reads contracts and highlights the risks automatically.",
-      "challenge": "Legal and finance teams spend too much time manually reading massive contracts, audit reports, and filings, making the work slow and prone to human exhaustion.",
-      "solution": "We build systems that can read hundreds of pages in seconds. It pulls out the specific clauses, numbers, or risks you care about and puts them into a simple summary dashboard.",
+      "title": "Automated Document Intelligence & Compliance",
+      "shortDesc": "Machine learning algorithms designed to extract insights and assess risk across high-volume corporate documentation.",
+      "challenge": "Legal, financial, and compliance teams face immense friction manually auditing extensive contracts and regulatory filings, a process highly susceptible to human error and scaling limitations.",
+      "solution": "We architect data intelligence pipelines capable of analyzing vast document repositories in seconds. Our AI models automatically extract critical clauses, financial metrics, and compliance risks into an intuitive, centralized dashboard.",
       "outcomes": [
-        "Automatically pull key dates and risks out of long documents.",
-        "Review paperwork incredibly faster than doing it by hand.",
-        "Keep all sensitive documents locked safely on your own servers."
+        "Autonomously identify and extract critical liabilities, dates, and compliance metrics.",
+        "Accelerate document review cycles and scale operational throughput exponentially.",
+        "Maintain strict data governance by processing sensitive documentation within isolated, secure environments."
       ],
-      "poweredBy": "Core Technology: Text Analysis and Information Extraction."
+      "poweredBy": "Core Technologies: Generative AI Summarization, Optical Character Recognition (OCR), and Information Extraction."
     },
     {
       "id": "predictive-analytics",
-      "title": "Forecast Inventory and Demand",
-      "shortDesc": "Math models that look at history to predict exactly what you will need.",
-      "challenge": "Guessing how much stock to order or how to price items leads to wasted money, empty shelves, and missed sales opportunities.",
-      "solution": "We write software that looks at your past sales, market trends, and daily data to accurately predict what will happen next, helping you buy and price with confidence.",
+      "title": "Predictive Analytics & Demand Forecasting",
+      "shortDesc": "Advanced machine learning models engineered to predict market demand and optimize resource allocation.",
+      "challenge": "Relying on legacy forecasting methods for inventory and pricing leads to supply chain inefficiencies, revenue loss, and diminished competitive advantage.",
+      "solution": "We engineer predictive AI solutions that analyze historical performance, real-time market trends, and enterprise data to deliver highly accurate forecasts, empowering data-driven decision making and dynamic pricing.",
       "outcomes": [
-        "Order the right amount of stock to prevent waste.",
-        "Adjust prices automatically based on real market demand.",
-        "Catch unusual spending patterns to stop fraud early."
+        "Optimize inventory levels to minimize overhead costs and prevent stockouts.",
+        "Implement dynamic pricing strategies driven by real-time algorithmic market analysis.",
+        "Deploy anomaly detection algorithms to identify and mitigate fraudulent activities proactively."
       ],
-      "poweredBy": "Core Technology: Statistical Modeling and Data Forecasting."
+      "poweredBy": "Core Technologies: Machine Learning, Time-Series Forecasting, and Predictive Modeling."
     }
   ],
   "industries": [
     {
-      "title": "Finance & Banking",
-      "desc": "Spot fraudulent charges instantly and automate heavy regulatory reporting.",
+      "title": "Finance & Banking Solutions",
+      "desc": "Deploy machine learning to detect transactional anomalies in real time and automate complex regulatory compliance reporting.",
       "icon": "finance"
     },
     {
-      "title": "Legal & Professional",
-      "desc": "Summarize massive case files and find past rulings without reading all night.",
+      "title": "Legal & Professional Services",
+      "desc": "Utilize generative AI to synthesize extensive case law and accelerate precedent discovery with high-precision semantic search.",
       "icon": "legal"
     },
     {
-      "title": "Healthcare Systems",
-      "desc": "Safely organize patient records and help doctors find medical history faster.",
+      "title": "Healthcare & Medical Systems",
+      "desc": "Enhance patient care with secure data intelligence platforms that organize medical records and streamline clinical workflows.",
       "icon": "health"
     },
     {
-      "title": "Retail & Stores",
-      "desc": "Predict what products will sell out and handle customer returns automatically.",
+      "title": "Retail & Supply Chain",
+      "desc": "Leverage predictive analytics for demand forecasting and implement autonomous workflows to optimize inventory and customer support.",
       "icon": "retail"
     }
   ],
   "advantages": [
     {
-      "title": "Your Data Stays Private",
-      "desc": "We build everything on locked servers. Your company secrets are never shared, sold, or sent to public tech companies."
+      "title": "Uncompromising Data Security & Privacy",
+      "desc": "Our enterprise AI solutions are deployed within highly secure, isolated infrastructures. Your proprietary data is never utilized to train public foundation models or exposed to third parties."
     },
     {
-      "title": "Focused on the Bottom Line",
-      "desc": "We don't build tech just because it is cool. We only build tools if they save you hours of work or cut your expenses."
+      "title": "Outcome-Driven ROI & Efficiency",
+      "desc": "We prioritize measurable business impact over technological novelty, engineering automation systems that strictly reduce operational costs and accelerate workflow efficiency."
     },
     {
-      "title": "Built to be Flexible",
-      "desc": "Technology changes fast. We build your software so that you can easily swap out pieces later without starting over."
+      "title": "Scalable & Modular AI Architectures",
+      "desc": "Designed for the future, our machine learning systems utilize modular architectures, allowing you to seamlessly integrate emerging technologies as your digital transformation evolves."
     }
   ],
   "cta": {
-    "heading": "Ready to fix your operational bottlenecks?",
-    "text": "Let's talk about the specific tasks slowing your business down and see if smart software can solve them."
+    "heading": "Ready to accelerate your digital transformation?",
+    "text": "Partner with our engineering team to identify operational bottlenecks and architect custom enterprise AI solutions that scale your business."
   }
 }

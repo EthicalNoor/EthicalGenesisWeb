@@ -1,0 +1,209 @@
+{
+  "hero": {
+    "titleStart": "Accelerate digital transformation with ",
+    "titleHighlight": "Ethical Genesis",
+    "subtitle": "Scale your operations and drive efficiency with enterprise AI solutions, machine learning models, and data intelligence engineered for measurable business impact."
+  },
+  "jureo": {
+    "tag": "Flagship AI Platform",
+    "title": "AI Legal Assistant for Law Firms and Corporate Teams",
+    "description": "Automate legal research and document review. Jureo utilizes generative AI for precise fact extraction, semantic search, and precedent analysis, enabling legal professionals to work faster and smarter.",
+    "videoUrl": "https://www.youtube.com/embed/IJJ8AVRb6jE?rel=0&autoplay=1",
+    "buttonText": "Explore Jureo",
+    "buttonLink": "https://jureo.com/"
+  },
+"capabilitiesSection": {
+    "titleStart": "Solve complex operational challenges with enterprise ",
+    "titleHighlight": "Agentic & Generative AI",
+    "items": [
+      {
+        "id": 1,
+        "tag": "Capability",
+        "title": "Agentic AI Systems",
+        "desc": "Develop autonomous AI agents that handle multi-step workflows, perform complex data reasoning, and execute tasks across your business software with built-in human oversight.",
+        "imgKey": "cap2"
+      },
+      {
+        "id": 2,
+        "tag": "Capability",
+        "title": "Generative AI Solutions",
+        "desc": "Integrate custom Large Language Models (LLMs) and generative AI to automate content creation, streamline coding, and improve daily business operations securely.",
+        "imgKey": "cap1"
+      },
+      {
+        "id": 3,
+        "tag": "Capability",
+        "title": "LLM Fine-Tuning & RAG",
+        "desc": "Connect AI chat systems directly to your private company data using Retrieval-Augmented Generation (RAG) to deliver highly accurate, verifiable answers instantly.",
+        "imgKey": "cap3"
+      },
+      {
+        "id": 4,
+        "tag": "Capability",
+        "title": "Autonomous AI Workflows",
+        "desc": "Convert manual, repetitive processes into highly efficient, self-running automated workflows that save time, reduce human error, and scale with your enterprise.",
+        "imgKey": "cap6"
+      },
+      {
+        "id": 5,
+        "tag": "Capability",
+        "title": "Knowledge Graphs",
+        "desc": "Unify fragmented databases into interconnected knowledge graphs, enabling your team to visualize relationships, run semantic searches, and uncover deep business insights.",
+        "imgKey": "cap4"
+      },
+      {
+        "id": 6,
+        "tag": "Capability",
+        "title": "Machine Learning Engineering",
+        "desc": "Build robust MLOps pipelines and predictive analytics models to forecast market trends, automate decision-making, and ensure reliable AI performance at scale.",
+        "imgKey": "cap5"
+      }
+    ]
+  },
+  "marqueeItems": [
+    "Enterprise AI Solutions",
+    "Large Language Model (LLM) Engineering",
+    "Machine Learning Development",
+    "Retrieval-Augmented Generation (RAG)",
+    "Autonomous AI Agents",
+    "Workflow Automation Systems",
+    "Custom AI Fine-Tuning",
+    "Predictive Analytics",
+    "Data Intelligence Architecture",
+    "Conversational AI Chatbots",
+    "Vector Databases & Search",
+    "Knowledge Graph Integration",
+    "Computer Vision Solutions",
+    "Natural Language Processing",
+    "Speech AI & Recognition",
+    "Synthetic Data Generation",
+    "Deep Learning Models",
+    "Edge AI Deployment",
+    "MLOps & Model Scaling",
+    "AI Performance Monitoring",
+    "Secure Enterprise AI",
+    "Data Governance & Privacy",
+    "Digital Transformation Strategy",
+    "Intelligent Process Automation",
+    "Cloud-Native AI Infrastructure",
+    "Custom AI API Development",
+    "SaaS Platform Engineering",
+    "Data Science Consulting",
+    "Human-in-the-Loop Systems",
+    "Algorithmic Optimization"
+  ],
+  "whyChooseUs": {
+    "tag": "The Ethical Genesis Advantage",
+    "title": "Enterprise-Grade AI Excellence",
+    "items": [
+      {
+        "id": 1,
+        "title": "Generative & Agentic AI",
+        "desc": "We engineer generative AI and autonomous agents that move beyond basic automation. Our intelligent systems reason, adapt, and execute complex business workflows to dramatically accelerate productivity.",
+        "metrics": [
+          { "num": 10, "suffix": "x", "label": "Workflow Acceleration" },
+          { "num": 99, "suffix": "%", "label": "Task Autonomy" },
+          { "num": 50, "prefix": "<", "suffix": "ms", "label": "Decision Latency" }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Tailored Architecture",
+        "desc": "Every business has a unique data ecosystem. We architect customized machine learning models and AI software specifically designed to integrate smoothly with your existing digital infrastructure.",
+        "metrics": [
+          { "num": 100, "suffix": "%", "label": "Custom Architected" },
+          { "num": 300, "suffix": "%", "label": "ROI Multiplier" },
+          { "num": 0, "suffix": "", "label": "Legacy Tech Debt" }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Proactive Innovation",
+        "desc": "Technology moves quickly. We build flexible, scalable data intelligence solutions and APIs that allow your company to easily adopt future AI breakthroughs without technical debt.",
+        "metrics": [
+          { "num": 40, "suffix": "%", "label": "R&D Time Saved" },
+          { "num": 100, "suffix": "%", "label": "API Extensibility" },
+          { "num": 24, "suffix": "/7", "label": "System Adaptability" }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Knowledge Graphs",
+        "desc": "We eliminate data silos by transforming disconnected enterprise data into interconnected knowledge graphs, driving faster semantic search and smarter organizational decision-making.",
+        "metrics": [
+          { "num": 10, "suffix": "M+", "label": "Nodes Processed" },
+          { "num": 90, "suffix": "%", "label": "Silo Reduction" },
+          { "num": 1, "prefix": "<", "suffix": "s", "label": "Semantic Query Time" }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Scalable RAG & LLMs",
+        "desc": "We deploy secure Large Language Models utilizing Retrieval-Augmented Generation (RAG) to ensure AI chatbots provide accurate, verifiable answers based strictly on your private corporate data.",
+        "metrics": [
+          { "num": 99, "suffix": ".99%", "label": "System Uptime" },
+          { "num": 50, "suffix": "M+", "label": "Tokens Processed" },
+          { "num": 98, "suffix": "%", "label": "Hallucination Reduction" }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Ethical & Secure AI",
+        "desc": "Trust and security are paramount. We embed robust data governance, enterprise-grade encryption, and bias mitigation into our AI solutions to ensure full regulatory compliance.",
+        "metrics": [
+          { "num": 100, "suffix": "%", "label": "Data Privacy" },
+          { "num": 0, "suffix": "%", "label": "Algorithmic Bias" },
+          { "num": 256, "suffix": "-bit", "label": "AES Encryption" }
+        ]
+      }
+    ]
+  },
+  "successStories": {
+    "tag": "Proven Business Impact",
+    "title": "Real-World Digital Transformation",
+    "subtitle": "Explore how our tailored machine learning and enterprise AI solutions solve operational bottlenecks and drive measurable growth across diverse industries.",
+    "items": [
+      {
+        "id": 1,
+        "clientName": "Jonathan D.",
+        "industry": "FinTech & Banking",
+        "duration": "6 Months",
+        "challenge": "Legacy fraud detection systems suffered from high false-positive rates and were too slow to handle real-time transaction processing.",
+        "solution": "Developed a custom machine learning pipeline featuring real-time predictive analytics to instantly and accurately identify fraudulent activities.",
+        "metrics": [
+          { "value": "45%", "label": "Cost Reduction" },
+          { "value": "<15ms", "label": "Latency" }
+        ]
+      },
+      {
+        "id": 2,
+        "clientName": "Sarah M.",
+        "industry": "Healthcare Systems",
+        "duration": "4 Months",
+        "challenge": "Medical staff spent excessive hours manually searching through fragmented patient records and disconnected clinical databases.",
+        "solution": "Deployed a secure, RAG-powered Large Language Model that allows healthcare professionals to instantly search and summarize patient data using natural language.",
+        "metrics": [
+          { "value": "3x", "label": "Productivity Lift" },
+          { "value": "2M+", "label": "Records Parsed" }
+        ]
+      },
+      {
+        "id": 3,
+        "clientName": "Marcus R.",
+        "industry": "Global E-Commerce",
+        "duration": "8 Months",
+        "challenge": "Generic product recommendations and a disconnected customer journey caused high bounce rates and limited e-commerce revenue growth.",
+        "solution": "Engineered an AI personalization system driven by real-time knowledge graphs to dynamically tailor product suggestions to individual customer behaviors.",
+        "metrics": [
+          { "value": "+35%", "label": "Conversion Rate" },
+          { "value": "$12M", "label": "Revenue Lift" }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "connectDescription": "Every enterprise requires a unique approach to digital transformation. Contact our team to discuss how custom AI solutions can solve your specific business challenges.",
+    "contactEmail": "info@ethicalgenesis.ai",
+    "copyrightText": "© 2024 Ethical Genesis. All rights reserved."
+  }
+}

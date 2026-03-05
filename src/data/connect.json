@@ -3,35 +3,35 @@
     "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop"
   },
   "info": {
-    "heading": "Initiate a Strategic Partnership.",
-    "subHeading": "Ready to move from AI hype to enterprise-grade deployment? Connect with our architectural team to discuss your operational bottlenecks, compliance needs, and AI roadmap.",
+    "heading": "Partner With Us for Enterprise AI Solutions.",
+    "subHeading": "Ready to accelerate your digital transformation? Connect with our machine learning engineers and AI architects to discuss how intelligent automation, generative AI, and data intelligence can optimize your operations and scale your business.",
     "channels": [
       {
-        "label": "Enterprise Inquiries",
+        "label": "Enterprise AI Consultations",
         "value": "strategy@ethicalgenesis.ai"
       },
       {
-        "label": "Careers",
+        "label": "AI Engineering Careers",
         "value": "careers@ethicalgenesis.ai"
       },
       {
-        "label": "Global HQ",
+        "label": "Global Headquarters",
         "value": "Tech Innovation Park, Silicon Valley"
       }
     ]
   },
   "form": {
     "interests": [
-      "Select an Area of Interest...",
-      "Generative AI Solutions",
-      "Agentic Autonomous Systems",
-      "LLM Fine-Tuning & RAG",
-      "MLOps & Infrastructure",
-      "Other"
+      "Select an AI Technology or Service...",
+      "Enterprise Generative AI Solutions",
+      "Autonomous AI Workflows & Agents",
+      "LLM Fine-Tuning & Data Intelligence (RAG)",
+      "Machine Learning Engineering & MLOps",
+      "Other Digital Transformation Initiatives"
     ],
     "successMessage": {
-      "title": "Request Received.",
-      "desc": "Your inquiry has been routed to our architectural team. An enterprise specialist will contact you within 24 hours."
+      "title": "Strategic AI Consultation Request Received.",
+      "desc": "Your inquiry has been securely routed to our AI architecture team. An enterprise machine learning specialist will reach out within 24 hours to discuss your automation and business growth objectives."
     }
   }
 }

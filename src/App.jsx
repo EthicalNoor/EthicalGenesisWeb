@@ -1,10 +1,13 @@
 // src/App.jsx
 
 import React, { useEffect, useRef, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
 import './App.css';
 
-// --- NEW CAPABILITIES PAGE IMPORT ---
+// --- DATA IMPORT ---
+import appData from './data/app.json';
+
+// --- PAGE IMPORTS ---
 import CapabilitiesPage from './pages/capabilities';
 import SolutionsPage from './pages/solutions';
 import IntelligencePage from './pages/intelligence';
@@ -13,18 +16,32 @@ import CompanyPage from './pages/company';
 import ConnectPage from './pages/connect';
 import ProductsPage from './pages/products';
 
-// --- IMPORT ASSETS HERE ---
+// --- ASSET IMPORTS ---
 import logo from './img/logo.png';
 import bgVideo from './img/vid/bv4.mp4';
 import videoPoster from './img/video-poster.png';
 
-// Capability Images
 import cap1 from './img/cap1.jpg';
 import cap2 from './img/cap2.jpg';
 import cap3 from './img/cap3.jpg';
 import cap4 from './img/cap4.jpg';
 import cap5 from './img/cap5.jpg';
 import cap6 from './img/cap6.jpg';
+
+// Mapping string keys from JSON to actual imported image variables
+const imageMap = {
+  cap1, cap2, cap3, cap4, cap5, cap6
+};
+
+// Mapping SVG Icons for Why Choose Us based on their JSON ID
+const whyChooseIcons = {
+  1: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" /></svg>,
+  2: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 21v-7m0-4V3m8 18v-9m0-4V3m8 18v-5m0-4V3M1 14h6m-6-6h6m2 8h6M9 8h6m2 8h6m-6-6h6" /></svg>,
+  3: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>,
+  4: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98" /></svg>,
+  5: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="4" y="4" width="16" height="6" rx="2" /><rect x="4" y="14" width="16" height="6" rx="2" /><path d="M12 10v4" /></svg>,
+  6: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+};
 
 // Custom Hook for Scroll Reveal Animation
 const useScrollReveal = () => {
@@ -51,11 +68,7 @@ const useScrollReveal = () => {
   return [ref, isVisible];
 };
 
-
 // --- LOADER ---
-
-// --- PREMIUM BRANDED LOADER ---
-
 const splashCSS = `
   .lw-loader-wrap {
     position: fixed;
@@ -68,62 +81,66 @@ const splashCSS = `
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #0b0f19; /* Perfectly matches your --bg-primary */
+    background: #0b0f19;
     transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.8s ease;
   }
 
-  /* Soft glowing pulse animation for your logo */
   .lw-logo {
-    width: 280px; 
+    width: 220px; 
     height: auto;
-    margin-bottom: 40px;
-    animation: pulseLogo 2s ease-in-out infinite;
-    /* Optional: If logo is white, this ensures it looks crisp */
-    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.2));
+    margin-bottom: 30px;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    animation: fadeScaleIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
 
-  @keyframes pulseLogo {
-    0% { opacity: 0.8; transform: scale(0.98); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0)); }
-    50% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.5)); }
-    100% { opacity: 0.8; transform: scale(0.98); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0)); }
+  @keyframes fadeScaleIn {
+    0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
   }
 
-  /* Enterprise-style loading text */
   .lw-loading-text {
-    color: #94a3b8; /* Matches your --text-secondary */
-    font-size: 0.75rem;
-    letter-spacing: 5px;
+    color: #94a3b8; 
+    font-size: 0.85rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    font-weight: 600;
+    margin-bottom: 20px;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.3s forwards;
   }
 
-  /* Sleek, thin progress track */
   .lw-progress-container {
-    width: 220px;
+    width: 200px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 2px;
     overflow: hidden;
     position: relative;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
   }
 
-  /* Sweeping blue progress indicator */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
   .lw-progress-bar {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 40%;
-    background: #3b82f6; /* Matches your --accent-color */
+    width: 30%;
+    background: #3b82f6; 
     border-radius: 2px;
-    box-shadow: 0 0 10px #3b82f6;
-    animation: sweepingBar 1.5s ease-in-out infinite alternate;
+    animation: smoothSweep 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
-  @keyframes sweepingBar {
-    0% { left: -40%; width: 40%; }
-    100% { left: 100%; width: 40%; }
+  @keyframes smoothSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
   }
 `;
 
@@ -134,17 +151,14 @@ function SplashScreen({ onComplete }) {
     const wrap = wrapRef.current;
     if (!wrap) return;
 
-    // Display loader for 2.2 seconds, then trigger the slide-up exit
     const timer = setTimeout(() => {
       wrap.style.transform = "translateY(-100%)";
       wrap.style.opacity = "0";
-
-      // Wait for CSS transition to finish before totally unmounting
       setTimeout(() => {
         if (wrap) wrap.style.display = "none";
         if (onComplete) onComplete();
       }, 800);
-    }, 2200);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -153,11 +167,8 @@ function SplashScreen({ onComplete }) {
     <>
       <style>{splashCSS}</style>
       <div className="lw-loader-wrap" ref={wrapRef}>
-        {/* Uses the actual logo imported at the top of App.jsx */}
-        <img src={logo} alt="Ethical Genesis" className="lw-logo" />
-        
-        <div className="lw-loading-text">System Initializing</div>
-        
+        <img src={logo} alt="Ethical Genesis Logo" className="lw-logo" />
+        <div className="lw-loading-text">Loading...</div>
         <div className="lw-progress-container">
           <div className="lw-progress-bar"></div>
         </div>
@@ -166,77 +177,24 @@ function SplashScreen({ onComplete }) {
   );
 }
 
-
-// --- PREMIUM CAPABILITIES SLIDER ---
-const capabilitiesData = [
-  { id: 1, tag: "Capability", title: "Generative AI Solutions", desc: "Deploy custom LLMs and multimodal models to automate content, code, and design generation seamlessly into your enterprise ecosystem.", img: cap1 },
-  { id: 2, tag: "Capability", title: "Agentic AI Systems", desc: "Build autonomous, goal-oriented AI agents capable of complex reasoning, decision-making, and multi-step execution with minimal human oversight.", img: cap2 },
-  { id: 3, tag: "Capability", title: "LLM Fine-Tuning & RAG", desc: "Ground foundational AI models in your proprietary enterprise data using advanced Retrieval-Augmented Generation for pinpoint accuracy and reduced hallucinations.", img: cap3 },
-  { id: 4, tag: "Capability", title: "Knowledge Graphs", desc: "Connect siloed organizational data intelligently to uncover hidden relationships, power semantic search, and drive context-aware reasoning.", img: cap4 },
-  { id: 5, tag: "Capability", title: "Machine Learning Engineering", desc: "Develop end-to-end MLOps pipelines, predictive modeling architectures, and scalable infrastructure for robust, production-grade AI deployment.", img: cap5 },
-  { id: 6, tag: "Capability", title: "Autonomous AI Workflows", desc: "Transform static operational bottlenecks into self-optimizing, adaptive pipelines powered by next-generation intelligent automation.", img: cap6 }
-];
-
-// --- PREMIUM MARQUEE DATA ---
-const MARQUEE_ITEMS = [
-  "Generative AI Systems",
-  "Large Language Model (LLM) Engineering",
-  "Multimodal AI",
-  "Retrieval-Augmented Generation (RAG)",
-  "AI Agents & Autonomous Workflows",
-  "Agentic AI Architecture",
-  "Fine-Tuning & Model Alignment",
-  "Prompt Engineering & Optimization",
-  "AI Copilot Development",
-  "Conversational AI Platforms",
-  "Vector Databases & Embeddings",
-  "Knowledge Graph Intelligence",
-  "Computer Vision Systems",
-  "Vision-Language Models (VLM)",
-  "Speech AI & Voice Cloning",
-  "Synthetic Data Generation",
-  "Reinforcement Learning",
-  "Edge AI Deployment",
-  "MLOps & LLMOps",
-  "Model Monitoring & AI Observability",
-  "AI Security & Model Safeguarding",
-  "Federated Learning",
-  "Blockchain + AI Integration",
-  "AI-Powered Automation",
-  "Predictive Analytics",
-  "Data Intelligence Engineering",
-  "Cloud-Native AI Infrastructure",
-  "AI API & SaaS Platforms",
-  "Digital Transformation with AI",
-  "Human-AI Collaboration Systems"
-];
+// --- COMPONENTS ---
 
 const CapabilitiesSlider = () => {
   const scrollRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Auto-slide logic using native horizontal scrolling
-  useEffect(() => {
-    let interval;
-    if (!isHovered) {
-      interval = setInterval(() => {
-        if (scrollRef.current) {
-          const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-
-          if (scrollLeft + clientWidth >= scrollWidth - 10) {
-            scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            scrollRef.current.scrollBy({ left: clientWidth, behavior: 'smooth' });
-          }
-        }
-      }, 3000);
+  // Smoothly scrolls exactly one card width when an arrow is clicked
+  const scrollCarousel = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = scrollRef.current.clientWidth;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
     }
-    return () => clearInterval(interval);
-  }, [isHovered]);
+  };
 
   return (
     <section className="capabilities-slider-section" id="capabilities">
-      {/* ══════════ MARQUEE ══════════ */}
       <div
         className="marquee-wrap"
         onMouseEnter={(e) => {
@@ -249,7 +207,7 @@ const CapabilitiesSlider = () => {
         }}
       >
         <div className="marquee-track" id="marquee-track">
-          {MARQUEE_ITEMS.map((item, i) => (
+          {appData.marqueeItems.map((item, i) => (
             <div key={i} className="marquee-item">
               <span className={`mi-dot${i % 2 === 1 ? " navy" : ""}`}></span>
               {item}
@@ -260,19 +218,20 @@ const CapabilitiesSlider = () => {
 
       <div className="cap-header-content">
         <h2 className="capabilities-title section-main-heading">
-          Turn tomorrow’s challenges into today’s opportunities with <span className="highlight-text">AI, ML, & GenAI</span>.
+          {appData.capabilitiesSection.titleStart} <span className="highlight-text">{appData.capabilitiesSection.titleHighlight}</span>.
         </h2>
       </div>
 
       <div className="cap-slider-wrapper">
+        
+        {/* LEFT ARROW */}
+        <button className="hm-slider-arrow left" onClick={() => scrollCarousel('left')} aria-label="Previous Capability">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
         <div className="cap-slides-container" ref={scrollRef}>
-          {capabilitiesData.map((item) => (
-            <div
-              key={item.id}
-              className="cap-slide"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
+          {appData.capabilitiesSection.items.map((item) => (
+            <div key={item.id} className="cap-slide">
               <div className="cap-slide-content">
                 <span className="slide-tag">{item.tag}</span>
                 <h3 className="slide-title">{item.title}</h3>
@@ -283,17 +242,22 @@ const CapabilitiesSlider = () => {
               </div>
               <div className="cap-slide-image">
                 <div className="image-overlay-glow"></div>
-                <img src={item.img} alt={item.title} />
+                <img src={imageMap[item.imgKey]} alt={item.title} />
               </div>
             </div>
           ))}
         </div>
+
+        {/* RIGHT ARROW */}
+        <button className="hm-slider-arrow right" onClick={() => scrollCarousel('right')} aria-label="Next Capability">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+
       </div>
     </section>
   );
 };
 
-// --- COMPONENT: Premium 3D Flip "Why Choose Us" Section ---
 const CountUpMetric = ({ target, trigger }) => {
   const [count, setCount] = useState(0);
 
@@ -318,75 +282,6 @@ const CountUpMetric = ({ target, trigger }) => {
   return <span>{count}</span>;
 };
 
-const whyChooseData = [
-  {
-    id: 1,
-    title: "Generative & Agentic AI",
-    desc: "We engineer next-generation Generative and Agentic AI systems that go beyond simple automation. Our solutions design, reason, adapt, and execute multi-step workflows autonomously.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" /></svg>,
-    metrics: [
-      { num: 10, suffix: "x", label: "Workflow Acceleration" },
-      { num: 99, suffix: "%", label: "Task Autonomy" },
-      { num: 50, prefix: "<", suffix: "ms", label: "Decision Latency" }
-    ]
-  },
-  {
-    id: 2,
-    title: "Tailored Architecture",
-    desc: "Every enterprise operates within a unique data ecosystem. We architect fully customized AI, Machine Learning, and Generative AI solutions designed specifically around your workflows.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 21v-7m0-4V3m8 18v-9m0-4V3m8 18v-5m0-4V3M1 14h6m-6-6h6m2 8h6M9 8h6m2 8h6m-6-6h6" /></svg>,
-    metrics: [
-      { num: 100, suffix: "%", label: "Custom Architected" },
-      { num: 300, suffix: "%", label: "ROI Multiplier" },
-      { num: 0, suffix: "", label: "Legacy Tech Debt" }
-    ]
-  },
-  {
-    id: 3,
-    title: "Proactive Innovation",
-    desc: "Technology evolves rapidly — your systems should evolve with it. We design AI architectures that are modular, scalable, and integration-ready for emerging breakthroughs.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>,
-    metrics: [
-      { num: 40, suffix: "%", label: "R&D Time Saved" },
-      { num: 100, suffix: "%", label: "API Extensibility" },
-      { num: 24, suffix: "/7", label: "System Adaptability" }
-    ]
-  },
-  {
-    id: 4,
-    title: "Knowledge Graphs",
-    desc: "We transform fragmented enterprise data into interconnected intelligence using advanced knowledge graphs and semantic reasoning frameworks.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98" /></svg>,
-    metrics: [
-      { num: 10, suffix: "M+", label: "Nodes Processed" },
-      { num: 90, suffix: "%", label: "Silo Reduction" },
-      { num: 1, prefix: "<", suffix: "s", label: "Semantic Query Time" }
-    ]
-  },
-  {
-    id: 5,
-    title: "Scalable RAG & LLMs",
-    desc: "We deploy enterprise-grade Large Language Models powered by Retrieval-Augmented Generation (RAG), grounded securely in your proprietary data.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="4" y="4" width="16" height="6" rx="2" /><rect x="4" y="14" width="16" height="6" rx="2" /><path d="M12 10v4" /></svg>,
-    metrics: [
-      { num: 99, suffix: ".99%", label: "System Uptime" },
-      { num: 50, suffix: "M+", label: "Tokens Processed" },
-      { num: 98, suffix: "%", label: "Hallucination Reduction" }
-    ]
-  },
-  {
-    id: 6,
-    title: "Ethical & Secure AI",
-    desc: "Trust is foundational to intelligent systems. We embed enterprise-grade security, robust data governance, bias mitigation strategies, and regulatory compliance into every layer.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
-    metrics: [
-      { num: 100, suffix: "%", label: "Data Privacy" },
-      { num: 0, suffix: "%", label: "Algorithmic Bias" },
-      { num: 256, suffix: "-bit", label: "AES Encryption" }
-    ]
-  }
-];
-
 const WhyChooseSection = () => {
   const wrapperRef = useRef(null);
   const [progress, setProgress] = useState(0);
@@ -410,7 +305,8 @@ const WhyChooseSection = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const activeIndex = Math.min(Math.round(progress * 5), 5);
+  const dataLength = appData.whyChooseUs.items.length - 1;
+  const activeIndex = Math.min(Math.round(progress * dataLength), dataLength);
   const circleRotation = -90 + (progress * 180);
 
   useEffect(() => {
@@ -424,6 +320,8 @@ const WhyChooseSection = () => {
     }
   };
 
+  const currentItem = appData.whyChooseUs.items[activeIndex];
+
   return (
     <section className="why-choose-wrap" ref={wrapperRef}>
       <div className="why-choose-sticky">
@@ -431,8 +329,8 @@ const WhyChooseSection = () => {
         <div className="why-bg-glow"></div>
         <div className="why-container">
           <div className="why-content-side">
-            <span className="section-tag">Why Choose Us</span>
-            <h2 className="why-main-title section-main-heading">Ethical Genesis AI</h2>
+            <span className="section-tag">{appData.whyChooseUs.tag}</span>
+            <h2 className="why-main-title section-main-heading">{appData.whyChooseUs.title}</h2>
 
             <div
               className="wc-flip-container"
@@ -444,10 +342,10 @@ const WhyChooseSection = () => {
               <div className={`wc-flip-inner ${isFlipped ? 'is-flipped' : ''}`}>
                 <div className="why-active-front">
                   <div className="waf-header">
-                    <h3 className="why-active-title">{whyChooseData[activeIndex].title}</h3>
+                    <h3 className="why-active-title">{currentItem.title}</h3>
                   </div>
                   <div className="waf-body">
-                    <p className="why-active-desc">{whyChooseData[activeIndex].desc}</p>
+                    <p className="why-active-desc">{currentItem.desc}</p>
                     <div className="waf-hover-hint">Hover for impact ➔</div>
                   </div>
                 </div>
@@ -457,7 +355,7 @@ const WhyChooseSection = () => {
                   </div>
                   <div className="waf-body centered-body">
                     <div className="wc-metrics-grid">
-                      {whyChooseData[activeIndex].metrics.map((m, idx) => (
+                      {currentItem.metrics.map((m, idx) => (
                         <div key={idx} className="wc-metric-item">
                           <div className="wc-metric-number">
                             {m.prefix}
@@ -480,8 +378,8 @@ const WhyChooseSection = () => {
             <div className="why-circle-positioner">
               <div className="why-circle-arc"></div>
               <div className="why-circle" style={{ transform: `rotate(${circleRotation}deg)` }}>
-                {whyChooseData.map((item, idx) => {
-                  const itemAngle = 90 - (idx * 36);
+                {appData.whyChooseUs.items.map((item, idx) => {
+                  const itemAngle = 90 - (idx * (180 / dataLength));
                   const inverseAngle = -(itemAngle + circleRotation);
                   const isActive = idx === activeIndex;
 
@@ -493,7 +391,7 @@ const WhyChooseSection = () => {
                     >
                       <div className="why-circle-item-counter" style={{ transform: `rotate(${inverseAngle}deg)` }}>
                         <div className={`why-circle-item-inner ${isActive ? 'active' : ''}`}>
-                          <div className="why-item-icon">{item.icon}</div>
+                          <div className="why-item-icon">{whyChooseIcons[item.id]}</div>
                         </div>
                       </div>
                     </div>
@@ -507,46 +405,6 @@ const WhyChooseSection = () => {
     </section>
   );
 };
-
-// --- COMPONENT: Client Success Stories (Modern Flip Cards) ---
-const successStoriesData = [
-  {
-    id: 1,
-    clientName: "Jonathan D.",
-    industry: "FinTech & Banking",
-    duration: "6 Months",
-    challenge: "Legacy fraud detection systems were producing high false-positive rates and lagging in real-time transaction processing.",
-    solution: "Engineered a custom ML pipeline with real-time predictive analytics and autonomous decision-making agents.",
-    metrics: [
-      { value: "45%", label: "Cost Reduction" },
-      { value: "<15ms", label: "Latency" }
-    ]
-  },
-  {
-    id: 2,
-    clientName: "Sarah M.",
-    industry: "Healthcare Systems",
-    duration: "4 Months",
-    challenge: "Medical professionals spent countless hours manually parsing complex patient records and siloed clinical data.",
-    solution: "Deployed an enterprise RAG-based Large Language Model system for instant, semantic medical record querying.",
-    metrics: [
-      { value: "3x", label: "Productivity Lift" },
-      { value: "2M+", label: "Records Parsed" }
-    ]
-  },
-  {
-    id: 3,
-    clientName: "Marcus R.",
-    industry: "Global E-Commerce",
-    duration: "8 Months",
-    challenge: "Generic product recommendations and disconnected customer journeys were leading to high bounce rates and stagnant growth.",
-    solution: "Developed an Agentic AI personalization engine powered by real-time Knowledge Graphs to dynamically tailor user experiences.",
-    metrics: [
-      { value: "+35%", label: "Conversion Rate" },
-      { value: "$12M", label: "Revenue Lift" }
-    ]
-  }
-];
 
 const SuccessStoriesSection = () => {
   const [ref, isVisible] = useScrollReveal();
@@ -562,13 +420,13 @@ const SuccessStoriesSection = () => {
       <div className="success-container">
 
         <div className={`success-header-wrap reveal ${isVisible ? 'active' : ''}`}>
-          <span className="section-tag">Proven Impact</span>
-          <h2 className="success-main-title section-main-heading">Client Success Stories</h2>
-          <p className="success-subtitle">Discover how we transform complex enterprise challenges into measurable, scalable technological triumphs.</p>
+          <span className="section-tag">{appData.successStories.tag}</span>
+          <h2 className="success-main-title section-main-heading">{appData.successStories.title}</h2>
+          <p className="success-subtitle">{appData.successStories.subtitle}</p>
         </div>
 
         <div className="success-grid">
-          {successStoriesData.map((story, index) => (
+          {appData.successStories.items.map((story, index) => (
             <div
               key={story.id}
               className={`sc-flip-container reveal delay-${(index + 1) * 100} ${isVisible ? 'active' : ''}`}
@@ -644,10 +502,10 @@ function HomePage() {
 
         <div className="hero-content">
           <h1 className="hero-title reveal active">
-            Empower your business with <span className="highlight-text">EthicalGenesis</span>
+            {appData.hero.titleStart} <span className="highlight-text">{appData.hero.titleHighlight}</span>
           </h1>
           <p className="hero-subtitle reveal active delay-100">
-            Driving unparalleled success with data-driven insights and innovative AI solutions crafted by our experts.
+            {appData.hero.subtitle}
           </p>
         </div>
       </section>
@@ -658,13 +516,13 @@ function HomePage() {
         {/* Product Section: Jureo */}
         <section className="jureo-section" ref={jureoRef}>
           <span className={`section-tag reveal ${jureoVisible ? 'active' : ''}`}>
-            Our Flagship Product
+            {appData.jureo.tag}
           </span>
           <h2 className={`jureo-title section-main-heading reveal delay-100 ${jureoVisible ? 'active' : ''}`}>
-            AI Paralegal Platform for Indian Lawyers & Law Firms
+            {appData.jureo.title}
           </h2>
           <p className={`jureo-desc reveal delay-200 ${jureoVisible ? 'active' : ''}`}>
-            Experience smarter legal research workflows. Jureo seamlessly combines intelligent fact extraction, intuitive questioning, and comprehensive precedent search into one powerful platform.
+            {appData.jureo.description}
           </p>
 
           <div className={`video-wrapper reveal delay-300 ${jureoVisible ? 'active' : ''}`}>
@@ -677,7 +535,7 @@ function HomePage() {
               </div>
             ) : (
               <iframe
-                src="https://www.youtube.com/embed/IJJ8AVRb6jE?rel=0&autoplay=1"
+                src={appData.jureo.videoUrl}
                 title="Jureo Product Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -687,19 +545,15 @@ function HomePage() {
           </div>
 
           <div className={`reveal delay-300 ${jureoVisible ? 'active' : ''}`}>
-            <a href="https://jureo.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Discover Jureo
+            <a href={appData.jureo.buttonLink} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              {appData.jureo.buttonText}
             </a>
           </div>
         </section>
 
-        {/* --- PREMIUM CAPABILITIES SECTION --- */}
+        {/* Sections */}
         <CapabilitiesSlider />
-
-        {/* --- WHY CHOOSE US ROTATING SECTION --- */}
         <WhyChooseSection />
-
-        {/* --- CLIENT SUCCESS STORIES SECTION --- */}
         <SuccessStoriesSection />
       </div>
     </>
@@ -712,13 +566,10 @@ function HomePage() {
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [footerRef, footerVisible] = useScrollReveal();
-  
-
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'dark';
   });
   const [done, setDone] = useState(false);
-
 
   useEffect(() => {
     if (theme === 'light') {
@@ -729,24 +580,16 @@ export default function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <Router>
-      {/* Global Navigation */}
       <nav className="navbar">
         <div className="nav-logo">
           <Link to="/">
-            <img
-              src={logo}
-              alt="Ethical Genesis Logo"
-            />
+            <img src={logo} alt="Ethical Genesis Logo" />
           </Link>
         </div>
 
@@ -759,21 +602,19 @@ export default function App() {
         </button>
 
         <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
-          <li><Link to="/capabilities" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</Link></li>
-          <li><Link to="/solution" onClick={() => setIsMobileMenuOpen(false)}>Solutions</Link></li>
-          <li><Link to="/intelligence" onClick={() => setIsMobileMenuOpen(false)}>Intelligence</Link></li>
-          <li><Link to="/company" onClick={() => setIsMobileMenuOpen(false)}>Company</Link></li>
-          <li><Link to="/connect" onClick={() => setIsMobileMenuOpen(false)}>Connect</Link></li>
-          <li><Link to="/join-us" onClick={() => setIsMobileMenuOpen(false)}>Join Us</Link></li>
-          <li><Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products</Link></li>
+          <li><NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink></li>
+          <li><NavLink to="/company" onClick={() => setIsMobileMenuOpen(false)}>Company</NavLink></li>
+          <li><NavLink to="/capabilities" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</NavLink></li>
+          <li><NavLink to="/solution" onClick={() => setIsMobileMenuOpen(false)}>Solutions</NavLink></li>
+          <li><NavLink to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products</NavLink></li>
+          <li><NavLink to="/intelligence" onClick={() => setIsMobileMenuOpen(false)}>Intelligence</NavLink></li>
+          <li><NavLink to="/join-us" onClick={() => setIsMobileMenuOpen(false)}>Join Us</NavLink></li>
+          <li><NavLink to="/connect" onClick={() => setIsMobileMenuOpen(false)}>Connect</NavLink></li>
         </ul>
       </nav>
 
-      {/* Route Switcher */}
-      
       {!done && <SplashScreen onComplete={() => setDone(true)} />}
-      
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/capabilities" element={<CapabilitiesPage />} />
@@ -785,7 +626,6 @@ export default function App() {
         <Route path="/products" element={<ProductsPage />} />
       </Routes>
 
-      {/* Global Footer */}
       <footer className="footer" ref={footerRef}>
         <div className={`footer-grid reveal ${footerVisible ? 'active' : ''}`}>
           <div className="footer-column">
@@ -820,23 +660,20 @@ export default function App() {
 
           <div className="footer-column connect-column">
             <h4>Connect with us</h4>
-            <p className="connect-desc">
-              We know that our clients have unique needs. Send us a message, and we will get back to you at the earliest.
-            </p>
-            <a href="mailto:info@ethicalgenesis.ai" className="connect-email">
-              info@ethicalgenesis.ai
+            <p className="connect-desc">{appData.footer.connectDescription}</p>
+            <a href={`mailto:${appData.footer.contactEmail}`} className="connect-email">
+              {appData.footer.contactEmail}
             </a>
           </div>
         </div>
 
         <div className={`footer-bottom reveal delay-100 ${footerVisible ? 'active' : ''}`}>
-          <p>&copy; 2024 Ethical Genesis. All rights reserved.</p>
+          <p>{appData.footer.copyrightText}</p>
           <div className="social-icons">
             <a href="#linkedin" aria-label="LinkedIn">in</a>
             <a href="#twitter" aria-label="Twitter">𝕏</a>
             <a href="#youtube" aria-label="YouTube">▶</a>
 
-            {/* Scroll To Top Button */}
             <button onClick={scrollToTop} className="scroll-to-top" aria-label="Scroll to top">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 19V5M5 12l7-7 7 7" />

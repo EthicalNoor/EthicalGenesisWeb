@@ -89,7 +89,7 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* 4. THE TEAM (B&W to Color Hover Grid) */}
+      {/* 4. THE TEAM (B&W to Color Hover Grid)
       <section className="cmp-section cmp-team" ref={teamRef}>
         <div className="cmp-container">
           <div className={`cmp-section-header center ${teamVisible ? 'visible' : ''}`}>
@@ -112,7 +112,7 @@ export default function CompanyPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 5. LOOKING AHEAD (Vision Parallax Block) */}
       <section 

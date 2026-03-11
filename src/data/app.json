@@ -21,14 +21,14 @@
         "tag": "Capability",
         "title": "Agentic AI Systems",
         "desc": "Develop autonomous AI agents that handle multi-step workflows, perform complex data reasoning, and execute tasks across your business software with built-in human oversight.",
-        "imgKey": "cap2"
+        "imgKey": "cap1"
       },
       {
         "id": 2,
         "tag": "Capability",
         "title": "Generative AI Solutions",
         "desc": "Integrate custom Large Language Models (LLMs) and generative AI to automate content creation, streamline coding, and improve daily business operations securely.",
-        "imgKey": "cap1"
+        "imgKey": "cap2"
       },
       {
         "id": 3,
@@ -42,21 +42,21 @@
         "tag": "Capability",
         "title": "Autonomous AI Workflows",
         "desc": "Convert manual, repetitive processes into highly efficient, self-running automated workflows that save time, reduce human error, and scale with your enterprise.",
-        "imgKey": "cap6"
+        "imgKey": "cap4"
       },
       {
         "id": 5,
         "tag": "Capability",
         "title": "Knowledge Graphs",
         "desc": "Unify fragmented databases into interconnected knowledge graphs, enabling your team to visualize relationships, run semantic searches, and uncover deep business insights.",
-        "imgKey": "cap4"
+        "imgKey": "cap5"
       },
       {
         "id": 6,
         "tag": "Capability",
         "title": "Machine Learning Engineering",
         "desc": "Build robust MLOps pipelines and predictive analytics models to forecast market trends, automate decision-making, and ensure reliable AI performance at scale.",
-        "imgKey": "cap5"
+        "imgKey": "cap6"
       }
     ]
   },

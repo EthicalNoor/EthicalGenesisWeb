@@ -21,12 +21,12 @@ import logo from './img/logo.png';
 import bgVideo from './img/vid/bv4.mp4';
 import videoPoster from './img/video-poster.png';
 
-import cap1 from './img/cap1.jpg';
-import cap2 from './img/cap2.jpg';
-import cap3 from './img/cap3.jpg';
-import cap4 from './img/cap4.jpg';
-import cap5 from './img/cap5.jpg';
-import cap6 from './img/cap6.jpg';
+import cap1 from './img/cap1.png';
+import cap2 from './img/cap2.png';
+import cap3 from './img/cap3.png';
+import cap4 from './img/cap4.png';
+import cap5 from './img/cap5.png';
+import cap6 from './img/cap6.png';
 
 // Mapping string keys from JSON to actual imported image variables
 const imageMap = {

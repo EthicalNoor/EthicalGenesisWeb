@@ -101,17 +101,34 @@ export default function ProductsPage() {
   const flagshipProduct = productsData.products[0];
   const otherProducts = productsData.products.slice(1);
 
-  return (
-    <div className="saas-page-container">
+return (
+    <div className="saas-page-container" style={{ position: 'relative' }}>
       
+      {/* --- DYNAMIC HERO BACKGROUND IMAGE --- */}
+      <div 
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '600px',
+          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.5) 0%, var(--bg-primary) 100%), url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1920&auto=format&fit=crop')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+        aria-hidden="true"
+      />
+
       {/* Background Base */}
       <div className="saas-bg-ambient"></div>
 
       {/* HERO SECTION (SEO Optimized H1) */}
-      <header className="saas-hero" ref={heroRef}>
+      <header className="saas-hero" ref={heroRef} style={{ position: 'relative', zIndex: 1 }}>
         <div className={`saas-hero-inner ${heroVisible ? 'visible' : ''}`}>
           <span className="section-tag">{productsData.hero.tagline}</span>
-          <h1>{productsData.hero.mainHeading}</h1>
+          <h1 className="section-main-heading">{productsData.hero.mainHeading}</h1>
           <p>{productsData.hero.subHeading}</p>
         </div>
       </header>

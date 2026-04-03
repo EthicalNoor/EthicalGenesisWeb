@@ -18,8 +18,14 @@ import ProductDetail from './pages/ProductDetail';
 
 // --- ASSET IMPORTS ---
 import logo from './img/logo.png';
-import bgVideo from './img/vid/bv4.mp4';
 import videoPoster from './img/video-poster.png';
+
+// Import all 4 background videos
+import bgVideo5 from './img/vid/bv5.mp4';
+import bgVideo6 from './img/vid/bv6.mp4';
+import bgVideo7 from './img/vid/bv7.mp4';
+import bgVideo8 from './img/vid/bv8.mp4';
+import bgVideo4 from './img/vid/bv4.mp4';
 
 import cap1 from './img/cap1.png';
 import cap2 from './img/cap2.png';
@@ -469,7 +475,7 @@ const SuccessStoriesSection = () => {
         </div>
 
         <div className={`success-cta reveal delay-400 ${isVisible ? 'active' : ''}`}>
-          <Link to="/contact" className="btn-primary">Start Your Success Story</Link>
+          <Link to="/connect" className="btn-primary">Start Your Success Story</Link>
         </div>
 
       </div>
@@ -483,21 +489,47 @@ const SuccessStoriesSection = () => {
 function HomePage() {
   const [jureoRef, jureoVisible] = useScrollReveal();
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  
+  const backgroundVideos = [bgVideo5, bgVideo4,bgVideo6,bgVideo7,bgVideo8];
+
+  // Rotate videos every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % backgroundVideos.length);
+    }, 10000); // 10 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
       {/* Hero Section */}
       <section className="hero-wrapper">
         <div className="hero-video-container">
-          <video
-            className="hero-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src={bgVideo} type="video/mp4" />
-          </video>
+          {backgroundVideos.map((vid, index) => (
+            <video
+              key={index}
+              className="hero-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                opacity: index === currentVideoIndex ? 1 : 0,
+                transition: 'opacity 1.5s ease-in-out',
+                zIndex: index === currentVideoIndex ? 1 : 0
+              }}
+            >
+              <source src={vid} type="video/mp4" />
+            </video>
+          ))}
         </div>
 
         <div className="hero-content">
@@ -653,9 +685,41 @@ export default function App() {
         <div className={`footer-bottom reveal delay-100 ${footerVisible ? 'active' : ''}`}>
           <p>{appData.footer.copyrightText}</p>
           <div className="social-icons">
-            <a href="#linkedin" aria-label="LinkedIn">in</a>
-            <a href="#twitter" aria-label="Twitter">𝕏</a>
-            <a href="#youtube" aria-label="YouTube">▶</a>
+            <a
+              href="https://www.linkedin.com/in/ethical-genesis-a59944329"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+
+            <a
+              href="https://www.facebook.com/share/18FYkJ7Nvx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <i className="fab fa-facebook-f"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/ethicalgenesisai?igsh=MWs1ZWtma2lqbGNvcQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+
+            <a
+              href="#youtube"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <i className="fab fa-youtube"></i>
+            </a>
 
             <button onClick={scrollToTop} className="scroll-to-top" aria-label="Scroll to top">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

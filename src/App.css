@@ -119,6 +119,7 @@
 
 .highlight-text {
   color: var(--accent-color);
+  white-space: nowrap; /* This forces the text to stay on one line */
 }
 
 .hero-subtitle {

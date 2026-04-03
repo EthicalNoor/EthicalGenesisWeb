@@ -1,8 +1,8 @@
 /* src/styles/products.css */
 
 .saas-page-container {
-  padding-top: 130px;
-  background: #05070a; /* Deep premium SaaS dark mode */
+  padding-top: 150px; /* Increased to match other pages */
+  background: var(--bg-primary); /* Changed from black to global Navy Blue */
   color: #fff;
   min-height: 100vh;
   position: relative;
@@ -61,10 +61,6 @@
 }
 
 .saas-hero-inner h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
   margin: 1.5rem 0;
   background: linear-gradient(to right, #ffffff, #a5b4fc);
   -webkit-background-clip: text;
@@ -335,7 +331,8 @@
 .saas-image-glass {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(5, 7, 10, 0.4) 100%);
+  /* Changed to match navy theme (11, 15, 25) instead of black */
+  background: linear-gradient(180deg, transparent 50%, rgba(11, 15, 25, 0.6) 100%);
   pointer-events: none;
 }
 

@@ -16,6 +16,25 @@
       "buttonText": "Explore Jureo"
     },
     {
+      "id": "community-spirit",
+      "label": "EdTech & Local Commerce",
+      "title": "Community Spirit Loyalty Platform",
+      "heading": "Digital Fundraising & Discount Ecosystem for Communities",
+      "desc": "Digitize local fundraising and loyalty programs. Connect schools, local businesses, and community members through a unified, scan-based discount and campaign management system.",
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+      "link": "/products/community-spirit",
+      "buttonText": "Explore Platform"
+    },
+    {
+      "id": "sfl",
+      "label": "Sports Tech Platform",
+      "title": "Intelligent Fantasy League System",
+      "desc": "Modernize sports management with an API-driven automation platform. Sync rosters, manage contracts, and scale your league operations with absolute precision.",
+      "image": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=1200&auto=format&fit=crop",
+      "link": "/products/bidding-system",
+      "buttonText": "Explore SFL System"
+    },
+    {
       "id": "legal-compliance",
       "label": "Regulatory Intelligence",
       "title": "Compliance & Regulatory AI Engine",
@@ -41,15 +60,6 @@
       "image": "https://media.istockphoto.com/id/2206232159/photo/student-using-ai-chatbot-while-studying.webp?a=1&b=1&s=612x612&w=0&k=20&c=mOxWgbGNosZvbHynNPfkQSJopGgL_FjwkmirbnpcCq0=",
       "link": "/products/enterprise-chatbot",
       "buttonText": "Explore Assistant"
-    },
-    {
-      "id": "sfl",
-      "label": "Sports Tech Platform",
-      "title": "Intelligent Fantasy League System",
-      "desc": "Modernize sports management with an API-driven automation platform. Sync rosters, manage contracts, and scale your league operations with absolute precision.",
-      "image": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=1200&auto=format&fit=crop",
-      "link": "/products/bidding-system",
-      "buttonText": "Explore SFL System"
     }
   ],
   "banner": {

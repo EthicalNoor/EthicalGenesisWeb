@@ -261,5 +261,57 @@
         "role": "SFL Commissioner"
       }
     ]
+  },
+  "community-spirit": {
+    "id": "community-spirit",
+    "badge": "Community & EdTech Platform",
+    "title": "Community Spirit",
+    "highlightText": "Loyalty Platform",
+    "hostedLink": "https://your-official-link.com",
+    "subtitle": "Modernize community fundraising and local commerce. Connect schools, businesses, and supporters through a unified digital discount ecosystem.",
+    "heroImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+    "description": "A full-stack web application and card-based loyalty platform designed to digitize and scale local fundraising campaigns.",
+    "detailedDescription": "The Community Spirit Card platform eliminates paper-based coupon books by offering a fully custom digital ecosystem. It connects booster clubs running campaigns, local merchants offering exclusive discounts, and community members looking for savings. Featuring QR/Barcode integration, real-time redemption tracking, and dedicated web portals for all three stakeholder groups.",
+    "problemStatement": "Traditional community fundraising relies on manual, inefficient methods like door-to-door sales and paper coupon books. Booster clubs lack scalable management tools, local businesses cannot track redemption ROI, and community members face high friction in discovering and utilizing local offers.",
+    "solution": "A centralized digital platform that replaces manual tracking with a scan-based web application. It features automated card activation, real-time coupon status tracking, a lightweight merchant redemption portal, and comprehensive campaign management for sponsor organizations.",
+    "keyCapabilities": [
+      "QR & Barcode Card Integration",
+      "Real-Time Merchant Redemption Portal",
+      "Automated Coupon Status Tracking (Used/Expired)",
+      "Multi-Stakeholder Campaign Dashboards",
+      "Digital Coupon Discovery & Filtering"
+    ],
+    "useCases": [
+      "School & Booster Club Fundraising",
+      "Local Business Foot Traffic Generation",
+      "Community Loyalty & Discount Programs"
+    ],
+    "targetAudience": [
+      "School Booster Clubs",
+      "Local Business Owners",
+      "Community Organizers",
+      "Educational Institutions"
+    ],
+    "stats": [
+      {
+        "value": "100%",
+        "label": "Elimination of Paper Coupons"
+      },
+      {
+        "value": "3-Sided",
+        "label": "Stakeholder Ecosystem"
+      },
+      {
+        "value": "Real-Time",
+        "label": "Redemption Tracking"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "The platform completely transformed our fundraising approach. We eliminated paper waste and finally gave our local merchants a way to track the exact foot traffic our campaigns generate.",
+        "author": "Community Campaign Director",
+        "role": "School Booster Club"
+      }
+    ]
   }
 }

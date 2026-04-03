@@ -377,7 +377,7 @@ const WhyChooseSection = () => {
               </div>
             </div>
 
-            <Link to="/why-us" className="btn-primary btn-outline wc-read-more">Read More</Link>
+            <Link to="/company" className="btn-primary btn-outline wc-read-more">Read More</Link>
           </div>
 
           <div className="why-circle-side">

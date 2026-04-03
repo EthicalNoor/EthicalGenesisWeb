@@ -7,12 +7,12 @@
   "jureo": {
     "tag": "Flagship AI Platform",
     "title": "AI Legal Assistant for Law Firms and Corporate Teams",
-    "description": "Automate legal research and document review. Jureo utilizes generative AI for precise fact extraction, semantic search, and precedent analysis, enabling legal professionals to work faster and smarter.",
+    "description": "Automate legal research, document review, and legal drafting. Jureo utilizes generative AI for precise fact extraction, semantic search, precedent mapping, and automated drafting workflows—empowering legal professionals to generate notices, contracts, and pleadings from over 3,000 templates to work faster and smarter.",
     "videoUrl": "https://www.youtube.com/embed/IJJ8AVRb6jE?rel=0&autoplay=1",
     "buttonText": "Explore Jureo",
     "buttonLink": "https://jureo.com/"
   },
-"capabilitiesSection": {
+  "capabilitiesSection": {
     "titleStart": "Solve complex operational challenges with enterprise ",
     "titleHighlight": "Agentic & Generative AI",
     "items": [
@@ -101,9 +101,22 @@
         "title": "Generative & Agentic AI",
         "desc": "We engineer generative AI and autonomous agents that move beyond basic automation. Our intelligent systems reason, adapt, and execute complex business workflows to dramatically accelerate productivity.",
         "metrics": [
-          { "num": 10, "suffix": "x", "label": "Workflow Acceleration" },
-          { "num": 99, "suffix": "%", "label": "Task Autonomy" },
-          { "num": 50, "prefix": "<", "suffix": "ms", "label": "Decision Latency" }
+          {
+            "num": 10,
+            "suffix": "x",
+            "label": "Workflow Acceleration"
+          },
+          {
+            "num": 99,
+            "suffix": "%",
+            "label": "Task Autonomy"
+          },
+          {
+            "num": 50,
+            "prefix": "<",
+            "suffix": "ms",
+            "label": "Decision Latency"
+          }
         ]
       },
       {
@@ -111,9 +124,21 @@
         "title": "Tailored Architecture",
         "desc": "Every business has a unique data ecosystem. We architect customized machine learning models and AI software specifically designed to integrate smoothly with your existing digital infrastructure.",
         "metrics": [
-          { "num": 100, "suffix": "%", "label": "Custom Architected" },
-          { "num": 300, "suffix": "%", "label": "ROI Multiplier" },
-          { "num": 0, "suffix": "", "label": "Legacy Tech Debt" }
+          {
+            "num": 100,
+            "suffix": "%",
+            "label": "Custom Architected"
+          },
+          {
+            "num": 300,
+            "suffix": "%",
+            "label": "ROI Multiplier"
+          },
+          {
+            "num": 0,
+            "suffix": "",
+            "label": "Legacy Tech Debt"
+          }
         ]
       },
       {
@@ -121,9 +146,21 @@
         "title": "Proactive Innovation",
         "desc": "Technology moves quickly. We build flexible, scalable data intelligence solutions and APIs that allow your company to easily adopt future AI breakthroughs without technical debt.",
         "metrics": [
-          { "num": 40, "suffix": "%", "label": "R&D Time Saved" },
-          { "num": 100, "suffix": "%", "label": "API Extensibility" },
-          { "num": 24, "suffix": "/7", "label": "System Adaptability" }
+          {
+            "num": 40,
+            "suffix": "%",
+            "label": "R&D Time Saved"
+          },
+          {
+            "num": 100,
+            "suffix": "%",
+            "label": "API Extensibility"
+          },
+          {
+            "num": 24,
+            "suffix": "/7",
+            "label": "System Adaptability"
+          }
         ]
       },
       {
@@ -131,9 +168,22 @@
         "title": "Knowledge Graphs",
         "desc": "We eliminate data silos by transforming disconnected enterprise data into interconnected knowledge graphs, driving faster semantic search and smarter organizational decision-making.",
         "metrics": [
-          { "num": 10, "suffix": "M+", "label": "Nodes Processed" },
-          { "num": 90, "suffix": "%", "label": "Silo Reduction" },
-          { "num": 1, "prefix": "<", "suffix": "s", "label": "Semantic Query Time" }
+          {
+            "num": 10,
+            "suffix": "M+",
+            "label": "Nodes Processed"
+          },
+          {
+            "num": 90,
+            "suffix": "%",
+            "label": "Silo Reduction"
+          },
+          {
+            "num": 1,
+            "prefix": "<",
+            "suffix": "s",
+            "label": "Semantic Query Time"
+          }
         ]
       },
       {
@@ -141,9 +191,21 @@
         "title": "Scalable RAG & LLMs",
         "desc": "We deploy secure Large Language Models utilizing Retrieval-Augmented Generation (RAG) to ensure AI chatbots provide accurate, verifiable answers based strictly on your private corporate data.",
         "metrics": [
-          { "num": 99, "suffix": ".99%", "label": "System Uptime" },
-          { "num": 50, "suffix": "M+", "label": "Tokens Processed" },
-          { "num": 98, "suffix": "%", "label": "Hallucination Reduction" }
+          {
+            "num": 99,
+            "suffix": ".99%",
+            "label": "System Uptime"
+          },
+          {
+            "num": 50,
+            "suffix": "M+",
+            "label": "Tokens Processed"
+          },
+          {
+            "num": 98,
+            "suffix": "%",
+            "label": "Hallucination Reduction"
+          }
         ]
       },
       {
@@ -151,9 +213,21 @@
         "title": "Ethical & Secure AI",
         "desc": "Trust and security are paramount. We embed robust data governance, enterprise-grade encryption, and bias mitigation into our AI solutions to ensure full regulatory compliance.",
         "metrics": [
-          { "num": 100, "suffix": "%", "label": "Data Privacy" },
-          { "num": 0, "suffix": "%", "label": "Algorithmic Bias" },
-          { "num": 256, "suffix": "-bit", "label": "AES Encryption" }
+          {
+            "num": 100,
+            "suffix": "%",
+            "label": "Data Privacy"
+          },
+          {
+            "num": 0,
+            "suffix": "%",
+            "label": "Algorithmic Bias"
+          },
+          {
+            "num": 256,
+            "suffix": "-bit",
+            "label": "AES Encryption"
+          }
         ]
       }
     ]
@@ -171,8 +245,14 @@
         "challenge": "Legacy fraud detection systems suffered from high false-positive rates and were too slow to handle real-time transaction processing.",
         "solution": "Developed a custom machine learning pipeline featuring real-time predictive analytics to instantly and accurately identify fraudulent activities.",
         "metrics": [
-          { "value": "45%", "label": "Cost Reduction" },
-          { "value": "<15ms", "label": "Latency" }
+          {
+            "value": "45%",
+            "label": "Cost Reduction"
+          },
+          {
+            "value": "<15ms",
+            "label": "Latency"
+          }
         ]
       },
       {
@@ -183,8 +263,14 @@
         "challenge": "Medical staff spent excessive hours manually searching through fragmented patient records and disconnected clinical databases.",
         "solution": "Deployed a secure, RAG-powered Large Language Model that allows healthcare professionals to instantly search and summarize patient data using natural language.",
         "metrics": [
-          { "value": "3x", "label": "Productivity Lift" },
-          { "value": "2M+", "label": "Records Parsed" }
+          {
+            "value": "3x",
+            "label": "Productivity Lift"
+          },
+          {
+            "value": "2M+",
+            "label": "Records Parsed"
+          }
         ]
       },
       {
@@ -195,8 +281,14 @@
         "challenge": "Generic product recommendations and a disconnected customer journey caused high bounce rates and limited e-commerce revenue growth.",
         "solution": "Engineered an AI personalization system driven by real-time knowledge graphs to dynamically tailor product suggestions to individual customer behaviors.",
         "metrics": [
-          { "value": "+35%", "label": "Conversion Rate" },
-          { "value": "$12M", "label": "Revenue Lift" }
+          {
+            "value": "+35%",
+            "label": "Conversion Rate"
+          },
+          {
+            "value": "$12M",
+            "label": "Revenue Lift"
+          }
         ]
       }
     ]

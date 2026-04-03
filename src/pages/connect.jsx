@@ -3,19 +3,50 @@
 import React, { useState, useEffect } from 'react';
 import connectData from '../data/connect.json';
 import '../styles/connect.css';
+import emailjs from '@emailjs/browser';
 
 export default function ConnectPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+   // demo need to replace by official
+  const YOUR_SERVICE_ID = "service_jga9uoa"; 
+  const YOUR_TEMPLATE_ID = "template_4660upo";
+  const YOUR_PUBLIC_KEY = "LbAG0xoa3ZGK3YZhM";
 
   // Ensure page loads at the very top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e) => {
+ 
+   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would normally send the data to your backend (Formspree, EmailJS, etc.)
-    setIsSubmitted(true);
+
+    const form = e.target;
+
+    const formData = {
+      fullName: form[0].value,
+      email: form[1].value,
+      company: form[2].value,
+      interest: form[3].value,
+      message: form[4].value,
+    };
+
+    console.log(formData);
+    emailjs.send(
+      YOUR_SERVICE_ID,
+      YOUR_TEMPLATE_ID,
+      formData,
+      YOUR_PUBLIC_KEY
+    )
+    .then((result) => {
+      console.log(result.text);
+      setIsSubmitted(true);
+    })
+    .catch((error) => {
+      console.error(error.text);
+      alert("Failed to send message. Try again.");
+    });
   };
 
   return (

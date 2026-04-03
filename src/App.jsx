@@ -9,12 +9,12 @@ import appData from './data/app.json';
 
 // --- PAGE IMPORTS ---
 import CapabilitiesPage from './pages/capabilities';
-import SolutionsPage from './pages/solutions';
 import IntelligencePage from './pages/intelligence';
 import JoinUsPage from './pages/join';
 import CompanyPage from './pages/company';
 import ConnectPage from './pages/connect';
 import ProductsPage from './pages/products';
+import ProductDetail from './pages/ProductDetail';
 
 // --- ASSET IMPORTS ---
 import logo from './img/logo.png';
@@ -223,10 +223,10 @@ const CapabilitiesSlider = () => {
       </div>
 
       <div className="cap-slider-wrapper">
-        
+
         {/* LEFT ARROW */}
         <button className="hm-slider-arrow left" onClick={() => scrollCarousel('left')} aria-label="Previous Capability">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
         </button>
 
         <div className="cap-slides-container" ref={scrollRef}>
@@ -250,7 +250,7 @@ const CapabilitiesSlider = () => {
 
         {/* RIGHT ARROW */}
         <button className="hm-slider-arrow right" onClick={() => scrollCarousel('right')} aria-label="Next Capability">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
         </button>
 
       </div>
@@ -605,7 +605,6 @@ export default function App() {
           <li><NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink></li>
           <li><NavLink to="/company" onClick={() => setIsMobileMenuOpen(false)}>Company</NavLink></li>
           <li><NavLink to="/capabilities" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</NavLink></li>
-          <li><NavLink to="/solution" onClick={() => setIsMobileMenuOpen(false)}>Solutions</NavLink></li>
           <li><NavLink to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products</NavLink></li>
           <li><NavLink to="/intelligence" onClick={() => setIsMobileMenuOpen(false)}>Intelligence</NavLink></li>
           <li><NavLink to="/join-us" onClick={() => setIsMobileMenuOpen(false)}>Join Us</NavLink></li>
@@ -618,43 +617,26 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/capabilities" element={<CapabilitiesPage />} />
-        <Route path="/solution" element={<SolutionsPage />} />
         <Route path="/intelligence" element={<IntelligencePage />} />
         <Route path="/join-us" element={<JoinUsPage />} />
         <Route path="/company" element={<CompanyPage />} />
         <Route path="/connect" element={<ConnectPage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
 
       <footer className="footer" ref={footerRef}>
         <div className={`footer-grid reveal ${footerVisible ? 'active' : ''}`}>
-          <div className="footer-column">
+
+          <div className="footer-column nav-column">
             <h4>Navigation</h4>
             <ul>
+              <li><Link to="/company">Company</Link></li>
               <li><Link to="/capabilities">Capabilities</Link></li>
-              <li><Link to="/solution">Solutions</Link></li>
+              <li><Link to="/products">Products</Link></li>
               <li><Link to="/intelligence">Intelligence</Link></li>
               <li><Link to="/join-us">Join Us</Link></li>
-              <li><Link to="/company">Company</Link></li>
               <li><Link to="/connect">Connect</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4>Insights</h4>
-            <ul>
-              <li><a href="#articles">Articles</a></li>
-              <li><a href="#blogs">Blogs</a></li>
-              <li><a href="#podcasts">Podcasts</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="#privacy">Privacy Policy</a></li>
-              <li><a href="#accessibility">Accessibility Statement</a></li>
-              <li><a href="#code">Code of Conduct</a></li>
             </ul>
           </div>
 
@@ -665,6 +647,7 @@ export default function App() {
               {appData.footer.contactEmail}
             </a>
           </div>
+
         </div>
 
         <div className={`footer-bottom reveal delay-100 ${footerVisible ? 'active' : ''}`}>

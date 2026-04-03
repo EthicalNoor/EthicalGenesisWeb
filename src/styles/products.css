@@ -1,42 +1,40 @@
 /* src/styles/products.css */
 
-.prod-page-container {
-  padding-top: 120px;
-  background: var(--bg-primary, #0b0f19);
+.saas-page-container {
+  padding-top: 130px;
+  background: #05070a; /* Deep premium SaaS dark mode */
   color: #fff;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-.prod-container {
-  max-width: 1300px;
+.saas-container {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Background Mesh */
-.prod-bg-mesh {
+/* --- AMBIENT BACKGROUND --- */
+.saas-bg-ambient {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1), transparent 30%),
-    radial-gradient(circle at 90% 60%, rgba(139, 92, 246, 0.08), transparent 30%);
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.05), transparent 40%),
+    radial-gradient(circle at 100% 50%, rgba(139, 92, 246, 0.03), transparent 40%);
   z-index: 0;
   pointer-events: none;
 }
 
-body.light-theme .prod-bg-mesh {
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05), transparent 30%),
-    radial-gradient(circle at 90% 60%, rgba(139, 92, 246, 0.05), transparent 30%);
-}
-
-/* Scroll Animations */
-.prod-hero-content, .prod-flagship-card, .prod-section-title, .prod-bento-grid, .prod-banner-card {
+/* --- SMOOTH REVEAL ANIMATIONS --- */
+.saas-hero-inner, 
+.saas-flagship-wrapper, 
+.saas-product-row, 
+.saas-banner-card {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(50px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -45,313 +43,420 @@ body.light-theme .prod-bg-mesh {
   transform: translateY(0);
 }
 
-/* 1. HERO SECTION */
-.prod-hero {
+/* =========================================
+   1. HERO SECTION
+   ========================================= */
+.saas-hero {
   position: relative;
   z-index: 1;
-  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem 6rem 2rem;
 }
 
-.prod-hero-content {
-  max-width: 850px;
+.saas-hero-inner {
+  max-width: 950px;
 }
 
-.prod-hero-content h1 {
+.saas-hero-inner h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   margin: 1.5rem 0;
+  background: linear-gradient(to right, #ffffff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.prod-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
+.saas-hero-inner p {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* GENERAL SECTION PADDING */
-.prod-section {
+/* =========================================
+   2. FLAGSHIP SHOWCASE (JUREO)
+   ========================================= */
+.saas-flagship-section {
   position: relative;
-  z-index: 1;
-  padding: 4rem 0;
+  z-index: 2;
+  margin-bottom: 8rem;
 }
 
-.prod-section-title {
-  margin-bottom: 3rem;
+.saas-flagship-wrapper {
+  position: relative;
 }
 
-/* 2. FLAGSHIP SPOTLIGHT (Jureo) */
-.prod-flagship-card {
-  display: flex;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
+/* Glowing Aura Behind Flagship */
+.saas-flagship-glow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #3b82f6);
+  filter: blur(25px);
+  opacity: 0.3;
+  border-radius: 32px;
+  z-index: -1;
+  animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.4; }
+}
+
+.saas-flagship-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  background: rgba(11, 15, 25, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
 }
 
-.prod-flagship-content {
-  flex: 1;
+.flagship-content {
   padding: 5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
 }
 
-.prod-label {
-  display: inline-block;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accent-color);
+.flagship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  width: fit-content;
 }
 
-.prod-flagship-content h2 {
-  font-size: 3rem;
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #60a5fa;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #60a5fa;
+  animation: flash 2s infinite;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.flagship-content h2 {
+  font-size: 3.2rem;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
   color: #fff;
 }
 
-.prod-flagship-content p {
+.flagship-subheading {
   font-size: 1.15rem;
-  color: var(--text-secondary);
+  color: #a5b4fc;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.flagship-content p {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.flagship-btn {
+  font-size: 1.1rem;
+  padding: 1.2rem 2.5rem;
+}
+
+.flagship-visual {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+}
+
+.flagship-image-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.flagship-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Deep fade to blend image smoothly into the dark card */
+.flagship-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11,15,25,1) 0%, transparent 30%),
+              linear-gradient(0deg, rgba(11,15,25,0.4) 0%, transparent 100%);
+}
+
+
+/* =========================================
+   3. ALTERNATING ECOSYSTEM SECTIONS
+   ========================================= */
+.saas-ecosystem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.saas-product-row {
+  padding: 8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.saas-product-row:last-child {
+  border-bottom: none;
+}
+
+.saas-row-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Alternate Layout Magic */
+.saas-product-row.reversed .saas-row-container {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.saas-product-row.reversed .saas-row-content {
+  order: 2;
+}
+
+.saas-product-row.reversed .saas-row-visual {
+  order: 1;
+}
+
+/* Row Content */
+.saas-row-label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.saas-row-content h2 {
+  font-size: 2.8rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: #f8fafc;
+}
+
+.saas-row-content p {
+  font-size: 1.15rem;
+  color: #94a3b8;
   line-height: 1.7;
   margin-bottom: 2.5rem;
 }
 
-.prod-flagship-image {
-  flex: 1;
-  position: relative;
+/* Modern Text Link CTA */
+.saas-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.prod-flagship-image img {
+.saas-text-link .arrow {
+  color: #3b82f6;
+  transition: transform 0.3s ease;
+}
+
+.saas-text-link:hover {
+  color: #3b82f6;
+}
+
+.saas-text-link:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Row Visuals */
+.saas-row-visual {
+  position: relative;
+  width: 100%;
+}
+
+.saas-image-wrapper {
+  display: block;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* The anchor itself scales slightly on hover */
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+}
+
+.saas-image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.prod-image-overlay {
+.saas-image-glass {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(11, 15, 25, 1) 0%, transparent 40%);
+  background: linear-gradient(180deg, transparent 50%, rgba(5, 7, 10, 0.4) 100%);
+  pointer-events: none;
 }
 
-/* 3. INDUSTRY INTELLIGENCE (BENTO GRID) */
-.prod-bento-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 320px;
-  gap: 1.5rem;
+.saas-row-visual:hover .saas-image-wrapper {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 70px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
-.prod-bento-item {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  cursor: pointer;
-  transition: border-color 0.4s ease;
-}
-
-.prod-bento-item.span-wide { grid-column: span 2; }
-.prod-bento-item.span-wide-alt { grid-column: span 2; }
-.prod-bento-item.span-square { grid-column: span 1; }
-
-.prod-bento-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-  transform: scale(1);
-  transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  z-index: 0;
-}
-
-.prod-bento-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(11, 15, 25, 0.2) 0%, rgba(11, 15, 25, 0.95) 100%);
-  z-index: 1;
-  transition: background 0.4s ease;
-}
-
-.prod-bento-item:hover {
-  border-color: rgba(59, 130, 246, 0.4);
-}
-
-.prod-bento-item:hover .prod-bento-bg {
-  opacity: 0.5;
+.saas-row-visual:hover img {
   transform: scale(1.05);
 }
 
-.prod-bento-item:hover .prod-bento-overlay {
-  background: linear-gradient(180deg, rgba(11, 15, 25, 0.4) 0%, rgba(11, 15, 25, 0.95) 100%);
-}
 
-.prod-bento-content {
+/* =========================================
+   4. UNIFIED BANNER
+   ========================================= */
+.saas-banner-section {
+  padding: 6rem 0 10rem 0;
   position: relative;
   z-index: 2;
-  transform: translateY(20px);
-  transition: transform 0.4s ease;
 }
 
-.prod-bento-item:hover .prod-bento-content {
-  transform: translateY(0);
-}
-
-.prod-bento-content h3 {
-  font-size: 1.5rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-
-.prod-bento-content p {
-  color: #cbd5e1;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.prod-view-btn {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-color);
-  opacity: 0;
-  transition: opacity 0.3s ease 0.1s;
-}
-
-.prod-bento-item:hover .prod-view-btn {
-  opacity: 1;
-}
-
-/* 4. UNIFIED ENGINE BANNER */
-.prod-banner-section {
-  padding: 4rem 0 8rem 0;
-  position: relative;
-  z-index: 1;
-}
-
-.prod-banner-card {
+.saas-banner-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(90deg, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 2.5rem 3rem;
-  gap: 2rem;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  gap: 3rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.prod-banner-icon {
+.saas-banner-icon {
   width: 45px;
   height: 45px;
-  color: var(--accent-color);
+  color: #60a5fa;
   flex-shrink: 0;
 }
 
-.prod-banner-card p {
-  font-size: 1.1rem;
+.saas-banner-card p {
+  font-size: 1.15rem;
   color: #e2e8f0;
   line-height: 1.6;
   margin: 0;
   flex: 1;
 }
 
-
-/* ==========================================================================
-   LIGHT THEME OVERRIDES
-   ========================================================================== */
-body.light-theme .prod-flagship-card,
-body.light-theme .prod-bento-item,
-body.light-theme .prod-banner-card {
-  background: var(--bg-secondary);
-  border-color: var(--border-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-body.light-theme .prod-flagship-content h2,
-body.light-theme .prod-bento-content h3 {
-  color: var(--text-primary);
-}
-
-body.light-theme .prod-bento-bg {
-  opacity: 0.1;
-}
-
-body.light-theme .prod-bento-overlay {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.95) 100%);
-}
-
-body.light-theme .prod-bento-item:hover .prod-bento-overlay {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.9) 100%);
-}
-
-body.light-theme .prod-bento-content p,
-body.light-theme .prod-banner-card p {
-  color: var(--text-secondary);
-}
-
-body.light-theme .prod-image-overlay {
-  background: linear-gradient(90deg, #ffffff 0%, transparent 40%);
-}
-
-
-/* ==========================================================================
+/* =========================================
    RESPONSIVE DESIGN
-   ========================================================================== */
-@media (max-width: 1024px) {
-  .prod-bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .prod-bento-item.span-square { grid-column: span 1; }
-  .prod-bento-item.span-wide, .prod-bento-item.span-wide-alt { grid-column: span 2; }
+   ========================================= */
+
+@media (max-width: 1200px) {
+  .saas-hero-inner h1 { font-size: 3.5rem; }
+  .flagship-content h2 { font-size: 2.6rem; }
+  .saas-row-content h2 { font-size: 2.4rem; }
+  .saas-row-container { gap: 4rem; }
 }
 
 @media (max-width: 992px) {
-  .prod-flagship-card {
-    flex-direction: column-reverse;
+  /* Stack Flagship */
+  .saas-flagship-card {
+    grid-template-columns: 1fr;
   }
-  .prod-flagship-image {
-    height: 350px;
-    width: 100%;
-  }
-  .prod-image-overlay {
-    background: linear-gradient(180deg, transparent 50%, rgba(11, 15, 25, 1) 100%);
-  }
-  body.light-theme .prod-image-overlay {
-    background: linear-gradient(180deg, transparent 50%, #ffffff 100%);
-  }
-  .prod-flagship-content {
-    padding: 3rem;
+  
+  .flagship-content {
+    padding: 4rem 3rem;
+    order: 2;
+    text-align: center;
     align-items: center;
+  }
+
+  .flagship-visual {
+    order: 1;
+    min-height: 400px;
+  }
+
+  .flagship-image-overlay {
+    background: linear-gradient(180deg, transparent 40%, rgba(11,15,25,1) 100%);
+  }
+
+  /* Stack Rows */
+  .saas-row-container,
+  .saas-product-row.reversed .saas-row-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .saas-product-row.reversed .saas-row-content { order: 2; }
+  .saas-product-row.reversed .saas-row-visual { order: 1; }
+  
+  .saas-row-visual { order: 1; }
+  .saas-row-content { 
+    order: 2; 
     text-align: center;
   }
-  .prod-banner-card {
+
+  .saas-banner-card {
     flex-direction: column;
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 3rem 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .prod-hero { padding: 2rem 1.5rem 4rem 1.5rem; }
-  .prod-flagship-content h2 { font-size: 2.2rem; }
-  .prod-bento-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
-  .prod-bento-item.span-wide, .prod-bento-item.span-wide-alt, .prod-bento-item.span-square { grid-column: span 1; }
-  .prod-bento-content { transform: translateY(0); } /* Always show text on mobile */
-  .prod-view-btn { opacity: 1; }
+  .saas-page-container { padding-top: 100px; }
+  .saas-hero { padding: 3rem 1.5rem 4rem 1.5rem; }
+  .saas-hero-inner h1 { font-size: 2.5rem; }
+  .saas-hero-inner p { font-size: 1.1rem; }
+
+  .saas-flagship-section { margin-bottom: 5rem; }
+  .flagship-content { padding: 3rem 1.5rem; }
+  .flagship-content h2 { font-size: 2.2rem; }
+  .flagship-visual { min-height: 300px; }
+
+  .saas-product-row { padding: 5rem 0; }
+  .saas-row-content h2 { font-size: 2rem; }
+  .saas-row-content p { font-size: 1.05rem; }
+  
+  .flagship-btn { width: 100%; text-align: center; }
 }

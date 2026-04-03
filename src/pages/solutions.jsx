@@ -36,13 +36,13 @@ export default function SolutionsPage() {
           if (scrollContainerRef.current) {
             const rect = scrollContainerRef.current.getBoundingClientRect();
             const offset = 130; // Matches navbar height
-            
+
             // FIX: Add a fallback of || 1 to prevent division by zero bugs
             const scrollableDistance = (rect.height - window.innerHeight) || 1;
-            
+
             // Calculate progress from 0 to 1 based on container position in viewport
             let p = -(rect.top - offset) / scrollableDistance;
-            
+
             // FIX: Ensure 'p' never resolves to NaN if calculations act weird during resize
             p = Math.max(0, Math.min(1, p || 0));
             setScrollProgress(p);
@@ -61,7 +61,7 @@ export default function SolutionsPage() {
   const handleSelect = (id) => {
     setActiveId(id);
     if (scrollContainerRef.current) {
-      const offset = 130; 
+      const offset = 130;
       const elementPosition = scrollContainerRef.current.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - offset,
@@ -78,25 +78,25 @@ export default function SolutionsPage() {
   const narrativeBlocks = [
     { id: 'challenge', tag: 'The Challenge', content: <p>{activeSolution?.challenge}</p>, align: 'left', highlight: false },
     { id: 'solution', tag: 'Our Solution', content: <p>{activeSolution?.solution}</p>, align: 'right', highlight: true },
-    { 
-      id: 'outcomes', 
-      tag: 'Key Business Outcomes', 
+    {
+      id: 'outcomes',
+      tag: 'Key Business Outcomes',
       content: (
         <ul className="sol-outcomes-list">
           {activeSolution?.outcomes.map((o, i) => (
             <li key={i} className="sol-outcome-item">{o}</li>
           ))}
         </ul>
-      ), 
-      align: 'center', 
-      highlight: false 
+      ),
+      align: 'center',
+      highlight: false
     },
     { id: 'poweredBy', tag: 'Powered By', content: <p className="sol-powered-text">{activeSolution?.poweredBy}</p>, align: 'left', highlight: false }
   ];
 
   return (
     <div className="sol-page-container">
-      
+
       {/* --- PURE CSS AI-THEMED BACKGROUND --- */}
       <div className="sol-hero-bg">
         <div className="sol-hero-grid"></div>
@@ -129,7 +129,7 @@ export default function SolutionsPage() {
       {/* 3. DYNAMIC PINNED SCROLL NARRATIVE */}
       <section className="sol-pinned-scroll-container" ref={scrollContainerRef}>
         <div className="sol-sticky-viewport">
-          
+
           {/* Animated Connecting Line */}
           <div className="sol-flow-line-track">
             <div className="sol-flow-line-fill" style={{ height: `${scrollProgress * 100}%` }}></div>
@@ -146,10 +146,10 @@ export default function SolutionsPage() {
               return (
                 <div key={`${activeId}-${block.id}`} className={`sol-flow-block ${visibilityStatus}`}>
                   <div className={`sol-node-container align-${block.align}`}>
-                    
+
                     {/* Visual Connection Dot */}
                     <div className="sol-node-dot"></div>
-                    
+
                     {/* Actual Content Box */}
                     <div className={`sol-node-content ${block.highlight ? 'highlight-box' : ''}`}>
                       <span className={`sol-tag ${block.highlight ? 'highlight' : ''}`}>{block.tag}</span>
@@ -203,8 +203,9 @@ export default function SolutionsPage() {
           <h2 className="section-main-heading">{solutionsData.cta.heading}</h2>
           <p>{solutionsData.cta.text}</p>
           <div className="sol-cta-buttons">
-            <Link to="/contact" className="btn-primary">Schedule a Strategy Call</Link>
-            <Link to="/capabilities" className="btn-outline">Explore Our Capabilities</Link>
+            {/* Both links now point to /connect */}
+            <Link to="/connect" className="btn-primary">Schedule a Strategy Call</Link>
+            <Link to="/connect" className="btn-outline">Explore Our Capabilities</Link>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import companyData from '../data/company.json';
 import '../styles/company.css';
+import heroBgImage from '../img/company-page.png';
 
 // Local scroll reveal hook
 const useReveal = () => {
@@ -39,11 +40,11 @@ export default function CompanyPage() {
 
   return (
     <div className="cmp-page-container">
-      
+
       {/* 1. HERO SECTION (With Native Parallax) */}
-      <section 
+      <section
         className="cmp-hero parallax-bg"
-        style={{ backgroundImage: `url(${companyData.hero.bgImage})` }}
+        style={{ backgroundImage: `url(${heroBgImage})` }}
       >
         <div className="cmp-hero-overlay"></div>
         <div className="cmp-hero-content animate-fade-up">
@@ -115,8 +116,8 @@ export default function CompanyPage() {
       </section> */}
 
       {/* 5. LOOKING AHEAD (Vision Parallax Block) */}
-      <section 
-        className="cmp-vision parallax-bg" 
+      <section
+        className="cmp-vision parallax-bg"
         style={{ backgroundImage: `url(${companyData.vision.bgImage})` }}
         ref={visionRef}
       >
@@ -125,9 +126,10 @@ export default function CompanyPage() {
           <div className={`cmp-vision-box ${visionVisible ? 'visible' : ''}`}>
             <h2>{companyData.vision.heading}</h2>
             <p>{companyData.vision.desc}</p>
-            <a href={companyData.vision.link} className="btn-primary">
+            {/* CHANGED FROM <a> TO <Link> and explicitly set to "/connect" */}
+            <Link to="/connect" className="btn-primary">
               {companyData.vision.button}
-            </a>
+            </Link>
           </div>
         </div>
       </section>

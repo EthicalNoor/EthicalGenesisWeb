@@ -3,16 +3,12 @@
     "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop"
   },
   "info": {
-    "heading": "Partner With Us for Enterprise AI Solutions.",
-    "subHeading": "Ready to accelerate your digital transformation? Connect with our machine learning engineers and AI architects to discuss how intelligent automation, generative AI, and data intelligence can optimize your operations and scale your business.",
+    "heading": "Get in Touch with Ethical Genesis.",
+    "subHeading": "Have a question, partnership idea, or want to learn more about our AI solutions? Send us a message and our team will get back to you shortly.",
     "channels": [
       {
-        "label": "Enterprise AI Consultations",
-        "value": "strategy@ethicalgenesis.ai"
-      },
-      {
-        "label": "AI Engineering Careers",
-        "value": "careers@ethicalgenesis.ai"
+        "label": "General Inquiries & Support",
+        "value": "shahnoor.m@ethicalgenesis.ai"
       },
       {
         "label": "Global Headquarters",
@@ -21,17 +17,9 @@
     ]
   },
   "form": {
-    "interests": [
-      "Select an AI Technology or Service...",
-      "Enterprise Generative AI Solutions",
-      "Autonomous AI Workflows & Agents",
-      "LLM Fine-Tuning & Data Intelligence (RAG)",
-      "Machine Learning Engineering & MLOps",
-      "Other Digital Transformation Initiatives"
-    ],
     "successMessage": {
-      "title": "Strategic AI Consultation Request Received.",
-      "desc": "Your inquiry has been securely routed to our AI architecture team. An enterprise machine learning specialist will reach out within 24 hours to discuss your automation and business growth objectives."
+      "title": "Message Successfully Sent.",
+      "desc": "Thank you for reaching out. We have received your message and an auto-reply confirmation has been sent to your email. Our team will get back to you shortly."
     }
   }
 }

@@ -1,0 +1,265 @@
+{
+  "jureo": {
+    "id": "jureo",
+    "badge": "Flagship AI Platform",
+    "title": "Jureo — The Intelligent",
+    "highlightText": "AI Paralegal",
+    "hostedLink": "https://jureo.com/",
+    "subtitle": "Patented AI Paralegal Solution for Law Firms & Corporate Teams. Master precedent mapping and automate drafting with structured workflows.",
+    "heroImage": "https://images.unsplash.com/photo-1654588833369-5174f4640cd2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "An advanced Generative AI Solution accelerating legal research, drafting, and compliance specifically tailored for the legal ecosystem.",
+    "detailedDescription": "Jureo is an enterprise AI platform that seamlessly combines zero-hallucination semantic search, automated fact and data intelligence extraction, precise precedent mapping, and AI-assisted drafting. Designed to empower law firms and corporate legal teams, it instantly processes case files to generate notices, contracts, pleadings, and replies using structured workflows and 3,000+ templates.",
+    "problemStatement": "Litigation teams and corporate counsel lose hundreds of billable hours manually parsing dense case files, searching for relevant precedents across disconnected databases, and drafting routine legal documents from scratch, increasing the risk of human error and missed strategic angles.",
+    "solution": "A secure Legal AI automation engine that intelligently ingests case facts, semantically matches them to precedents, and instantly generates draft-ready legal documents with exact, verifiable citations and structured templates.",
+    "keyCapabilities": [
+      "Zero-Hallucination Semantic Search",
+      "Automated Fact & Data Intelligence Extraction",
+      "Intelligent Precedent Mapping",
+      "AI-Assisted Legal Drafting (Notices, Contracts, Pleadings)",
+      "Library of 3,000+ Structured Templates"
+    ],
+    "useCases": [
+      "Litigation Strategy & Hearing Preparation",
+      "Contract & Legal Notice Generation",
+      "Rapid Precedent Discovery & Citation",
+      "Automated Case Summarization"
+    ],
+    "targetAudience": [
+      "Law Firms",
+      "Corporate Legal Departments",
+      "Independent Advocates",
+      "Legal Researchers"
+    ],
+    "stats": [
+      {
+        "value": "10x",
+        "label": "Faster research turnaround"
+      },
+      {
+        "value": "3,000+",
+        "label": "Pre-built Legal Templates"
+      },
+      {
+        "value": "95%",
+        "label": "Higher confidence in precedents"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Using Jureo is indeed a pleasure. I have found it to be an advanced AI paralegal. The USP is its precedence-based replies and the intuitive clarifying questions, which will truly be an asset to any advocate.",
+        "author": "Shree Prakash Pandey",
+        "role": "Partner, Kamdhenu Associates"
+      },
+      {
+        "quote": "The fact extraction is sharp and the precedent suggestions save hours during hearing preparation.",
+        "author": "Vijay Sharma",
+        "role": "Senior Counsel, Advik Law Partners"
+      }
+    ]
+  },
+  "legal-compliance": {
+    "id": "legal-compliance",
+    "badge": "Regulatory Intelligence",
+    "title": "Compliance & Regulatory",
+    "highlightText": "AI Engine",
+    "hostedLink": "https://your-official-link.com",
+    "subtitle": "Advanced RegTech Platform for Financial Institutions. Streamline regulatory analysis, automate data pipelines, and ensure robust compliance at enterprise scale.",
+    "heroImage": "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFzaGJvYXJkfGVufDB8fDB8fHww",
+    "description": "An AI-powered Compliance & Regulatory Intelligence Engine designed to streamline risk analysis for global financial institutions.",
+    "detailedDescription": "This advanced RegTech platform ingests complex banking and regulatory documents, leveraging Large Language Models (LLMs) to generate structured JSON outputs including applicability, business, functional, and financial impact assessments. It features full CRUD-based firm profile management, intelligent document grouping, and robust API-driven automated data pipelines.",
+    "problemStatement": "Compliance teams face immense friction manually auditing regulatory filings. Evaluating the accuracy of automated outputs is traditionally slow, unscalable, and highly susceptible to critical human oversight.",
+    "solution": "An intelligent document processing pipeline featuring an advanced evaluation layer. It ensures output accuracy and reliability utilizing BLEU, ROUGE, METEOR, BERTScore, cosine similarity, DeepEval GEval, and LLM-as-a-Judge frameworks.",
+    "keyCapabilities": [
+      "JSON-Structured Impact Assessments",
+      "LLM-as-a-Judge & DeepEval Output Validation",
+      "CRUD-based Firm Profile Management",
+      "Intelligent Document Grouping",
+      "API-Driven Automated Data Pipelines"
+    ],
+    "useCases": [
+      "Financial Regulatory Audits",
+      "High-Volume Contract Review",
+      "Corporate Risk Mitigation",
+      "Dynamic Playbook Enforcement"
+    ],
+    "targetAudience": [
+      "Chief Compliance Officers",
+      "Financial Institutions",
+      "Enterprise Risk Managers"
+    ],
+    "stats": [
+      {
+        "value": "80%",
+        "label": "Reduction in review time"
+      },
+      {
+        "value": "7+",
+        "label": "Evaluation Frameworks Integrated"
+      },
+      {
+        "value": "100%",
+        "label": "Audit Trail Traceability"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "This engine fundamentally shifted how our compliance team operates. What used to take weeks of manual review is now verified overnight.",
+        "author": "Anita Desai",
+        "role": "Chief Compliance Officer"
+      }
+    ]
+  },
+  "fragrance-ai": {
+    "id": "fragrance-ai",
+    "badge": "R&D Intelligence",
+    "title": "Fragrance Data",
+    "highlightText": "Intelligence Platform",
+    "hostedLink": "https://your-official-link.com",
+    "subtitle": "Unlock complex formulation data using LLM-based prompt engineering. Seamlessly retrieve data from large-scale indexed datasets without writing queries.",
+    "heroImage": "https://plus.unsplash.com/premium_photo-1670537995192-c0b562f5c7ba?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "An AI-powered data intelligence platform that transforms natural language queries into structured OData expressions for fragrance R&D.",
+    "detailedDescription": "Designed for R&D innovation, this platform eliminates the need for manual query writing. Using advanced LLM-based prompt engineering, non-technical chemists and product managers can seamlessly retrieve formulation data from large-scale indexed datasets stored on cloud infrastructure. Queries are executed via APIs to deliver accurate, real-time results in structured tabular formats.",
+    "problemStatement": "R&D scientists spend months on trial-and-error chemical formulations, constrained by their inability to quickly query, format, and analyze millions of historical data points across complex cloud infrastructures.",
+    "solution": "An AI-driven query translation environment that maps natural language to precise OData expressions in seconds, allowing teams to instantly access vast formulation and ingredient datasets in easy-to-read tabular structures.",
+    "keyCapabilities": [
+      "Natural Language to OData Querying",
+      "LLM-based Prompt Engineering",
+      "Cloud-Native Dataset Indexing",
+      "Real-Time API Execution",
+      "Structured Tabular Output Formatting"
+    ],
+    "useCases": [
+      "Accelerated Lab Prototyping",
+      "Olfactory Data Exploration",
+      "Chemical Substitute Discovery"
+    ],
+    "targetAudience": [
+      "Master Perfumers",
+      "R&D Scientists",
+      "Cosmetics Manufacturers"
+    ],
+    "stats": [
+      {
+        "value": "60%",
+        "label": "Faster R&D Querying"
+      },
+      {
+        "value": "10M+",
+        "label": "Indexed Chemical Data Points"
+      },
+      {
+        "value": "Zero",
+        "label": "SQL/OData Knowledge Required"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "The ability to ask complex formulation questions in plain English and instantly get perfectly structured data tables has completely revolutionized our lab's workflow.",
+        "author": "Julian Laurent",
+        "role": "Master Perfumer"
+      }
+    ]
+  },
+  "enterprise-chatbot": {
+    "id": "enterprise-chatbot",
+    "badge": "Enterprise Automation",
+    "title": "Enterprise Generative",
+    "highlightText": "AI Chatbot",
+    "hostedLink": "https://your-official-link.com",
+    "subtitle": "Deploy secure AI assistants powered by Retrieval-Augmented Generation (RAG), featuring interactive, vocalizing virtual avatars.",
+    "heroImage": "https://media.istockphoto.com/id/2206232159/photo/student-using-ai-chatbot-while-studying.webp?a=1&b=1&s=612x612&w=0&k=20&c=mOxWgbGNosZvbHynNPfkQSJopGgL_FjwkmirbnpcCq0=",
+    "description": "A secure enterprise AI platform providing instant, hallucination-free knowledge access through engaging, vocalizing virtual avatars.",
+    "detailedDescription": "Powered by advanced RAG architectures, this conversational AI assistant delivers highly accurate, verifiable answers grounded strictly in proprietary organizational data. Beyond text, it features an interactive conversational experience through animated virtual assistants (such as a talking cat or other characters) that vocalize responses, creating a human-like interface for knowledge access and training.",
+    "problemStatement": "Employees waste significant time navigating fragmented internal portals, while traditional text-based chatbots suffer from low user engagement and poor adoption rates during onboarding and internal support workflows.",
+    "solution": "A centralized, intelligent conversational interface featuring an engaging animated avatar that understands complex intent, retrieves exact corporate information, and vocalizes the answers securely.",
+    "keyCapabilities": [
+      "Animated Virtual Avatars",
+      "Text-to-Speech Vocalization",
+      "Retrieval-Augmented Generation (RAG)",
+      "Zero-Retention Data Security",
+      "Semantic Enterprise Search"
+    ],
+    "useCases": [
+      "Interactive Internal IT & HR Support",
+      "Engaging Employee Onboarding",
+      "Instant Technical Documentation Retrieval"
+    ],
+    "targetAudience": [
+      "Enterprise HR Departments",
+      "Internal IT Support Teams",
+      "Operations Managers"
+    ],
+    "stats": [
+      {
+        "value": "24/7",
+        "label": "Instant Knowledge Access"
+      },
+      {
+        "value": "100%",
+        "label": "Data Security Guarantee"
+      },
+      {
+        "value": "3x",
+        "label": "Higher Employee Engagement"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Our onboarding time dropped by 30%. Employees get exact policy answers with direct links to the HR handbooks, and the vocalizing avatar makes the entire experience highly engaging.",
+        "author": "Sarah Jenkins",
+        "role": "Director of Operations"
+      }
+    ]
+  },
+  "sfl": {
+    "id": "sfl",
+    "badge": "Sports Tech Platform",
+    "title": "Serious Football League",
+    "highlightText": "(SFL) Platform",
+    "hostedLink": "https://your-official-link.com",
+    "subtitle": "Advanced Fantasy Sports League Automation Platform. Sync rosters, manage contracts, and scale your league operations with absolute precision.",
+    "heroImage": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8fDB8fHx8fHx8fHx8fHx8fHx8fA%3D%3D",
+    "description": "An integrated, full-stack Fantasy Sports League Management platform replacing fragmented spreadsheets with real-time, API-driven workflows.",
+    "detailedDescription": "SFL is a comprehensive digital ecosystem developed to automate the operations of year-round competitive fantasy leagues. It unifies disparate manual tools into a single source of truth, integrating directly with My Fantasy League (MFL) APIs to handle live roster syncing, structured contract tracking, and automated free-agent bidding across a 12-month operational cycle.",
+    "problemStatement": "Fantasy sports league operators previously relied on highly fragmented systems—a standalone PHP bidding app, error-prone manual Excel spreadsheets for contracts, and unsynced external roster platforms. This created massive administrative overhead, data inconsistencies, and unscalable manual workflows.",
+    "solution": "A custom-built, web-based league management application. By utilizing MFL as the authoritative data source via API, the system brings all financial rules, cap sheet generation, renegotiations, and live bidding under one unified, automated roof.",
+    "keyCapabilities": [
+      "Live API Roster Synchronization with MFL",
+      "Real-time Automated Free Agency Bidding",
+      "Structured Contract & Salary Cap Management",
+      "One-click Cap Sheet Generation",
+      "Automated Contract Renegotiation Workflows"
+    ],
+    "useCases": [
+      "Year-round Fantasy League Management",
+      "Real-time Free Agent Acquisition",
+      "End-of-season Roster & Financial Audits"
+    ],
+    "targetAudience": [
+      "League Commissioners",
+      "Fantasy Sports Organizations",
+      "Competitive Team Owners"
+    ],
+    "stats": [
+      {
+        "value": "100%",
+        "label": "Elimination of Manual Spreadsheets"
+      },
+      {
+        "value": "5-to-1",
+        "label": "Tool Consolidation Ratio"
+      },
+      {
+        "value": "Real-time",
+        "label": "MFL Roster Sync"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Consolidating our disjointed tools into a single, cohesive platform eliminated manual spreadsheet maintenance and empowered team owners with accurate, enriched roster data on demand.",
+        "author": "League Operations",
+        "role": "SFL Commissioner"
+      }
+    ]
+  }
+}

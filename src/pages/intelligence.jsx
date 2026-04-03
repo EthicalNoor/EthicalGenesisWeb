@@ -108,7 +108,7 @@ export default function IntelligencePage() {
       </section>
 
       {/* 4. INSIGHTS (Functional Links with Hover States) */}
-      <section className="int-section int-insights" ref={insightsRef}>
+      {/* <section className="int-section int-insights" ref={insightsRef}>
         <div className="int-container">
           <h2 className={`int-editorial-title ${insightsVisible ? 'visible' : ''}`}>
             {intelligenceData.insights.title}
@@ -132,7 +132,7 @@ export default function IntelligencePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 5. HUMAN-AI SYNERGY (Split Sticky Layout with Image) */}
       <section className="int-section int-synergy" ref={synergyRef}>

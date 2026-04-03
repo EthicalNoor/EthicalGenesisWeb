@@ -1,18 +1,130 @@
 [
   {
+    "slug": "agentic-ai",
+    "title": "Agentic AI & Autonomous Systems",
+    "shortDescription": "Deploy intelligent digital agents capable of complex reasoning, API integration, and autonomous workflow execution.",
+    "elevatorPitch": "Move beyond rigid, rule-based automation. We engineer goal-oriented Agentic AI systems that comprehend ambiguous instructions, formulate deterministic execution plans, and autonomously interact with your enterprise software suite to resolve complex tasks.",
+    "metrics": [
+      { "label": "Task Autonomy", "value": "≥90%" },
+      { "label": "Deployment Timeline", "value": "6–8 weeks" },
+      { "label": "Operational Error Rate", "value": "<1%" }
+    ],
+"narrative": [
+      { "id": "challenge", "tag": "The Core Challenge", "content": "Traditional Robotic Process Automation (RPA) is highly brittle. When user interfaces update or decision logic branches unexpectedly, standard bots fail, requiring constant engineering intervention and limiting the true scale of enterprise automation.", "align": "left", "highlight": false },
+      { "id": "solution", "tag": "Our Architecture", "content": "We deploy autonomous AI agents powered by Large Language Models acting as reasoning engines. These agents dynamically assess real-time API responses, adjust their execution strategies on the fly, and mandate human-in-the-loop approvals only for high-risk financial or data-modification actions.", "align": "right", "highlight": true },
+      { "id": "impact", "tag": "Strategic Impact", "content": "Transforms your operational model from 'following static scripts' to 'solving dynamic problems.' This eliminates workflow bottlenecks, drastically reduces manual task handoffs, and allows human operators to focus strictly on strategic oversight.", "align": "left", "highlight": false },
+      { "id": "tech", "tag": "Core Technologies", "content": "Powered by advanced LLM Orchestration frameworks, deterministic logic gates, intelligent API middleware, and secure cryptographic audit logging.", "align": "right", "highlight": false }
+    ],
+    "outcomes": [
+      "End-to-end automation of multi-step, cross-departmental business operations.",
+      "Elimination of workflow friction caused by manual data entry and system toggling.",
+      "Strict enterprise governance maintained via immutable cryptographic audit logs."
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Process Discovery & Workflow Mapping",
+        "summary": "We conduct a detailed analysis of your manual processes to define the exact sequence of actions required for AI automation.",
+        "criteria": "A comprehensive logic diagram detailing every step and decision branch of the task.",
+        "inputsOutputs": "Inputs: SME interviews. Outputs: Standard Operating Procedure (SOP) logic maps.",
+        "tools": "Process mining software, workflow diagramming",
+        "security": "Define hard boundaries regarding which systems the AI agent is explicitly forbidden from accessing.",
+        "time": "1 week",
+        "risk": "Overlooking micro-steps in the workflow; mitigated by shadowing human operators."
+      },
+      {
+        "id": 2,
+        "title": "Secure Tool Integration",
+        "summary": "We establish secure API integrations, allowing the autonomous agent to interact with your databases, communication platforms, and SaaS applications.",
+        "criteria": "The AI agent successfully authenticates, reads, and writes data across all required enterprise tools.",
+        "inputsOutputs": "Inputs: API credentials. Outputs: Resilient, encrypted service connections.",
+        "tools": "Encrypted credential vaults, API middleware",
+        "security": "Utilizing secure service accounts and token-based authentication to abstract raw passwords.",
+        "time": "2 weeks",
+        "risk": "Fragile UI-based automations breaking; mitigated by prioritizing robust, direct API connections."
+      },
+      {
+        "id": 3,
+        "title": "Cognitive Logic & Planning Engineering",
+        "summary": "We architect the reasoning capabilities of the agent, enabling it to decompose complex requests into sequential execution plans.",
+        "criteria": "The AI agent consistently generates logical, accurate execution plans during isolated testing.",
+        "inputsOutputs": "Inputs: Complex task prompts. Outputs: Step-by-step autonomous execution strategies.",
+        "tools": "LLM orchestration frameworks, deterministic logic gates",
+        "security": "Programming immutable constraints and operational boundaries into the core reasoning engine.",
+        "time": "2 weeks",
+        "risk": "Agentic looping or hallucination; mitigated by implementing automatic termination triggers."
+      },
+      {
+        "id": 4,
+        "title": "Human-in-the-Loop Integration",
+        "summary": "We engineer an intuitive oversight dashboard where the AI agent pauses execution to request explicit human authorization before proceeding.",
+        "criteria": "The system reliably pauses at critical junctures and resumes only upon secure human validation.",
+        "inputsOutputs": "Inputs: Proposed AI actions. Outputs: Human-approved or modified execution paths.",
+        "tools": "Workflow review dashboards, secure notification integrations",
+        "security": "Generating an immutable, timestamped audit log of all human approvals and interventions.",
+        "time": "1 week",
+        "risk": "Workflow bottlenecks due to delayed human response; mitigated by SLA-based escalation protocols."
+      },
+      {
+        "id": 5,
+        "title": "Simulated Environment Testing",
+        "summary": "We deploy the agentic system within a secure sandbox environment, allowing it to execute practice workflows against synthetic data.",
+        "criteria": "The AI assistant flawlessly executes simulated workflows while strictly adhering to all governance rules.",
+        "inputsOutputs": "Inputs: Synthetic test datasets. Outputs: Comprehensive quality assurance scorecards.",
+        "tools": "Isolated staging servers, synthetic data generators",
+        "security": "Guaranteeing the absolute isolation of the sandbox environment from production enterprise data.",
+        "time": "1 week",
+        "risk": "Discrepancies between sandbox and production; mitigated by utilizing high-fidelity, anonymized enterprise data."
+      },
+      {
+        "id": 6,
+        "title": "Production Deployment & Scaling",
+        "summary": "We transition the autonomous workflow into production, closely monitoring early executions to ensure optimal system stability.",
+        "criteria": "The AI agent processes live enterprise workloads accurately without triggering operational anomalies.",
+        "inputsOutputs": "Inputs: Live enterprise tasks. Outputs: Autonomously completed business processes.",
+        "tools": "Real-time execution monitoring, MLOps telemetry dashboards",
+        "security": "Continuous real-time threat monitoring to identify and block anomalous agent behavior.",
+        "time": "1–2 weeks",
+        "risk": "Unforeseen production edge cases; mitigated by utilizing a gradual, percentage-based rollout strategy."
+      }
+    ],
+    "securityChecklist": [
+      "Strict programmatic boundaries limiting the agent's execution authority",
+      "Mandatory human-in-the-loop authorization for sensitive financial or data-modification tasks",
+      "An immutable, cryptographic audit log recording every API call and decision made by the AI",
+      "Enterprise-grade encryption and secure lifecycle management for all system credentials"
+    ],
+    "caseStudies": [
+      {
+        "title": "Autonomous IT Service Desk",
+        "metric": "80% reduction in resolution time",
+        "desc": "Engineered an agentic AI assistant capable of autonomously diagnosing and resolving routine IT access requests, drastically reducing employee downtime."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/agentic-ai-spec.pdf"
+    }
+  },
+  {
     "slug": "generative-ai",
     "title": "Enterprise Generative AI Solutions",
-    "shortDescription": "Advanced Generative AI software designed to automate text drafting, code generation, and media creation, accelerating your digital transformation.",
-    "elevatorPitch": "We engineer secure, custom Generative AI systems that empower your workforce to generate documents, emails, and code on demand. By automating repetitive drafting processes, we streamline daily operations while ensuring your proprietary company data remains strictly private and compliant.",
+    "shortDescription": "Integrate custom Large Language Models to securely automate content generation, coding, and complex data synthesis.",
+    "elevatorPitch": "Empower your workforce with custom Generative AI systems designed to draft documents, synthesize communications, and generate code on demand. We seamlessly integrate these capabilities into your daily software suite, accelerating intellectual output while keeping your proprietary corporate data strictly within your secure network.",
     "metrics": [
-      { "label": "Deployment Timeline", "value": "4–6 weeks" },
+      { "label": "Operational Efficiency", "value": "≈40% effort reduction" },
       { "label": "Projected ROI", "value": "3× within 6 months" },
-      { "label": "Operational Efficiency", "value": "≈40% reduction in manual effort" }
+      { "label": "Deployment Timeline", "value": "4–6 weeks" }
+    ],
+"narrative": [
+      { "id": "challenge", "tag": "The Core Challenge", "content": "High-value professionals—from software engineers to legal analysts—spend a disproportionate amount of their workweek drafting boilerplate text, summarizing meeting notes, and writing routine reports instead of executing high-level strategic tasks.", "align": "left", "highlight": false },
+      { "id": "solution", "tag": "Our Architecture", "content": "We deploy specialized, locally hosted or securely API-gated Large Language Models tuned specifically to your brand voice and corporate formatting guidelines. These tools are embedded directly into your existing applications, providing instantly accessible, context-aware generation capabilities.", "align": "right", "highlight": true },
+      { "id": "impact", "tag": "Strategic Impact", "content": "Reclaims thousands of hours of intellectual capital annually. By removing the friction of the 'first draft,' your organization can exponentially scale its creative and analytical throughput without requiring linear headcount growth.", "align": "left", "highlight": false },
+      { "id": "tech", "tag": "Core Technologies", "content": "Powered by Enterprise-Grade Foundation Models, Advanced Prompt Engineering, Secure API Gateways, and Dynamic Data Masking.", "align": "right", "highlight": false }
     ],
     "outcomes": [
       "Automate the generation of routine business reports and technical documentation.",
       "Accelerate software development life cycles with intelligent AI coding assistants.",
-      "Seamlessly integrate text and image generation capabilities directly into your enterprise workflows."
+      "Seamlessly integrate text and image generation capabilities directly into enterprise workflows."
     ],
     "steps": [
       {
@@ -86,14 +198,13 @@
       "Ensures strict adherence to corporate data privacy and governance frameworks",
       "Maintains full compliance with regional data residency and protection regulations",
       "Implements zero-trust architecture to restrict data access exclusively to authorized personnel",
-      "Utilizes automated data masking to redact sensitive information and PII dynamically",
-      "Secures all enterprise knowledge within highly encrypted, isolated cloud storage vaults"
+      "Utilizes automated data masking to redact sensitive information and PII dynamically"
     ],
     "caseStudies": [
       {
-        "title": "Automated Financial Reporting Intelligence",
+        "title": "Automated Financial Reporting",
         "metric": "300% ROI",
-        "desc": "Deployed a secure Generative AI pipeline to automate the drafting of complex weekly financial reports, driving rapid digital transformation and reclaiming hundreds of hours for the finance division."
+        "desc": "Deployed a secure Generative AI pipeline to automate the drafting of complex weekly financial reports, reclaiming hundreds of hours for the finance division."
       }
     ],
     "assets": {
@@ -101,114 +212,20 @@
     }
   },
   {
-    "slug": "agentic-ai",
-    "title": "Agentic AI & Autonomous Systems",
-    "shortDescription": "Intelligent digital agents capable of autonomously navigating software, executing complex workflows, and resolving enterprise tasks.",
-    "elevatorPitch": "Go beyond conversational AI with Agentic Systems that take decisive action. We engineer intelligent assistants that comprehend complex instructions, formulate multi-step execution plans, interface with your enterprise tools, and autonomously complete tasks—all while strictly enforcing human-in-the-loop approvals for critical actions.",
-    "metrics": [
-      { "label": "Deployment Timeline", "value": "6–8 weeks" },
-      { "label": "Autonomous Task Success", "value": "≥90% completion rate" },
-      { "label": "Operational Error Rate", "value": "<1% post-deployment" }
-    ],
-    "outcomes": [
-      "Automate multi-step business processes end-to-end to drive scalable efficiency.",
-      "Minimize workflow friction and eliminate time wasted on manual task handoffs.",
-      "Maintain strict enterprise governance with required human-in-the-loop decision gating."
-    ],
-    "steps": [
-      {
-        "id": 1,
-        "title": "Process Discovery & Workflow Mapping",
-        "summary": "We conduct a detailed analysis of your manual processes to define the exact sequence of actions required for AI automation.",
-        "criteria": "A comprehensive logic diagram detailing every step and decision branch of the task.",
-        "inputsOutputs": "Inputs: SME interviews and process observation. Outputs: Standard Operating Procedure (SOP) maps.",
-        "tools": "Process mining software, workflow diagramming",
-        "security": "Define hard boundaries regarding which systems the AI agent is explicitly forbidden from accessing.",
-        "time": "1 week",
-        "risk": "Overlooking micro-steps in the workflow; mitigated by conducting shadow sessions with human operators."
-      },
-      {
-        "id": 2,
-        "title": "Secure Tool Integration",
-        "summary": "We establish secure API integrations, allowing the autonomous agent to interact with your databases, communication platforms, and SaaS applications.",
-        "criteria": "The AI agent successfully authenticates, reads, and writes data across all required enterprise tools.",
-        "inputsOutputs": "Inputs: API credentials and system documentation. Outputs: Resilient service connections.",
-        "tools": "Encrypted credential vaults, API middleware",
-        "security": "Utilizing secure service accounts and token-based authentication to abstract raw passwords from the model.",
-        "time": "2 weeks",
-        "risk": "Fragile UI-based automations breaking; mitigated by prioritizing robust, direct API connections."
-      },
-      {
-        "id": 3,
-        "title": "Cognitive Logic & Planning Engineering",
-        "summary": "We architect the reasoning capabilities of the agent, enabling it to decompose complex requests into sequential execution plans.",
-        "criteria": "The AI agent consistently generates logical, accurate execution plans during isolated testing.",
-        "inputsOutputs": "Inputs: Complex task prompts. Outputs: Step-by-step autonomous execution strategies.",
-        "tools": "Large Language Model (LLM) orchestration frameworks",
-        "security": "Programming immutable constraints and operational boundaries into the core reasoning engine.",
-        "time": "2 weeks",
-        "risk": "Agentic looping or hallucination; mitigated by implementing deterministic logic checks and automatic termination triggers."
-      },
-      {
-        "id": 4,
-        "title": "Human-in-the-Loop Integration",
-        "summary": "We engineer an intuitive oversight dashboard where the AI agent pauses execution to request explicit human authorization before proceeding.",
-        "criteria": "The system reliably pauses at critical junctures and resumes only upon secure human validation.",
-        "inputsOutputs": "Inputs: Proposed AI actions. Outputs: Human-approved or modified execution paths.",
-        "tools": "Workflow review dashboards, notification integrations",
-        "security": "Generating an immutable, timestamped audit log of all human approvals and interventions.",
-        "time": "1 week",
-        "risk": "Workflow bottlenecks due to delayed human response; mitigated by SLA-based automatic escalation protocols."
-      },
-      {
-        "id": 5,
-        "title": "Simulated Environment Testing",
-        "summary": "We deploy the agentic system within a secure sandbox environment, allowing it to execute practice workflows against synthetic data.",
-        "criteria": "The AI assistant flawlessly executes simulated workflows while strictly adhering to all governance rules.",
-        "inputsOutputs": "Inputs: Synthetic test datasets. Outputs: Comprehensive quality assurance scorecards.",
-        "tools": "Isolated staging servers, synthetic data generators",
-        "security": "Guaranteeing the absolute isolation of the sandbox environment from production data and live customer systems.",
-        "time": "1 week",
-        "risk": "Discrepancies between sandbox and production; mitigated by utilizing high-fidelity, anonymized enterprise data."
-      },
-      {
-        "id": 6,
-        "title": "Production Deployment & Scaling",
-        "summary": "We transition the autonomous workflow into production, closely monitoring early executions to ensure optimal system stability.",
-        "criteria": "The AI agent processes live enterprise workloads accurately without triggering operational anomalies.",
-        "inputsOutputs": "Inputs: Live enterprise tasks. Outputs: Autonomously completed business processes.",
-        "tools": "Real-time execution monitoring, MLOps dashboards",
-        "security": "Continuous real-time threat monitoring to identify and block anomalous agent behavior.",
-        "time": "1–2 weeks",
-        "risk": "Unforeseen production edge cases; mitigated by utilizing a gradual, percentage-based rollout strategy."
-      }
-    ],
-    "securityChecklist": [
-      "Strict programmatic boundaries limiting the agent's execution authority",
-      "Mandatory human-in-the-loop authorization for sensitive financial or data-modification tasks",
-      "An immutable, cryptographic audit log recording every API call and decision made by the AI",
-      "Enterprise-grade encryption and secure lifecycle management for all system credentials"
-    ],
-    "caseStudies": [
-      {
-        "title": "Autonomous IT Service Desk",
-        "metric": "80% reduction in resolution time",
-        "desc": "Engineered an agentic AI assistant capable of autonomously diagnosing and resolving routine IT access requests, drastically reducing employee downtime and operational overhead."
-      }
-    ],
-    "assets": {
-      "spec": "/assets/agentic-ai-spec.pdf"
-    }
-  },
-  {
     "slug": "llm-rag",
-    "title": "LLM Fine-Tuning & Retrieval-Augmented Generation (RAG)",
-    "shortDescription": "Enterprise-grade conversational AI and semantic search solutions grounded securely in your proprietary business data.",
-    "elevatorPitch": "Public AI models lack your unique business context. We architect custom Retrieval-Augmented Generation (RAG) solutions and fine-tune Large Language Models (LLMs) on your internal documentation, policies, and historical data. This empowers your workforce with instantaneous, highly accurate answers backed by direct citations to your secure source materials.",
+    "title": "LLM Fine-Tuning & Retrieval-Augmented Generation",
+    "shortDescription": "Enterprise conversational AI and semantic search engines tethered exclusively to your internal business data.",
+    "elevatorPitch": "Off-the-shelf chatbots cannot securely access your private corporate knowledge. We engineer advanced Retrieval-Augmented Generation (RAG) pipelines that connect Large Language Models directly to your internal documents and databases, providing your workforce with instant, hallucination-free answers backed by verifiable source citations.",
     "metrics": [
       { "label": "Contextual Accuracy", "value": "≥95%" },
-      { "label": "System Uptime", "value": "99.9%" },
-      { "label": "Inference Latency", "value": "<500 ms" }
+      { "label": "Inference Latency", "value": "<500 ms" },
+      { "label": "System Uptime", "value": "99.9%" }
+    ],
+"narrative": [
+      { "id": "challenge", "tag": "The Core Challenge", "content": "Enterprise knowledge is heavily siloed. Employees waste up to 20% of their week navigating fragmented wikis, sprawling shared drives, and outdated PDFs merely to locate a single company policy or technical spec.", "align": "left", "highlight": false },
+      { "id": "solution", "tag": "Our Architecture", "content": "We vectorize your unstructured data and ingest it into a highly optimized semantic search engine. When a user asks a natural-language question, our RAG framework retrieves the exact relevant paragraphs and uses an LLM to synthesize a coherent, accurate response with direct hyperlinks to the source files.", "align": "right", "highlight": true },
+      { "id": "impact", "tag": "Strategic Impact", "content": "Transforms scattered data repositories into an interactive, omniscient intelligence layer. This drastically accelerates internal research velocity, ensures absolute data transparency, and democratizes institutional knowledge across all departments instantly.", "align": "left", "highlight": false },
+      { "id": "tech", "tag": "Core Technologies", "content": "Powered by high-performance Vector Databases, proprietary Embedding Models, Hybrid Semantic Search Algorithms, and LLM Synthesis Engines.", "align": "right", "highlight": false }
     ],
     "outcomes": [
       "Extract instant, verifiable insights from vast repositories of unstructured enterprise text.",
@@ -225,7 +242,7 @@
         "tools": "Encrypted file transfer protocols, secure data lakes",
         "security": "Enforcing strict access controls to guarantee only authorized enterprise data is utilized.",
         "time": "1 week",
-        "risk": "Omission of critical tribal knowledge; mitigated by conducting thorough data-mapping workshops with internal SMEs."
+        "risk": "Omission of critical tribal knowledge; mitigated by conducting data-mapping workshops with internal SMEs."
       },
       {
         "id": 2,
@@ -236,7 +253,7 @@
         "tools": "NLP parsing scripts, optical character recognition (OCR)",
         "security": "Automated scrubbing of sensitive data and credentials before indexing.",
         "time": "1 week",
-        "risk": "Loss of structural context in complex documents; mitigated by utilizing specialized parsers for tables and charts."
+        "risk": "Loss of structural context in complex documents; mitigated by utilizing specialized parsers for tables."
       },
       {
         "id": 3,
@@ -258,7 +275,7 @@
         "tools": "Advanced relevance ranking algorithms, hybrid search architectures",
         "security": "Maintaining secure, anonymized logs of search queries to drive continuous improvement.",
         "time": "1 week",
-        "risk": "Suboptimal document retrieval; mitigated by implementing hybrid search combining vector and keyword methodologies."
+        "risk": "Suboptimal document retrieval; mitigated by implementing hybrid search methodologies."
       },
       {
         "id": 5,
@@ -269,7 +286,7 @@
         "tools": "LLM orchestration layers, prompt engineering frameworks",
         "security": "Implementing rigid instructional parameters forcing the model to admit knowledge gaps rather than hallucinate.",
         "time": "1 week",
-        "risk": "Excessively verbose or unfocused outputs; mitigated by applying strict length and format constraints via prompt engineering."
+        "risk": "Excessively verbose outputs; mitigated by applying strict length format constraints."
       },
       {
         "id": 6,
@@ -278,9 +295,9 @@
         "criteria": "Pilot users report high satisfaction with response speed, accuracy, and operational utility.",
         "inputsOutputs": "Inputs: Real-world pilot queries. Outputs: A highly optimized, production-ready AI solution.",
         "tools": "User feedback telemetry, A/B testing frameworks",
-        "security": "Validating that the AI respects existing Document Level Security (DLS) and user permission models.",
+        "security": "Validating that the AI respects existing Document Level Security (DLS) models.",
         "time": "1–2 weeks",
-        "risk": "Poor initial user adoption; mitigated by providing comprehensive onboarding materials and best-practice prompt guides."
+        "risk": "Poor initial user adoption; mitigated by providing comprehensive onboarding materials."
       }
     ],
     "securityChecklist": [
@@ -292,8 +309,8 @@
     "caseStudies": [
       {
         "title": "Enterprise HR Policy Intelligence",
-        "metric": "75% reduction in manual HR inquiries",
-        "desc": "Engineered a secure, RAG-powered conversational interface allowing employees to instantly query complex benefits documentation, significantly decreasing administrative burden on HR staff."
+        "metric": "75% reduction in manual inquiries",
+        "desc": "Engineered a secure, RAG-powered conversational interface allowing employees to instantly query complex benefits documentation."
       }
     ],
     "assets": {
@@ -301,14 +318,126 @@
     }
   },
   {
+    "slug": "autonomous-workflows",
+    "title": "Intelligent Autonomous Workflows",
+    "shortDescription": "Convert repetitive, manual business operations into frictionless, self-executing background processes.",
+    "elevatorPitch": "We accelerate business velocity by targeting your highest-friction operational bottlenecks—such as cross-platform data synchronization, document routing, and system administration. By deploying resilient, AI-driven workflow pipelines, we eliminate manual delays, drastically reduce error rates, and seamlessly escalate only true edge cases to your specialized human workforce.",
+    "metrics": [
+      { "label": "Operational Time Saved", "value": "+60% acceleration" },
+      { "label": "Process Coverage", "value": "≈80% automation of target daily tasks" },
+      { "label": "Defect Reduction", "value": "≈70% decrease in manual errors" }
+    ],
+"narrative": [
+      { "id": "challenge", "tag": "The Core Challenge", "content": "Modern enterprises run on dozens of disconnected SaaS platforms. The 'glue' holding these systems together is often expensive human labor manually migrating data, matching invoices, or provisioning IT access—tasks that are inherently slow and prone to critical human error.", "align": "left", "highlight": false },
+      { "id": "solution", "tag": "Our Architecture", "content": "We construct secure, self-healing data pipelines powered by deterministic logic and machine learning components. These workflows detect trigger events across your network, intelligently parse incoming payloads, and autonomously route or resolve the standard processes natively via secure APIs.", "align": "right", "highlight": true },
+      { "id": "impact", "tag": "Strategic Impact", "content": "Delivers immediate, measurable reductions in operational latency. By digitizing and automating the 'connective tissue' of your business, your organization gains the capacity to handle exponentially higher transaction volumes without adding administrative overhead.", "align": "left", "highlight": false },
+      { "id": "tech", "tag": "Core Technologies", "content": "Powered by Event-Driven Webhooks, Real-Time Telemetry Dashboards, Machine Learning Exception Routing, and Secure Identity Access Management.", "align": "right", "highlight": false }
+    ],
+    "outcomes": [
+      "Execute critical business processes instantaneously without relying on manual human intervention.",
+      "Autonomously detect and remediate routine system errors, reducing dependency on IT support.",
+      "Gain total operational transparency via real-time dashboards tracking workflow velocity and throughput."
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Process Bottleneck Identification",
+        "summary": "We conduct a rigorous operational analysis to isolate and quantify the manual tasks generating the highest friction within your organization.",
+        "criteria": "A prioritized matrix of automation candidates ranked by potential ROI and time savings.",
+        "inputsOutputs": "Inputs: Stakeholder operational feedback. Outputs: A strategic automation target list.",
+        "tools": "Time-tracking analytics, workflow discovery interviews",
+        "security": "Conducting a preliminary security audit to evaluate the data sensitivity of proposed targets.",
+        "time": "1–2 weeks",
+        "risk": "Targeting excessively complex edge cases early; mitigated by prioritizing 'quick wins'."
+      },
+      {
+        "id": 2,
+        "title": "Pipeline Architecture Design",
+        "summary": "We architect a detailed, deterministic workflow map dictating exactly how the AI system will interface with enterprise software to execute the task.",
+        "criteria": "A robust architectural diagram inclusive of comprehensive error-handling and fallback procedures.",
+        "inputsOutputs": "Inputs: Target process parameters. Outputs: An engineered automation blueprint.",
+        "tools": "System architecture diagramming",
+        "security": "Validating and provisioning the principle of least privilege for required service accounts.",
+        "time": "1–2 weeks",
+        "risk": "Upstream UI changes breaking the automation; mitigated by architecting robust, API-first integrations."
+      },
+      {
+        "id": 3,
+        "title": "Observability & Telemetry Implementation",
+        "summary": "We develop an executive monitoring dashboard providing real-time visibility into the autonomous execution, throughput, and error rates of the workflow.",
+        "criteria": "A live telemetry dashboard accurately visualizing 'Successful Executions' versus 'Exceptions'.",
+        "inputsOutputs": "Inputs: Pipeline execution data. Outputs: A real-time operational dashboard.",
+        "tools": "Business Intelligence (BI) software, monitoring integrations",
+        "security": "Ensuring the observability dashboard aggregates metrics without exposing underlying sensitive payload data.",
+        "time": "1 week",
+        "risk": "Data fatigue from excessive alerting; mitigated by engineering clean, exception-focused designs."
+      },
+      {
+        "id": 4,
+        "title": "Fail-Safe Logic Programming",
+        "summary": "We engineer rigorous operational guardrails; if the autonomous system encounters anomalous data, it immediately pauses and routes the exception to human oversight.",
+        "criteria": "The pipeline consistently and safely halts execution upon encountering defined out-of-bounds parameters.",
+        "inputsOutputs": "Inputs: Process governance rules. Outputs: Hardened safety barriers and exception routing.",
+        "tools": "Deterministic logic programming, alerting gateways",
+        "security": "Maintaining an immutable log detailing the contextual data surrounding every triggered exception halt.",
+        "time": "1 week",
+        "risk": "Excessive exception routing; mitigated by continuously tuning logic thresholds."
+      },
+      {
+        "id": 5,
+        "title": "Iterative Machine Learning Optimization",
+        "summary": "As the workflow processes live data, we iteratively train the underlying models based on human exception handling to increase the system's autonomous resolution rate.",
+        "criteria": "The workflow demonstrates a week-over-week reduction in the necessity for human intervention.",
+        "inputsOutputs": "Inputs: Human exception resolutions. Outputs: Enhanced, more resilient automation logic.",
+        "tools": "Continuous deployment frameworks, code iteration",
+        "security": "Mandatory peer-review and security validation for all logic updates prior to production deployment.",
+        "time": "2–4 weeks",
+        "risk": "Optimization regressions; mitigated by maintaining strict version control and automated rollbacks."
+      },
+      {
+        "id": 6,
+        "title": "Workforce Enablement",
+        "summary": "We conduct targeted training sessions to familiarize your staff with the autonomous systems, focusing on how to effectively monitor and manage escalated exceptions.",
+        "criteria": "Personnel demonstrate proficiency in navigating the dashboard, approving workflows, and resolving edge cases.",
+        "inputsOutputs": "Inputs: Deployed automation system. Outputs: Streamlined training documentation and SOPs.",
+        "tools": "Interactive training webinars, concise digital manuals",
+        "security": "Guaranteeing that administrative controls are restricted strictly to management personnel.",
+        "time": "1–2 weeks",
+        "risk": "Change resistance among staff; mitigated by designing highly intuitive exception interfaces."
+      }
+    ],
+    "securityChecklist": [
+      "The automation pipeline operates exclusively on the principle of least privilege for all credentials",
+      "Every automated interaction, API call, and data modification is recorded in a tamper-evident audit log",
+      "Strict data obfuscation protocols prevent sensitive payload information from surfacing on dashboards",
+      "Immediate, system-wide 'kill switches' are engineered and easily accessible to authorized administrators"
+    ],
+    "caseStudies": [
+      {
+        "title": "Self-Healing IT Infrastructure",
+        "metric": "70% acceleration in resolution",
+        "desc": "Developed a resilient background workflow that autonomously detects and remediates server anomalies, reducing after-hours IT escalations."
+      }
+    ],
+    "assets": {
+      "spec": "/assets/autonomous-workflows-spec.pdf"
+    }
+  },
+  {
     "slug": "knowledge-graphs",
     "title": "Enterprise Knowledge Graphs & Data Intelligence",
-    "shortDescription": "Intelligent semantic mapping solutions that interconnect disparate enterprise data silos into a unified, highly queryable data ecosystem.",
-    "elevatorPitch": "Your critical business data is likely fragmented across dozens of disconnected platforms. We engineer sophisticated semantic Knowledge Graphs that map the complex relationships between your customers, supply chains, and internal operations. This unified intelligence layer enables instantaneous search, advanced analytics, and a holistic 360-degree view of your enterprise.",
+    "shortDescription": "Interconnect disparate enterprise data silos into a unified, highly queryable semantic ecosystem.",
+    "elevatorPitch": "Transform fragmented databases into a singular, interconnected brain. We engineer sophisticated semantic Knowledge Graphs that explicitly map the complex relationships between your customers, supply chains, and internal operations. This unified intelligence layer powers instantaneous semantic search, complex relational analytics, and a holistic 360-degree view of your enterprise.",
     "metrics": [
       { "label": "Data Silo Integration", "value": "≈90% consolidation" },
       { "label": "Query Latency", "value": "Near-instantaneous" },
       { "label": "Relational Accuracy", "value": "≈95%" }
+    ],
+"narrative": [
+      { "id": "challenge", "tag": "The Core Challenge", "content": "Crucial business intelligence is often trapped across completely disconnected CRM, ERP, and legacy HR systems. This structural fragmentation makes it mathematically impossible to execute complex relational queries or achieve a unified, 360-degree view of an enterprise entity.", "align": "left", "highlight": false },
+      { "id": "solution", "tag": "Our Architecture", "content": "We extract entities from your structured and unstructured databases and map them into a high-performance semantic graph network. Rather than relying on rigid table joins, the system explicitly defines the contextual relationships between data points, creating a live, traversable web of enterprise knowledge.", "align": "right", "highlight": true },
+      { "id": "impact", "tag": "Strategic Impact", "content": "Uncovers previously invisible operational correlations and supply chain vulnerabilities. It exponentially accelerates root-cause analysis and empowers executive leadership to make holistic, data-driven decisions based on fully connected organizational intelligence.", "align": "left", "highlight": false },
+      { "id": "tech", "tag": "Core Technologies", "content": "Powered by Enterprise Graph Databases, Natural Language Entity Extraction (NER), Semantic Ontology Mapping, and Row-Level Security.", "align": "right", "highlight": false }
     ],
     "outcomes": [
       "Achieve a unified, 360-degree view of customer profiles, enterprise assets, and ongoing projects.",
@@ -336,7 +465,7 @@
         "tools": "Named Entity Recognition (NER), data normalization scripts",
         "security": "Ensuring stringent obfuscation of sensitive personal data during the extraction phase.",
         "time": "1–2 weeks",
-        "risk": "Entity duplication due to naming inconsistencies; mitigated by implementing advanced fuzzy matching and deduplication algorithms."
+        "risk": "Entity duplication due to naming inconsistencies; mitigated by implementing fuzzy matching algorithms."
       },
       {
         "id": 3,
@@ -369,7 +498,7 @@
         "tools": "Automated data ingestion pipelines",
         "security": "Rigorous vetting of external data sources for compliance and intellectual property adherence.",
         "time": "2 weeks",
-        "risk": "Pollution from low-quality external data; mitigated by implementing strict data validation and filtering gates."
+        "risk": "Pollution from low-quality external data; mitigated by implementing strict data validation filters."
       },
       {
         "id": 6,
@@ -378,9 +507,9 @@
         "criteria": "A highly responsive user interface that translates complex graph queries into clear, actionable visual insights.",
         "inputsOutputs": "Inputs: Natural language queries. Outputs: Interactive network graphs and intelligence dashboards.",
         "tools": "Graph visualization libraries, custom UI development",
-        "security": "Enforcing Row-Level Security (RLS) to ensure users only access graph nodes they are explicitly authorized to view.",
+        "security": "Enforcing Row-Level Security (RLS) to ensure users only access graph nodes they are authorized to view.",
         "time": "1–2 weeks",
-        "risk": "Cognitive overload from complex network visualizations; mitigated by designing clean, progressive-disclosure interfaces."
+        "risk": "Cognitive overload from complex network visualizations; mitigated by designing progressive-disclosure interfaces."
       }
     ],
     "securityChecklist": [
@@ -392,8 +521,8 @@
     "caseStudies": [
       {
         "title": "Unified Customer Intelligence Layer",
-        "metric": "5× acceleration in strategic insights",
-        "desc": "Architected a knowledge graph bridging siloed CRM and IT support databases, providing leadership with immediate, predictive insights into account health and churn risk."
+        "metric": "5× acceleration in insights",
+        "desc": "Architected a knowledge graph bridging siloed CRM and IT support databases, providing immediate insights into account health."
       }
     ],
     "assets": {
@@ -403,12 +532,18 @@
   {
     "slug": "ml-engineering",
     "title": "Machine Learning Engineering & MLOps",
-    "shortDescription": "Robust enterprise infrastructure and MLOps pipelines designed to deploy, scale, and secure your AI models in production.",
-    "elevatorPitch": "Developing an intelligent model is only the first step; sustaining its performance in production is the true engineering challenge. We architect resilient Machine Learning Operations (MLOps) pipelines—featuring automated training, continuous integration, and real-time observability—ensuring your AI solutions remain highly accurate, scalable, and secure.",
+    "shortDescription": "Deploy resilient MLOps pipelines designed to scale, monitor, and secure predictive AI models in production.",
+    "elevatorPitch": "Prototyping an AI model in a lab environment is trivial; sustaining its accuracy in a volatile production environment is a formidable engineering challenge. We architect resilient Machine Learning Operations (MLOps) pipelines—featuring automated model retraining, robust feature stores, and real-time observability—ensuring your predictive analytics remain consistently accurate, highly scalable, and computationally cost-effective.",
     "metrics": [
-      { "label": "Model Deployment Cycle", "value": "Weekly automated iterations" },
+      { "label": "Model Deployment", "value": "Weekly iterations" },
       { "label": "Infrastructure Uptime", "value": "≥99.5%" },
-      { "label": "Operational Overhead Reduction", "value": "Hundreds of engineering hours saved" }
+      { "label": "Overhead Reduction", "value": "Hundreds of hours saved" }
+    ],
+"narrative": [
+      { "id": "challenge", "tag": "The Core Challenge", "content": "Organizations frequently invest millions developing predictive models, only to watch them silently degrade (model drift) when exposed to real-world, dynamic production data, resulting in flawed forecasts and financial loss.", "align": "left", "highlight": false },
+      { "id": "solution", "tag": "Our Architecture", "content": "We implement end-to-end MLOps infrastructures. This includes automated data validation, scalable Kubernetes deployment clusters, and real-time telemetry frameworks that continuously monitor inference latency, statistical drift, and computational health.", "align": "right", "highlight": true },
+      { "id": "impact", "tag": "Strategic Impact", "content": "Guarantees the longevity and reliability of your AI investments. It allows your data science teams to rapidly push weekly model updates with zero fear of breaking production, ensuring your predictive intelligence is always tied to the freshest market realities.", "align": "left", "highlight": false },
+      { "id": "tech", "tag": "Core Technologies", "content": "Powered by CI/CD Orchestration, Kubernetes Containerization, Automated Data Versioning (DVC), and Statistical Drift Monitoring.", "align": "right", "highlight": false }
     ],
     "outcomes": [
       "Execute seamless, automated model updates without risking production stability.",
@@ -478,7 +613,7 @@
         "criteria": "Comprehensive observability dashboards provide real-time insights into system and model performance.",
         "inputsOutputs": "Inputs: Live production inference data. Outputs: Real-time alerts and performance analytics.",
         "tools": "ML observability platforms, infrastructure monitoring dashboards",
-        "security": "Restricting access to production telemetry and alert configurations to authorized MLOps engineers.",
+        "security": "Restricting access to production telemetry to authorized MLOps engineers.",
         "time": "ongoing",
         "risk": "Silent model degradation (drift); mitigated by configuring automated retraining triggers based on statistical thresholds."
       }
@@ -493,111 +628,11 @@
       {
         "title": "Predictive Retail Inventory Optimization",
         "metric": "+20% forecasting accuracy",
-        "desc": "Engineered a highly resilient MLOps pipeline that autonomously predicts inventory depletion, running complex daily inferences with zero required human intervention."
+        "desc": "Engineered a highly resilient MLOps pipeline that autonomously predicts inventory depletion, running daily inferences with zero human intervention."
       }
     ],
     "assets": {
       "spec": "/assets/ml-engineering-spec.pdf"
-    }
-  },
-  {
-    "slug": "autonomous-workflows",
-    "title": "Intelligent Autonomous Workflows",
-    "shortDescription": "Sophisticated automation pipelines designed to convert repetitive, manual business operations into frictionless, self-executing background processes.",
-    "elevatorPitch": "We accelerate business velocity by targeting your most repetitive operations—such as data synchronization, document processing, and system administration. By deploying resilient, AI-driven autonomous workflows, we eliminate manual bottlenecks and drastically reduce error rates, escalating only complex edge cases to your human workforce.",
-    "metrics": [
-      { "label": "Operational Time Saved", "value": "+60% acceleration" },
-      { "label": "Defect Reduction", "value": "≈70% decrease in manual errors" },
-      { "label": "Process Coverage", "value": "≈80% automation of target daily tasks" }
-    ],
-    "outcomes": [
-      "Execute critical business processes instantaneously without relying on manual human intervention.",
-      "Autonomously detect and remediate routine system errors, reducing dependency on IT support.",
-      "Gain total operational transparency via real-time dashboards tracking workflow velocity and throughput."
-    ],
-    "steps": [
-      {
-        "id": 1,
-        "title": "Process Bottleneck Identification",
-        "summary": "We conduct a rigorous operational analysis to isolate and quantify the manual tasks generating the highest friction within your organization.",
-        "criteria": "A prioritized matrix of automation candidates ranked by potential ROI and time savings.",
-        "inputsOutputs": "Inputs: Stakeholder operational feedback. Outputs: A strategic automation target list.",
-        "tools": "Time-tracking analytics, workflow discovery interviews",
-        "security": "Conducting a preliminary security audit to evaluate the data sensitivity of proposed automation targets.",
-        "time": "1–2 weeks",
-        "risk": "Targeting excessively complex edge cases early; mitigated by prioritizing high-volume, low-complexity 'quick wins'."
-      },
-      {
-        "id": 2,
-        "title": "Pipeline Architecture Design",
-        "summary": "We architect a detailed, deterministic workflow map dictating exactly how the AI system will interface with enterprise software to execute the task.",
-        "criteria": "A robust architectural diagram inclusive of comprehensive error-handling and fallback procedures.",
-        "inputsOutputs": "Inputs: Target process parameters. Outputs: An engineered automation blueprint.",
-        "tools": "System architecture diagramming",
-        "security": "Validating and provisioning the principle of least privilege for required application service accounts.",
-        "time": "1–2 weeks",
-        "risk": "Upstream UI changes breaking the automation; mitigated by architecting robust, API-first integrations."
-      },
-      {
-        "id": 3,
-        "title": "Observability & Telemetry Implementation",
-        "summary": "We develop an executive monitoring dashboard providing real-time visibility into the autonomous execution, throughput, and error rates of the workflow.",
-        "criteria": "A live telemetry dashboard accurately visualizing 'Successful Executions' versus 'Exceptions'.",
-        "inputsOutputs": "Inputs: Pipeline execution data. Outputs: A real-time operational dashboard.",
-        "tools": "Business Intelligence (BI) software, monitoring integrations",
-        "security": "Ensuring the observability dashboard aggregates metrics without exposing underlying sensitive payload data.",
-        "time": "1 week",
-        "risk": "Data fatigue from excessive alerting; mitigated by engineering clean, exception-focused dashboard designs."
-      },
-      {
-        "id": 4,
-        "title": "Fail-Safe Logic Programming",
-        "summary": "We engineer rigorous operational guardrails; if the autonomous system encounters anomalous data, it immediately pauses and routes the exception to human oversight.",
-        "criteria": "The pipeline consistently and safely halts execution upon encountering defined out-of-bounds parameters.",
-        "inputsOutputs": "Inputs: Process governance rules. Outputs: Hardened safety barriers and exception routing.",
-        "tools": "Deterministic logic programming, alerting gateways",
-        "security": "Maintaining an immutable log detailing the contextual data surrounding every triggered exception halt.",
-        "time": "1 week",
-        "risk": "Excessive exception routing; mitigated by continuously tuning logic thresholds based on operational reality."
-      },
-      {
-        "id": 5,
-        "title": "Iterative Machine Learning Optimization",
-        "summary": "As the workflow processes live data, we iteratively train the underlying models based on human exception handling to increase the system's autonomous resolution rate.",
-        "criteria": "The workflow demonstrates a week-over-week reduction in the necessity for human intervention.",
-        "inputsOutputs": "Inputs: Human exception resolutions. Outputs: Enhanced, more resilient automation logic.",
-        "tools": "Continuous deployment frameworks, code iteration",
-        "security": "Mandatory peer-review and security validation for all logic updates prior to production deployment.",
-        "time": "2–4 weeks",
-        "risk": "Optimization regressions; mitigated by maintaining strict version control and automated rollback capabilities."
-      },
-      {
-        "id": 6,
-        "title": "Workforce Enablement",
-        "summary": "We conduct targeted training sessions to familiarize your staff with the autonomous systems, focusing on how to effectively monitor and manage escalated exceptions.",
-        "criteria": "Personnel demonstrate proficiency in navigating the dashboard, approving workflows, and resolving edge cases.",
-        "inputsOutputs": "Inputs: Deployed automation system. Outputs: Streamlined training documentation and SOPs.",
-        "tools": "Interactive training webinars, concise digital manuals",
-        "security": "Guaranteeing that administrative controls and rule-modification capabilities are restricted strictly to management personnel.",
-        "time": "1–2 weeks",
-        "risk": "Change resistance among staff; mitigated by designing highly intuitive, user-centric exception interfaces."
-      }
-    ],
-    "securityChecklist": [
-      "The automation pipeline operates exclusively on the principle of least privilege for all credentials",
-      "Every automated interaction, API call, and data modification is recorded in a tamper-evident audit log",
-      "Strict data obfuscation protocols prevent sensitive payload information from surfacing on monitoring dashboards",
-      "Immediate, system-wide 'kill switches' are engineered and easily accessible to authorized administrators"
-    ],
-    "caseStudies": [
-      {
-        "title": "Self-Healing IT Infrastructure",
-        "metric": "70% acceleration in incident resolution",
-        "desc": "Developed a resilient background workflow that autonomously detects and remediates server anomalies, ensuring continuous uptime while significantly reducing after-hours IT escalations."
-      }
-    ],
-    "assets": {
-      "spec": "/assets/autonomous-workflows-spec.pdf"
     }
   }
 ]

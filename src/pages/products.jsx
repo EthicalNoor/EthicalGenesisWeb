@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import productsData from '../data/products.json';
 import '../styles/products.css';
 
-// Reusable hook for scroll animations
+// Highly performant scroll reveal hook
 const useReveal = () => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +18,7 @@ const useReveal = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
     );
     if (ref.current) observer.observe(ref.current);
     return () => { if (ref.current) observer.unobserve(ref.current); };
@@ -27,84 +27,117 @@ const useReveal = () => {
   return [ref, isVisible];
 };
 
+// 1. Flagship Product Component (Jureo gets special treatment)
+const FlagshipProduct = ({ product }) => {
+  const [ref, isVisible] = useReveal();
+
+  return (
+    <div ref={ref} className={`saas-flagship-wrapper ${isVisible ? 'visible' : ''}`}>
+      <div className="saas-flagship-glow"></div>
+      <div className="saas-flagship-card">
+        <div className="flagship-content">
+          <div className="flagship-badge">
+            <span className="pulse-dot"></span>
+            {product.label}
+          </div>
+          <h2>{product.title}</h2>
+          {product.heading && <h3 className="flagship-subheading">{product.heading}</h3>}
+          <p>{product.desc}</p>
+          <div className="flagship-action">
+            <Link to={product.link} className="btn-primary flagship-btn">
+              {product.buttonText} <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+        <div className="flagship-visual">
+          <div className="flagship-image-container">
+            <img src={product.image} alt={product.title} loading="lazy" />
+            <div className="flagship-image-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 2. Alternating Product Rows (Stripe/Apple style sections)
+const AlternatingProduct = ({ product, index }) => {
+  const [ref, isVisible] = useReveal();
+  const isReversed = index % 2 !== 0; // Alternates left/right
+
+  return (
+    <section ref={ref} className={`saas-product-row ${isVisible ? 'visible' : ''} ${isReversed ? 'reversed' : ''}`}>
+      <div className="saas-row-container">
+        
+        <div className="saas-row-content">
+          <span className="saas-row-label">{product.label}</span>
+          <h2>{product.title}</h2>
+          <p>{product.desc}</p>
+          <Link to={product.link} className="saas-text-link">
+            {product.buttonText} <span className="arrow">→</span>
+          </Link>
+        </div>
+
+        <div className="saas-row-visual">
+          <Link to={product.link} className="saas-image-wrapper">
+            <img src={product.image} alt={product.title} loading="lazy" />
+            <div className="saas-image-glass"></div>
+          </Link>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
 export default function ProductsPage() {
   const [heroRef, heroVisible] = useReveal();
-  const [flagshipRef, flagshipVisible] = useReveal();
-  const [gridRef, gridVisible] = useReveal();
   const [bannerRef, bannerVisible] = useReveal();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Always start at top
+    window.scrollTo(0, 0);
   }, []);
 
+  const flagshipProduct = productsData.products[0];
+  const otherProducts = productsData.products.slice(1);
+
   return (
-    <div className="prod-page-container">
+    <div className="saas-page-container">
       
-      {/* Abstract Background Layer */}
-      <div className="prod-bg-mesh"></div>
+      {/* Background Base */}
+      <div className="saas-bg-ambient"></div>
 
-      {/* 1. HERO SECTION */}
-      <section className="prod-hero" ref={heroRef}>
-        <div className={`prod-hero-content ${heroVisible ? 'visible' : ''}`}>
+      {/* HERO SECTION (SEO Optimized H1) */}
+      <header className="saas-hero" ref={heroRef}>
+        <div className={`saas-hero-inner ${heroVisible ? 'visible' : ''}`}>
           <span className="section-tag">{productsData.hero.tagline}</span>
-          <h1 className="section-main-heading">{productsData.hero.mainHeading}</h1>
-          <p className="prod-subtitle">{productsData.hero.subHeading}</p>
+          <h1>{productsData.hero.mainHeading}</h1>
+          <p>{productsData.hero.subHeading}</p>
+        </div>
+      </header>
+
+      {/* FLAGSHIP SHOWCASE (Jureo) */}
+      <section className="saas-flagship-section">
+        <div className="saas-container">
+          <FlagshipProduct product={flagshipProduct} />
         </div>
       </section>
 
-      {/* 2. FLAGSHIP SPOTLIGHT (Jureo) */}
-      <section className="prod-section" ref={flagshipRef}>
-        <div className="prod-container">
-          <div className={`prod-flagship-card ${flagshipVisible ? 'visible' : ''}`}>
-            <div className="prod-flagship-content">
-              <span className="prod-label">{productsData.flagship.label}</span>
-              <h2>{productsData.flagship.title}</h2>
-              <p>{productsData.flagship.desc}</p>
-              <Link to={productsData.flagship.link} className="btn-primary">
-                Explore Jureo <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-            <div className="prod-flagship-image">
-              <img src={productsData.flagship.image} alt={productsData.flagship.title} loading="lazy" />
-              <div className="prod-image-overlay"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ALTERNATING PRODUCT ECOSYSTEM */}
+      <div className="saas-ecosystem">
+        {otherProducts.map((product, index) => (
+          <AlternatingProduct key={product.id} product={product} index={index} />
+        ))}
+      </div>
 
-      {/* 3. INDUSTRY INTELLIGENCE (Bento Grid) */}
-      <section className="prod-section" ref={gridRef}>
-        <div className="prod-container">
-          <h2 className={`prod-section-title section-main-heading ${gridVisible ? 'visible' : ''}`}>
-            {productsData.grid.title}
-          </h2>
-          
-          <div className={`prod-bento-grid ${gridVisible ? 'visible' : ''}`}>
-            {productsData.grid.products.map((product) => (
-              <Link to={product.link} key={product.id} className={`prod-bento-item span-${product.span}`}>
-                <div 
-                  className="prod-bento-bg" 
-                  style={{ backgroundImage: `url(${product.image})` }}
-                ></div>
-                <div className="prod-bento-overlay"></div>
-                <div className="prod-bento-content">
-                  <h3>{product.title}</h3>
-                  <p>{product.desc}</p>
-                  <span className="prod-view-btn">View Product <span aria-hidden="true">→</span></span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. UNIFIED ENGINE BANNER */}
-      <section className="prod-banner-section" ref={bannerRef}>
-        <div className="prod-container">
-          <div className={`prod-banner-card ${bannerVisible ? 'visible' : ''}`}>
-            <div className="prod-banner-icon">
+      {/* UNIFIED ENGINE BANNER */}
+      <section className="saas-banner-section" ref={bannerRef}>
+        <div className="saas-container">
+          <div className={`saas-banner-card ${bannerVisible ? 'visible' : ''}`}>
+            <div className="saas-banner-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 8v4l3 3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <p>{productsData.banner.text}</p>

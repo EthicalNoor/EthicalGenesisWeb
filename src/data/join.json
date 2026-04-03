@@ -26,25 +26,25 @@
         "id": "role-1",
         "title": "Senior Machine Learning Engineer",
         "type": "Remote / Full-Time",
-        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20Senior%20ML%20Engineer"
+        "link": "mailto:info@ethicalgenesis.ai?subject=Application:%20Senior%20ML%20Engineer"
       },
       {
         "id": "role-2",
         "title": "Enterprise AI Solutions Architect",
         "type": "Remote / Full-Time",
-        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20AI%20Solutions%20Architect"
+        "link": "mailto:info@ethicalgenesis.ai?subject=Application:%20AI%20Solutions%20Architect"
       },
       {
         "id": "role-3",
         "title": "Full Stack Engineer (AI Automation Platforms)",
         "type": "Remote / Full-Time",
-        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20Full%20Stack%20Engineer"
+        "link": "mailto:info@ethicalgenesis.ai?subject=Application:%20Full%20Stack%20Engineer"
       }
     ]
   },
   "cta": {
     "text": "Don't see your exact role? We are actively seeking exceptional talent to drive innovation in machine learning and data intelligence.",
     "button": "Pitch Your AI Engineering Role",
-    "email": "careers@ethicalgenesis.ai"
+    "email": "info@ethicalgenesis.ai"
   }
 }

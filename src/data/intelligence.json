@@ -1,101 +1,61 @@
 {
   "hero": {
-    "tagline": "AI Research, Ethics, and the Future of Enterprise Automation.",
+    "tagline": "AI Research & Ethics",
     "mainHeading": "Architecting Responsible Enterprise AI Solutions.",
     "subHeading": "As artificial intelligence accelerates, foundational principles remain critical. Explore our ongoing machine learning research, ethical AI frameworks, and technical insights on engineering secure digital transformation tools that empower human agency.",
-    "bgImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920&auto=format&fit=crop"
+    "bgImage": "https://images.unsplash.com/photo-1695265927173-5f2e7269d2d9?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   "framework": {
-    "tagline": "Our Enterprise AI Philosophy",
-    "title": "Engineering Responsible and Secure AI Systems.",
+    "tagline": "Our AI Philosophy",
+    "title": "Engineering Responsible Systems.",
     "items": [
       {
         "id": "zero-bias",
         "title": "Algorithmic Fairness",
-        "desc": "Machine learning models can inadvertently amplify bias. We actively audit and refine our generative AI and predictive algorithms to ensure they deliver fair, balanced, and objective data-driven decisions.",
-        "span": "small"
+        "desc": "Machine learning models can inadvertently amplify bias. We actively audit and refine our generative AI and predictive algorithms to ensure they deliver fair, balanced, and objective data-driven decisions."
       },
       {
         "id": "transparency",
         "title": "Explainable AI Architectures",
-        "desc": "We reject 'black box' AI models. Our engineering teams prioritize explainable AI, ensuring that every automated workflow and intelligent recommendation is fully traceable and transparent.",
-        "span": "small"
+        "desc": "We reject 'black box' AI models. Our engineering teams prioritize explainable AI, ensuring that every automated workflow and intelligent recommendation is fully traceable and transparent."
       },
       {
         "id": "sovereignty",
         "title": "Absolute Data Sovereignty",
-        "desc": "Data intelligence belongs to your enterprise. We architect isolated machine learning infrastructure that guarantees your proprietary data remains strictly private and never trains public AI models.",
-        "span": "small"
+        "desc": "Your proprietary data is your most valuable asset. Our Zero-Retention Framework guarantees that your internal intelligence is never utilized to train external or public foundation models."
       }
     ]
   },
   "lab": {
-    "title": "Inside Our AI Innovation Lab",
-    "desc": "Discover the advanced machine learning and automation technologies we are developing to drive the next wave of enterprise digital transformation.",
-    "projects": [
+    "tagline": "Innovation Lab",
+    "items": [
       {
-        "id": "swarms",
-        "category": "Agentic AI Architecture",
-        "title": "Autonomous AI Agents",
-        "desc": "Researching multi-agent systems where specialized AI models collaborate to execute complex enterprise workflows and scale business automation.",
-        "bgImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
+        "id": "continuous",
+        "title": "Continuous Innovation Cycle",
+        "desc": "We allocate 20% of our engineering bandwidth strictly to R&D, ensuring our clients always have access to the absolute cutting edge of machine learning architectures.",
+        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000"
       },
       {
-        "id": "slm",
-        "category": "Edge Computing",
-        "title": "Small Language Models (SLMs)",
-        "desc": "Optimizing compact machine learning models to run efficiently on local enterprise hardware, reducing cloud compute costs while maintaining high-performance generative AI capabilities.",
-        "bgImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800"
-      },
-      {
-        "id": "synthetic",
-        "category": "Data Privacy",
-        "title": "Synthetic Data Generation",
-        "desc": "Developing highly accurate synthetic datasets to securely train and validate machine learning systems without exposing sensitive corporate or customer information.",
-        "bgImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800"
-      }
-    ]
-  },
-  "insights": {
-    "title": "AI Engineering Insights & Research Notes",
-    "articles": [
-      {
-        "type": "AI Architecture",
-        "title": "Why modular Agentic AI systems are outperforming monolithic foundation models in the enterprise.",
-        "desc": "An engineering analysis on reducing inference costs and improving system reliability by deploying specialized, task-specific machine learning agents.",
-        "readTime": "12 Min Read",
-        "link": "#"
-      },
-      {
-        "type": "Data Intelligence",
-        "title": "Mitigating AI hallucinations: Why Retrieval-Augmented Generation (RAG) is essential for accuracy.",
-        "desc": "Exploring how grounding enterprise LLMs in private corporate knowledge graphs ensures highly accurate, reliable, and verifiable AI outputs.",
-        "readTime": "10 Min Read",
-        "link": "#"
-      },
-      {
-        "type": "Enterprise Security",
-        "title": "Securing your AI infrastructure: Isolating enterprise data from public language models.",
-        "desc": "A technical overview of the deployment strategies required to guarantee your proprietary data intelligence never leaves your secure corporate firewall.",
-        "readTime": "8 Min Read",
-        "link": "#"
+        "id": "open-source",
+        "title": "Open Source Contributions",
+        "desc": "We actively contribute to the open-source AI community, publishing refined models and evaluation frameworks to advance the global standard of responsible AI.",
+        "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000"
       }
     ]
   },
   "synergy": {
     "title": "Intelligent Automation to Augment Human Potential.",
-    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
     "paragraphs": [
       "We believe the true value of enterprise AI solutions lies in augmenting human capabilities, not replacing them.",
       "For decades, highly skilled professionals have been burdened with repetitive, manual tasks—routing data across legacy systems, drafting routine communications, and navigating fragmented knowledge bases.",
-      "By delegating these operational bottlenecks to autonomous workflows and generative AI, we accelerate your digital transformation. We engineer intelligent systems that handle heavy data processing, allowing your workforce to focus on high-level strategy, creative problem-solving, and relationship building.",
-      "Machine learning handles the execution. Human intelligence drives the innovation."
+      "By delegating these operational bottlenecks to autonomous workflows and generative AI, we accelerate your digital transformation. We engineer intelligent systems that handle heavy data processing, allowing your workforce to focus on high-level strategy, creative problem-solving, and relationship building."
     ]
   },
   "cta": {
-    "heading": "Stay informed on the future of enterprise AI.",
-    "text": "Subscribe to receive expert engineering insights, research notes, and updates on deploying secure, scalable machine learning solutions.",
-    "placeholder": "Enter your corporate email address",
-    "button": "Subscribe to Insights"
+    "heading": "Elevate Your Enterprise Intelligence.",
+    "text": "Partner with our engineering team to integrate secure, scalable, and responsible AI solutions into your core operations.",
+    "button": "Start a Conversation",
+    "link": "/connect"
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import connectData from '../data/connect.json';
 import '../styles/connect.css';
+import emailjs from '@emailjs/browser';
 
 export default function ConnectPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,89 +15,45 @@ export default function ConnectPage() {
     honeypot: '' 
   });
 
+   // demo need to replace by official
+  const YOUR_SERVICE_ID = "service_jga9uoa"; 
+  const YOUR_TEMPLATE_ID = "template_4660upo";
+  const YOUR_PUBLIC_KEY = "LbAG0xoa3ZGK3YZhM";
+
+  // Ensure page loads at the very top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-    if (errorMessage) setErrorMessage('');
-  };
-
-  const validateForm = () => {
-    if (!formData.name.trim()) return "Please provide your name.";
-    if (!formData.message.trim()) return "Message cannot be empty.";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email.trim())) return "Please enter a valid corporate email.";
-    return null;
-  };
-
-  const handleSubmit = async (e) => {
+ 
+   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrorMessage('');
-    console.log("Form submission started...");
 
-    const validationError = validateForm();
-    if (validationError) {
-      setErrorMessage(validationError);
-      return;
-    }
+    const form = e.target;
 
-    if (formData.honeypot) {
-      console.warn("Spam trap triggered.");
-      return; 
-    }
+    const formData = {
+      fullName: form[0].value,
+      email: form[1].value,
+      company: form[2].value,
+      interest: form[3].value,
+      message: form[4].value,
+    };
 
-    setIsSubmitting(true);
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
-
-    // Safely grab the URL. Fallback to localhost if env is missing during testing.
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/contact.php';
-    console.log("Target API URL:", API_URL);
-
-    try {
-      const payload = {
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        message: formData.message.trim()
-      };
-
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload),
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-      console.log("Server Response Status:", response.status);
-      
-      const result = await response.json();
-      console.log("Server Response Data:", result);
-
-      if (!response.ok || result.status === 'error') {
-        throw new Error(result.message || 'Server rejected the request.');
-      }
-
+    console.log(formData);
+    emailjs.send(
+      YOUR_SERVICE_ID,
+      YOUR_TEMPLATE_ID,
+      formData,
+      YOUR_PUBLIC_KEY
+    )
+    .then((result) => {
+      console.log(result.text);
       setIsSubmitted(true);
-      
-    } catch (error) {
-      console.error("Fetch Error:", error);
-      if (error.name === 'AbortError') {
-        setErrorMessage("Request timed out. Please ensure the PHP server is running on port 8000.");
-      } else {
-        setErrorMessage(error.message || "Network error. Is your PHP server running? Check console (F12).");
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
+    })
+    .catch((error) => {
+      console.error(error.text);
+      alert("Failed to send message. Try again.");
+    });
   };
 
   return (

@@ -1,15 +1,15 @@
 {
   "hero": {
-    "tagline": "Enterprise AI Solutions",
+    "tagline": "Enterprise AI Solutions & Agentic Workflows",
     "mainHeading": "Architecting the Future of Enterprise Artificial Intelligence.",
-    "subHeading": "We engineer secure, scalable machine learning models and intelligent automation systems designed to accelerate your digital transformation and drive data-driven decision making.",
+    "subHeading": "We engineer secure, scalable machine learning models, Enterprise Generative AI solutions, and Agentic workflow automation. By integrating Large Language Models (LLMs) with high-performance Vector Databases and Semantic Knowledge Graphs, we deploy autonomous AI agents that accelerate your digital transformation and drive precise, data-driven decision-making.",
     "bgImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920&auto=format&fit=crop"
   },
   "origin": {
     "heading": "From Innovative Vision to Enterprise Execution.",
     "paragraphs": [
       "Ethical Genesis AI was founded with a strategic vision: to bridge the gap between theoretical machine learning research and practical, high-impact enterprise AI applications.",
-      "What began as a dedicated team of AI researchers has evolved into a premier provider of production-ready automation and data intelligence architectures. We combine deep technical expertise with rigorous data security standards to deliver intelligent systems that optimize operational efficiency and keep our clients ahead in a rapidly evolving digital landscape."
+      "What began as a dedicated team of predictive AI researchers has evolved into a premier provider of production-ready Generative AI and Agentic architectures. We combine deep technical expertise in Retrieval-Augmented Generation (RAG), Semantic Search, and Multi-Agent Systems with rigorous data security standards, delivering intelligent infrastructure that optimizes operational efficiency and scales seamlessly."
     ],
     "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop"
   },
@@ -18,52 +18,26 @@
     "items": [
       {
         "id": "v1",
-        "title": "Security and Governance by Design",
-        "desc": "We engineer enterprise AI solutions that are transparent, unbiased, and fully auditable, ensuring your corporate data remains strictly private and compliant at every stage."
+        "title": "Security, AI TRiSM & Governance by Design",
+        "desc": "We engineer enterprise AI solutions that are transparent, unbiased, and fully auditable. Utilizing advanced LLM guardrails and Zero-Retention Data Frameworks, we ensure your proprietary corporate data remains strictly private and compliant."
       },
       {
         "id": "v2",
-        "title": "Continuous Technological Innovation",
-        "desc": "We leverage the latest advancements in large language models (LLMs), retrieval-augmented generation (RAG), and autonomous agentic AI to solve your most complex business challenges."
+        "title": "Next-Generation Generative AI & GraphRAG",
+        "desc": "We leverage the latest advancements in Large Language Models (LLMs), Semantic Knowledge Graphs, and Vector Databases to build state-of-the-art Retrieval-Augmented Generation (RAG) pipelines that eliminate hallucinations and solve complex business challenges."
       },
       {
         "id": "v3",
-        "title": "Scalable, Business-Centric Architectures",
-        "desc": "Rather than relying on generic software, we build custom generative AI and machine learning tools specifically tailored to eliminate operational bottlenecks and scale seamlessly with your growth."
-      }
-    ]
-  },
-  "team": {
-    "title": "Expert Leaders in Machine Learning and Data Science",
-    "desc": "Our organization is led by a specialized team of machine learning engineers, data scientists, and enterprise systems architects. United by global expertise and a shared commitment to digital transformation, we focus on deploying reliable, high-impact artificial intelligence systems that drive measurable business outcomes.",
-    "members": [
-      {
-        "name": "Dr. Sarah Chen",
-        "role": "Chief Enterprise AI Architect",
-        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop"
-      },
-      {
-        "name": "Marcus Vance",
-        "role": "Head of Machine Learning Operations (MLOps)",
-        "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600&auto=format&fit=crop"
-      },
-      {
-        "name": "Elena Rostova",
-        "role": "Lead Data Scientist",
-        "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop"
-      },
-      {
-        "name": "David Kim",
-        "role": "VP of AI Engineering",
-        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop"
+        "title": "Autonomous Agentic AI & Scalable LLMOps",
+        "desc": "Rather than relying on generic software, we build custom Multi-Agent Systems and scalable LLMOps pipelines. Our autonomous AI agents are specifically tailored to eliminate operational bottlenecks, executing complex, multi-step workflows autonomously."
       }
     ]
   },
   "vision": {
     "heading": "Pioneering the Next Era of Digital Transformation.",
-    "desc": "As the artificial intelligence industry accelerates, our mission remains focused: to deliver cutting-edge generative AI and autonomous workflow solutions that empower secure, sustainable business growth. We are dedicated to helping organizations harness the power of data intelligence to optimize operations and shape the future of enterprise technology.",
+    "desc": "As the artificial intelligence industry accelerates, our mission remains focused: to deliver cutting-edge Generative AI, Multimodal Modeling, and Autonomous Agentic workflow solutions that empower secure, sustainable business growth. We are dedicated to helping organizations harness the power of Semantic Data Intelligence and GraphRAG to optimize operations and shape the future of enterprise technology.",
     "bgImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop",
     "button": "Schedule an AI Consultation",
-    "link": "/#connect"
+    "link": "/connect"
   }
 }

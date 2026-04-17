@@ -3,7 +3,7 @@
     "tagline": "AI Research & Ethics",
     "mainHeading": "Architecting Responsible Enterprise AI Solutions.",
     "subHeading": "As artificial intelligence accelerates, foundational principles remain critical. Explore our ongoing machine learning research, ethical AI frameworks, and technical insights on engineering secure digital transformation tools that empower human agency.",
-    "bgImage": "https://images.unsplash.com/photo-1695265927173-5f2e7269d2d9?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "bgImage": "hero"
   },
   "framework": {
     "tagline": "Our AI Philosophy",
@@ -33,19 +33,19 @@
         "id": "continuous",
         "title": "Continuous Innovation Cycle",
         "desc": "We allocate 20% of our engineering bandwidth strictly to R&D, ensuring our clients always have access to the absolute cutting edge of machine learning architectures.",
-        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000"
+        "image": "int2"
       },
       {
         "id": "open-source",
         "title": "Open Source Contributions",
         "desc": "We actively contribute to the open-source AI community, publishing refined models and evaluation frameworks to advance the global standard of responsible AI.",
-        "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000"
+        "image": "int3"
       }
     ]
   },
   "synergy": {
     "title": "Intelligent Automation to Augment Human Potential.",
-    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
+    "image": "int4",
     "paragraphs": [
       "We believe the true value of enterprise AI solutions lies in augmenting human capabilities, not replacing them.",
       "For decades, highly skilled professionals have been burdened with repetitive, manual tasks—routing data across legacy systems, drafting routine communications, and navigating fragmented knowledge bases.",

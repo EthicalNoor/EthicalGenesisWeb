@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import companyData from '../data/company.json';
 import '../styles/company.css';
 import heroBgImage from '../img/company-page.png';
+import innoBgImage from '../img/company-2.avif';
+import pioBgImage from '../img/company-3.avif';
 
 // Local scroll reveal hook
 const useReveal = () => {
@@ -65,7 +67,7 @@ export default function CompanyPage() {
           </div>
           <div className={`cmp-split-right ${originVisible ? 'visible' : ''}`}>
             <div className="cmp-image-wrapper">
-              <img src={companyData.origin.image} alt="Ethical Genesis Office" loading="lazy" />
+              <img src={innoBgImage} alt="Ethical Genesis Office" loading="lazy" />
               <div className="cmp-image-glow"></div>
             </div>
           </div>
@@ -90,35 +92,10 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* 4. THE TEAM (B&W to Color Hover Grid)
-      <section className="cmp-section cmp-team" ref={teamRef}>
-        <div className="cmp-container">
-          <div className={`cmp-section-header center ${teamVisible ? 'visible' : ''}`}>
-            <h2>{companyData.team.title}</h2>
-            <p>{companyData.team.desc}</p>
-          </div>
-          
-          <div className={`cmp-team-grid ${teamVisible ? 'visible' : ''}`}>
-            {companyData.team.members.map((member, idx) => (
-              <div key={idx} className="cmp-team-card">
-                <div className="cmp-team-image">
-                  <img src={member.image} alt={member.name} loading="lazy" />
-                  <div className="cmp-team-overlay"></div>
-                </div>
-                <div className="cmp-team-info">
-                  <h4>{member.name}</h4>
-                  <span>{member.role}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* 5. LOOKING AHEAD (Vision Parallax Block) */}
       <section
         className="cmp-vision parallax-bg"
-        style={{ backgroundImage: `url(${companyData.vision.bgImage})` }}
+        style={{ backgroundImage: `url(${pioBgImage})` }}
         ref={visionRef}
       >
         <div className="cmp-vision-overlay"></div>

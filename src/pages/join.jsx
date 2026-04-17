@@ -4,6 +4,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import joinData from '../data/join.json';
 import '../styles/join.css';
 
+// --- LOCAL IMAGE IMPORT ---
+import joinusImg from '../img/joinus-1.avif';
+
 // Local scroll reveal hook
 const useReveal = () => {
   const ref = useRef(null);
@@ -97,8 +100,9 @@ export default function JoinUsPage() {
         {/* RIGHT SIDE: Sticky Image Pane */}
         <div className="join-image-pane">
           <div className="join-sticky-image-wrapper">
+            {/* UPDATED: Using local imported image */}
             <img 
-              src={joinData.image} 
+              src={joinusImg} 
               alt="Ethical Genesis Innovation Lab" 
               className="join-sticky-image"
               loading="lazy"

@@ -5,6 +5,20 @@ import { Link } from 'react-router-dom';
 import productsData from '../data/products.json';
 import '../styles/products.css';
 
+// --- LOCAL IMAGE IMPORTS ---
+import prod1 from '../img/prod-1.avif';
+import prod2 from '../img/prod-2.avif';
+import prod3 from '../img/prod-3.avif';
+import prod4 from '../img/prod-4.avif';
+import prod5 from '../img/prod-5.avif';
+import prod6 from '../img/prod-6.webp';
+import heroBgImage from '../img/company-page.png'; // Replaces Unsplash for Hero
+
+// Map JSON string keys to actual imported files
+const imageMap = {
+  prod1, prod2, prod3, prod4, prod5, prod6
+};
+
 // Highly performant scroll reveal hook
 const useReveal = () => {
   const ref = useRef(null);
@@ -51,7 +65,8 @@ const FlagshipProduct = ({ product }) => {
         </div>
         <div className="flagship-visual">
           <div className="flagship-image-container">
-            <img src={product.image} alt={product.title} loading="lazy" />
+            {/* Using the mapped local image */}
+            <img src={imageMap[product.image]} alt={product.title} loading="lazy" />
             <div className="flagship-image-overlay"></div>
           </div>
         </div>
@@ -80,7 +95,8 @@ const AlternatingProduct = ({ product, index }) => {
 
         <div className="saas-row-visual">
           <Link to={product.link} className="saas-image-wrapper">
-            <img src={product.image} alt={product.title} loading="lazy" />
+            {/* Using the mapped local image */}
+            <img src={imageMap[product.image]} alt={product.title} loading="lazy" />
             <div className="saas-image-glass"></div>
           </Link>
         </div>
@@ -101,7 +117,7 @@ export default function ProductsPage() {
   const flagshipProduct = productsData.products[0];
   const otherProducts = productsData.products.slice(1);
 
-return (
+  return (
     <div className="saas-page-container" style={{ position: 'relative' }}>
       
       {/* --- DYNAMIC HERO BACKGROUND IMAGE --- */}
@@ -112,7 +128,8 @@ return (
           left: 0,
           width: '100%',
           height: '600px',
-          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.5) 0%, var(--bg-primary) 100%), url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1920&auto=format&fit=crop')`,
+          /* Used local heroBgImage instead of Unsplash */
+          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.5) 0%, var(--bg-primary) 100%), url(${heroBgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 0,

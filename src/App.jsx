@@ -21,10 +21,6 @@ import logo from './img/logo.png';
 import videoPoster from './img/video-poster.png';
 
 // Import all 4 background videos
-import bgVideo5 from './img/vid/bv5.mp4';
-import bgVideo6 from './img/vid/bv6.mp4';
-import bgVideo7 from './img/vid/bv7.mp4';
-import bgVideo8 from './img/vid/bv8.mp4';
 import bgVideo4 from './img/vid/bv4.mp4';
 
 import cap1 from './img/cap1.png';
@@ -491,7 +487,7 @@ function HomePage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   
-  const backgroundVideos = [bgVideo5, bgVideo4,bgVideo6,bgVideo7,bgVideo8];
+  const backgroundVideos = [bgVideo4];
 
   // Rotate videos every 10 seconds
   useEffect(() => {

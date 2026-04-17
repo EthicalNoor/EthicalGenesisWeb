@@ -13,6 +13,10 @@ import cap4Vid from '../img/vid/cap4.mp4';
 import cap5Vid from '../img/vid/cap5.mp4';
 import cap6Vid from '../img/vid/cap6.mp4';
 
+// Hero Background Image
+
+import HeroCapabilities from '../img/company-3.avif';
+
 const videoMap = {
   'generative-ai': cap1Vid,
   'agentic-ai': cap2Vid,
@@ -20,17 +24,6 @@ const videoMap = {
   'knowledge-graphs': cap4Vid,
   'ml-engineering': cap5Vid,
   'autonomous-workflows': cap6Vid
-};
-
-// Background Images for Hero Section based on selected capability
-const heroImageMap = {
-  'default': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop',
-  'generative-ai': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920&auto=format&fit=crop',
-  'agentic-ai': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920&auto=format&fit=crop',
-  'llm-rag': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920&auto=format&fit=crop',
-  'knowledge-graphs': 'https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=1920&auto=format&fit=crop',
-  'ml-engineering': 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop',
-  'autonomous-workflows': 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1920&auto=format&fit=crop'
 };
 
 // Analytics Mock Hook
@@ -50,7 +43,7 @@ const ScrollNarrative = ({ narrative, activeId }) => {
         window.requestAnimationFrame(() => {
           if (scrollContainerRef.current) {
             const rect = scrollContainerRef.current.getBoundingClientRect();
-            const offset = 130; 
+            const offset = 130;
             const scrollableDistance = (rect.height - window.innerHeight) || 1;
             let p = -(rect.top - offset) / scrollableDistance;
             p = Math.max(0, Math.min(1, p || 0));
@@ -66,7 +59,7 @@ const ScrollNarrative = ({ narrative, activeId }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeId]); // Re-attach if capability changes
 
-const activeBlockIndex = Math.min(3, Math.floor(scrollProgress / 0.25));
+  const activeBlockIndex = Math.min(3, Math.floor(scrollProgress / 0.25));
 
   if (!narrative || narrative.length === 0) return null;
 
@@ -153,7 +146,7 @@ export default function CapabilitiesPage() {
   const scrollToDetails = () => {
     setTimeout(() => {
       if (detailRef.current) {
-        const navbarOffset = 130; 
+        const navbarOffset = 130;
         const elementPosition = detailRef.current.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.scrollY - navbarOffset;
 
@@ -162,7 +155,7 @@ export default function CapabilitiesPage() {
           behavior: "smooth"
         });
       }
-    }, 200); 
+    }, 200);
   };
 
   useEffect(() => {
@@ -178,7 +171,7 @@ export default function CapabilitiesPage() {
       if (foundCap) {
         setSelectedCap(foundCap);
         if (stepNum) {
-          const foundStep = foundCap.steps.find(s => s.id === stepNum);
+          const foundStep = foundCap.steps?.find(s => s.id === stepNum);
           if (foundStep) {
             setSelectedStep(foundStep);
             setIsFlowHovered(true);
@@ -207,7 +200,7 @@ export default function CapabilitiesPage() {
   };
 
   const handleHoverStep = (step) => {
-    trackEvent('step_viewed', { capability: selectedCap.slug, step: step.id });
+    trackEvent('step_viewed', { capability: selectedCap?.slug, step: step.id });
     setSelectedStep(step);
     setIsFlowHovered(true);
   };
@@ -222,13 +215,15 @@ export default function CapabilitiesPage() {
     }
   };
 
-  const activeStepIdx = selectedStep && selectedCap ? selectedCap.steps.findIndex(s => s.id === selectedStep.id) : 0;
-  const currentHeroImage = selectedCap ? heroImageMap[selectedCap.slug] : heroImageMap['default'];
+  // RESTORED FIX: activeStepIdx is required for the timeline CSS variable to prevent the app from crashing!
+  const activeStepIdx = selectedStep && selectedCap?.steps
+    ? selectedCap.steps.findIndex(s => s.id === selectedStep.id)
+    : 0;
 
   return (
     <div className="cap-page-container" style={{ position: 'relative' }}>
 
-      {/* --- DYNAMIC HERO BACKGROUND IMAGE --- */}
+      {/* --- STATIC HERO BACKGROUND IMAGE --- */}
       <div
         style={{
           position: 'absolute',
@@ -236,11 +231,11 @@ export default function CapabilitiesPage() {
           left: 0,
           width: '100%',
           height: '550px',
-          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.4) 0%, var(--bg-primary) 100%), url(${currentHeroImage})`,
+          // UPDATED: Replaced Unsplash URL with the imported HeroCapabilities variable
+          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.4) 0%, var(--bg-primary) 100%), url(${HeroCapabilities})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 0,
-          transition: 'background-image 0.8s ease-in-out',
           pointerEvents: 'none'
         }}
         aria-hidden="true"
@@ -293,7 +288,8 @@ export default function CapabilitiesPage() {
               <p>{selectedCap.elevatorPitch}</p>
 
               <div className="cp-metrics">
-                {selectedCap.metrics.map((m, i) => (
+                {/* Added optional chaining ?. to prevent crashes if JSON is missing data */}
+                {selectedCap.metrics?.map((m, i) => (
                   <div key={i} className="cp-metric">
                     <h4>{m.value}</h4>
                     <span>{m.label}</span>
@@ -305,7 +301,7 @@ export default function CapabilitiesPage() {
             <div className="cp-outcomes">
               <h3>Key Outcomes</h3>
               <ul>
-                {selectedCap.outcomes.map((out, i) => (
+                {selectedCap.outcomes?.map((out, i) => (
                   <li key={i}>{out}</li>
                 ))}
               </ul>
@@ -340,7 +336,7 @@ export default function CapabilitiesPage() {
             <div className="cp-flow-desktop-wrapper" onMouseLeave={() => setIsFlowHovered(false)}>
               <div className="cp-flow-desktop">
                 <div className="cp-flow-line"></div>
-                {selectedCap.steps.map((step) => (
+                {selectedCap.steps?.map((step) => (
                   <div
                     key={step.id}
                     className={`cp-node ${selectedStep?.id === step.id && isFlowHovered ? 'active' : ''}`}
@@ -365,7 +361,7 @@ export default function CapabilitiesPage() {
             </div>
 
             <div className="cp-flow-mobile">
-              {selectedCap.steps.map((step) => (
+              {selectedCap.steps?.map((step) => (
                 <div key={step.id} className="cp-mob-accordion">
                   <button
                     className={`cp-mob-node ${selectedStep?.id === step.id ? 'active' : ''}`}
@@ -389,7 +385,7 @@ export default function CapabilitiesPage() {
             <div className="cp-snapshot">
               <h4 className="section-main-heading">Security Snapshot</h4>
               <ul className="cp-sec-list">
-                {selectedCap.securityChecklist.map((item, i) => (
+                {selectedCap.securityChecklist?.map((item, i) => (
                   <li key={i}>
                     <svg className="cp-sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -403,7 +399,7 @@ export default function CapabilitiesPage() {
 
             <div className="cp-cases">
               <h4 className="section-main-heading">Case Highlights</h4>
-              {selectedCap.caseStudies.map((cs, i) => (
+              {selectedCap.caseStudies?.map((cs, i) => (
                 <div key={i} className="cp-case-card">
                   <h5>{cs.title}</h5>
                   <div className="cp-case-metric">{cs.metric}</div>

@@ -5,6 +5,17 @@ import { Link } from 'react-router-dom';
 import intelligenceData from '../data/intelligence.json';
 import '../styles/intelligence.css';
 
+// --- LOCAL IMAGE IMPORTS ---
+import heroImg from '../img/intelligence-hero.avif';
+import int2 from '../img/intelligence-2.avif';
+import int3 from '../img/intelligence-3.avif';
+import int4 from '../img/intelligence-4.avif';
+
+// Map JSON string keys to actual imported files
+const imageMap = {
+  int2, int3, int4
+};
+
 // Highly performant scroll reveal hook
 const useReveal = () => {
   const ref = useRef(null);
@@ -44,7 +55,8 @@ export default function IntelligencePage() {
       <div 
         className="int-hero-bg"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.25) 0%, var(--bg-primary) 100%), url('${intelligenceData.hero.bgImage}')`,
+          /* Used local heroImg instead of Unsplash */
+          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.25) 0%, var(--bg-primary) 100%), url(${heroImg})`,
         }}
         aria-hidden="true"
       />
@@ -102,7 +114,8 @@ export default function IntelligencePage() {
           <div className={`int-lab-grid ${labVisible ? 'visible' : ''}`}>
             {intelligenceData.lab.items.map((item, idx) => (
               <div key={item.id} className="int-lab-card" style={{ transitionDelay: `${idx * 0.2}s` }}>
-                <img src={item.image} alt={item.title} loading="lazy" />
+                {/* Using mapped local image */}
+                <img src={imageMap[item.image]} alt={item.title} loading="lazy" />
                 <div className="int-lab-overlay"></div>
                 <div className="int-lab-glass-panel">
                   <h3>{item.title}</h3>
@@ -121,8 +134,9 @@ export default function IntelligencePage() {
             
             {/* Left Image Side - Bright & Clear */}
             <div className="int-syn-image-wrapper">
+              {/* Using mapped local image */}
               <img 
-                src={intelligenceData.synergy.image} 
+                src={imageMap[intelligenceData.synergy.image]} 
                 alt="AI Synergy" 
                 loading="lazy" 
               />

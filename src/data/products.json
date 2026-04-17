@@ -11,7 +11,7 @@
       "title": "Jureo — The Intelligent AI Paralegal",
       "heading": "Patented AI Paralegal Solution for Law Firms & Corporate Teams",
       "desc": "Accelerate legal research and compliance with our advanced generative AI platform. Master precedent mapping and automate fact extraction to scale your legal operations seamlessly.",
-      "image": "https://images.unsplash.com/photo-1654588833369-5174f4640cd2?q=80&w=1170&auto=format&fit=crop",
+      "image": "prod1",
       "link": "/products/jureo",
       "buttonText": "Explore Jureo"
     },
@@ -21,16 +21,16 @@
       "title": "Community Spirit Loyalty Platform",
       "heading": "Digital Fundraising & Discount Ecosystem for Communities",
       "desc": "Digitize local fundraising and loyalty programs. Connect schools, local businesses, and community members through a unified, scan-based discount and campaign management system.",
-      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+      "image": "prod2",
       "link": "/products/community-spirit",
       "buttonText": "Explore Platform"
     },
-{
+    {
       "id": "sfl",
       "label": "Sports Tech Platform",
       "title": "Intelligent Fantasy League System",
       "desc": "Modernize sports management with an API-driven automation platform. Sync rosters, manage contracts, and scale your league operations with absolute precision.",
-      "image": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=1200&auto=format&fit=crop",
+      "image": "prod3",
       "link": "/products/sfl",
       "buttonText": "Explore System"
     },
@@ -39,7 +39,7 @@
       "label": "Regulatory Intelligence",
       "title": "Compliance & Regulatory AI Engine",
       "desc": "Streamline risk analysis for financial institutions with our AI-powered RegTech platform. Automate complex data pipelines and ensure robust compliance at enterprise scale.",
-      "image": "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?w=1200&auto=format&fit=crop",
+      "image": "prod4",
       "link": "/products/legal-compliance",
       "buttonText": "Explore Engine"
     },
@@ -48,7 +48,7 @@
       "label": "R&D Intelligence",
       "title": "Fragrance Data Intelligence Platform",
       "desc": "Unlock complex formulation data using LLM-based prompt engineering. Transform natural language into structured insights to accelerate your R&D workflows.",
-      "image": "https://plus.unsplash.com/premium_photo-1670537995192-c0b562f5c7ba?q=80&w=1200&auto=format&fit=crop",
+      "image": "prod5",
       "link": "/products/fragrance-ai",
       "buttonText": "Explore Platform"
     },
@@ -57,7 +57,7 @@
       "label": "Enterprise Automation",
       "title": "Enterprise Generative AI Chatbot",
       "desc": "Deploy secure, conversational AI assistants powered by Retrieval-Augmented Generation (RAG). Deliver instant, verifiable answers grounded strictly in your proprietary data.",
-      "image": "https://media.istockphoto.com/id/2206232159/photo/student-using-ai-chatbot-while-studying.webp?a=1&b=1&s=612x612&w=0&k=20&c=mOxWgbGNosZvbHynNPfkQSJopGgL_FjwkmirbnpcCq0=",
+      "image": "prod6",
       "link": "/products/enterprise-chatbot",
       "buttonText": "Explore Assistant"
     }

@@ -1,6 +1,6 @@
 {
   "hero": {
-    "titleStart": "Accelerate digital transformation with ",
+    "titleStart": "Accelerate AI transformation with ",
     "titleHighlight": "Ethical Genesis",
     "subtitle": "Scale your operations and drive efficiency with enterprise AI solutions, machine learning models, and data intelligence engineered for measurable business impact."
   },
@@ -96,7 +96,7 @@
   "LLM Guardrails & Vulnerability Testing",
   "Zero-Retention Data AI Frameworks",
   "Data Governance & Privacy",
-  "Digital Transformation Strategy",
+  "AI transformation Strategy",
   "Intelligent Process Automation (IPA)",
   "Cloud-Native AI Infrastructure",
   "GPU Orchestration & Scaling",
@@ -252,7 +252,7 @@
   },
   "successStories": {
     "tag": "Proven Business Impact",
-    "title": "Real-World Digital Transformation",
+    "title": "Real-World AI transformation",
     "subtitle": "Explore how our tailored machine learning and enterprise AI solutions solve operational bottlenecks and drive measurable growth across diverse industries.",
     "items": [
       {
@@ -312,7 +312,7 @@
     ]
   },
   "footer": {
-    "connectDescription": "Every enterprise requires a unique approach to digital transformation. Contact our team to discuss how custom AI solutions can solve your specific business challenges.",
+    "connectDescription": "Every enterprise requires a unique approach to AI transformation. Contact our team to discuss how custom AI solutions can solve your specific business challenges.",
     "contactEmail": "info@ethicalgenesis.ai",
     "copyrightText": "© 2024 Ethical Genesis. All rights reserved."
   }

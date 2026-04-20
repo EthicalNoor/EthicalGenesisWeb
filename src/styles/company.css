@@ -184,10 +184,11 @@
 
 .cmp-value-num {
   font-size: 3rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.05);
+  font-weight: 800;
+  color: var(--accent-color, #3b82f6); /* Bright blue */
   margin-bottom: 1rem;
   line-height: 1;
+  opacity: 0.85; /* Keeps it premium and not blindingly bright */
 }
 
 .cmp-value-card h3 {

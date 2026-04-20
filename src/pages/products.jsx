@@ -6,13 +6,13 @@ import productsData from '../data/products.json';
 import '../styles/products.css';
 
 // --- LOCAL IMAGE IMPORTS ---
-import prod1 from '../img/prod-1.avif';
-import prod2 from '../img/prod-2.avif';
-import prod3 from '../img/prod-3.avif';
-import prod4 from '../img/prod-4.avif';
-import prod5 from '../img/prod-5.avif';
-import prod6 from '../img/prod-6.webp';
-import heroBgImage from '../img/company-page.png'; // Replaces Unsplash for Hero
+import prod1 from '../assets/img/prod-1.avif';
+import prod2 from '../assets/img/prod-2.avif';
+import prod3 from '../assets/img/prod-3.avif';
+import prod4 from '../assets/img/prod-4.avif';
+import prod5 from '../assets/img/prod-5.avif';
+import prod6 from '../assets/img/prod-6.webp';
+import heroBgImage from '../assets/img/company-page.png'; // Replaces Unsplash for Hero
 
 // Map JSON string keys to actual imported files
 const imageMap = {
@@ -58,8 +58,23 @@ const FlagshipProduct = ({ product }) => {
           {product.heading && <h3 className="flagship-subheading">{product.heading}</h3>}
           <p>{product.desc}</p>
           <div className="flagship-action">
+            {/* Redesigned Pill Button with Trailing Icon */}
             <Link to={product.link} className="btn-primary flagship-btn">
-              {product.buttonText} <span aria-hidden="true">→</span>
+              <span>{product.buttonText}</span>
+              <svg 
+                width="20" 
+                height="16" 
+                viewBox="0 0 20 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ transition: 'transform 0.3s ease' }}
+              >
+                <path 
+                  d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                  fill="currentColor"
+                />
+                <path d="M1 9V7H0V9H1Z" fill="currentColor" />
+              </svg>
             </Link>
           </div>
         </div>
@@ -88,8 +103,24 @@ const AlternatingProduct = ({ product, index }) => {
           <span className="saas-row-label">{product.label}</span>
           <h2>{product.title}</h2>
           <p>{product.desc}</p>
-          <Link to={product.link} className="saas-text-link">
-            {product.buttonText} <span className="arrow">→</span>
+          
+          {/* Redesigned Pill Button with Trailing Icon */}
+          <Link to={product.link} className="btn-primary" style={{ marginTop: '1rem' }}>
+            <span>{product.buttonText}</span>
+            <svg 
+              width="20" 
+              height="16" 
+              viewBox="0 0 20 16" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ transition: 'transform 0.3s ease' }}
+            >
+              <path 
+                d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                fill="currentColor"
+              />
+              <path d="M1 9V7H0V9H1Z" fill="currentColor" />
+            </svg>
           </Link>
         </div>
 

@@ -198,10 +198,10 @@
 }
 
 /* ==========================================================================
-   MERGED NARRATIVE SCROLL SECTION
+   MERGED NARRATIVE SCROLL SECTION (Balanced Split Layout)
    ========================================================================== */
 .cp-nar-scroll-container {
-  height: 400vh; /* Increased to 4 blocks */
+  height: 400vh;
   position: relative;
   margin-bottom: 5rem;
 }
@@ -244,12 +244,14 @@
 .cp-nar-flow-block {
   position: absolute;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
+  padding: 0 2rem;
   transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   opacity: 0;
   pointer-events: none;
 }
 
+/* Animations sync text and images smoothly */
 .cp-nar-flow-block.past { transform: translateY(-80px) scale(0.95); }
 .cp-nar-flow-block.future { transform: translateY(80px) scale(0.95); }
 .cp-nar-flow-block.active {
@@ -259,15 +261,25 @@
   z-index: 10;
 }
 
-.cp-nar-node-container { position: relative; width: 50%; }
-.cp-nar-node-container.align-left { margin-right: auto; padding-right: 4rem; }
-.cp-nar-node-container.align-right { margin-left: auto; padding-left: 4rem; }
-.cp-nar-node-container.align-center { margin: 0 auto; width: 70%; text-align: center; }
+/* --- NEW 50/50 SPLIT ROW --- */
+.cp-nar-row {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem; /* Gap strictly for the center line/dot */
+}
+
+/* Dynamic alternating layout based on JSON alignment */
+.cp-nar-row.align-left { flex-direction: row; }
+.cp-nar-row.align-right { flex-direction: row-reverse; }
 
 .cp-nar-node-dot {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 16px; height: 16px;
   background: var(--bg-primary);
   border: 3px solid var(--accent-color);
@@ -275,10 +287,9 @@
   box-shadow: 0 0 15px var(--accent-color);
   z-index: 3;
 }
-.cp-nar-node-container.align-left .cp-nar-node-dot { right: -8px; }
-.cp-nar-node-container.align-right .cp-nar-node-dot { left: -8px; }
-.cp-nar-node-container.align-center .cp-nar-node-dot {
-  top: -2rem; left: 50%; transform: translateX(-50%);
+
+.cp-nar-text-side, .cp-nar-image-side {
+  width: calc(50% - 2.5rem);
 }
 
 .cp-nar-node-content {
@@ -289,6 +300,7 @@
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .cp-nar-node-content.highlight-box {
@@ -313,33 +325,36 @@
   color: #e2e8f0;
 }
 
-
-/* --- CAPABILITY VIDEO SECTION --- */
-.cp-capability-video-wrapper {
+/* --- IMAGE COMPANION STYLING --- */
+.cp-nar-image-wrapper {
   position: relative;
   width: 100%;
+  height: 320px;
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 5rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-  background: #000;
-  animation: cpFadeUp 0.8s ease forwards;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-.cp-capability-video {
+.cp-nar-image-wrapper img {
   width: 100%;
-  height: auto;
-  max-height: 450px;
-  object-fit: cover; 
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.cp-video-overlay {
+/* Subtle image scale when card enters view */
+.cp-nar-flow-block.active .cp-nar-image-wrapper img {
+  transform: scale(1.05); 
+}
+
+/* Elegant dark gradient overlay to ensure it matches your theme */
+.cp-nar-image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 65%, var(--bg-primary) 100%);
+  background: linear-gradient(135deg, rgba(11, 15, 25, 0.6) 0%, rgba(59, 130, 246, 0.15) 100%);
   pointer-events: none;
+  border-radius: 20px;
 }
 
 /* FLOWCHART INTERACTIVE */
@@ -648,37 +663,34 @@
   .cp-carousel-wrapper { padding: 0; }
   .cp-arrow-btn { display: none; } 
 
-  .cp-capability-video-wrapper {
-    border-radius: 12px;
-    margin-bottom: 3rem;
-  }
-  
-  .cp-capability-video { max-height: 250px; }
-
-  /* Narrative Scroll Mobile Fixes */
+/* Narrative Scroll Mobile Fixes */
   .cp-nar-flow-line-track {
     left: 20px;
     transform: none;
   }
   
-  .cp-nar-node-container,
-  .cp-nar-node-container.align-left,
-  .cp-nar-node-container.align-right,
-  .cp-nar-node-container.align-center {
-    width: 100%;
-    padding-left: 3.5rem;
-    padding-right: 1rem;
-    text-align: left;
+  .cp-nar-flow-block {
+    padding: 0 1rem;
   }
 
-  .cp-nar-node-container.align-left .cp-nar-node-dot,
-  .cp-nar-node-container.align-right .cp-nar-node-dot,
-  .cp-nar-node-container.align-center .cp-nar-node-dot {
+  .cp-nar-row,
+  .cp-nar-row.align-left,
+  .cp-nar-row.align-right {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 3.5rem;
+  }
+
+  .cp-nar-text-side, .cp-nar-image-side {
+    width: 100%;
+  }
+
+  .cp-nar-node-dot {
     left: -8px;
-    top: 50%;
+    top: 2.5rem;
     transform: translateY(-50%);
-    right: auto;
   }
   
   .cp-nar-node-content { padding: 2rem 1.5rem; }
+  .cp-nar-image-wrapper { height: 200px; margin-bottom: 2rem; }
 }

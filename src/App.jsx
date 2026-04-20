@@ -17,18 +17,18 @@ import ProductsPage from './pages/products';
 import ProductDetail from './pages/ProductDetail';
 
 // --- ASSET IMPORTS ---
-import logo from './img/logo.png';
-import videoPoster from './img/video-poster.png';
+import logo from './assets/img/logo.png';
+import videoPoster from './assets/img/video-poster.png';
 
 // Import all 4 background videos
-import bgVideo4 from './img/vid/bv4.mp4';
+import bgVideo4 from './assets/vid/bv4.mp4';
 
-import cap1 from './img/cap1.png';
-import cap2 from './img/cap2.png';
-import cap3 from './img/cap3.png';
-import cap4 from './img/cap4.png';
-import cap5 from './img/cap5.png';
-import cap6 from './img/cap6.png';
+import cap1 from './assets/img/cap1.png';
+import cap2 from './assets/img/cap2.png';
+import cap3 from './assets/img/cap3.png';
+import cap4 from './assets/img/cap4.png';
+import cap5 from './assets/img/cap5.png';
+import cap6 from './assets/img/cap6.png';
 
 // Mapping string keys from JSON to actual imported image variables
 const imageMap = {
@@ -309,7 +309,10 @@ const WhyChooseSection = () => {
 
   const dataLength = appData.whyChooseUs.items.length - 1;
   const activeIndex = Math.min(Math.round(progress * dataLength), dataLength);
-  const circleRotation = -90 + (progress * 180);
+  
+  // STRICT SYNCHRONIZATION: The circle now perfectly snaps to the exact center alignment 
+  // simultaneously as the activeIndex changes, eliminating early/delayed drifting.
+  const circleRotation = -90 + ((activeIndex / dataLength) * 180);
 
   useEffect(() => {
     setIsFlipped(false);
@@ -336,40 +339,48 @@ const WhyChooseSection = () => {
 
             <div
               className="wc-flip-container"
-              key={activeIndex}
+              /* REMOVED key to prevent whole-card unmounting; we now smoothly cross-fade internal content */
               onMouseEnter={() => handleInteraction(true)}
               onMouseLeave={() => handleInteraction(false)}
               onClick={() => handleInteraction(!isFlipped)}
             >
               <div className={`wc-flip-inner ${isFlipped ? 'is-flipped' : ''}`}>
+                
                 <div className="why-active-front">
-                  <div className="waf-header">
-                    <h3 className="why-active-title">{currentItem.title}</h3>
-                  </div>
-                  <div className="waf-body">
-                    <p className="why-active-desc">{currentItem.desc}</p>
-                    <div className="waf-hover-hint">Hover for impact ➔</div>
-                  </div>
-                </div>
-                <div className="why-active-back">
-                  <div className="waf-header">
-                    <h4 className="wc-back-heading">Impact & Scale</h4>
-                  </div>
-                  <div className="waf-body centered-body">
-                    <div className="wc-metrics-grid">
-                      {currentItem.metrics.map((m, idx) => (
-                        <div key={idx} className="wc-metric-item">
-                          <div className="wc-metric-number">
-                            {m.prefix}
-                            <CountUpMetric target={m.num} trigger={animatedIndices[activeIndex]} />
-                            {m.suffix}
-                          </div>
-                          <div className="wc-metric-label">{m.label}</div>
-                        </div>
-                      ))}
+                  {/* Content Fade Wrapper perfectly synced with the circle's rotation timing */}
+                  <div key={`front-${activeIndex}`} className="wc-content-fade">
+                    <div className="waf-header">
+                      <h3 className="why-active-title">{currentItem.title}</h3>
+                    </div>
+                    <div className="waf-body">
+                      <p className="why-active-desc">{currentItem.desc}</p>
+                      <div className="waf-hover-hint">Hover for impact ➔</div>
                     </div>
                   </div>
                 </div>
+
+                <div className="why-active-back">
+                  <div key={`back-${activeIndex}`} className="wc-content-fade">
+                    <div className="waf-header">
+                      <h4 className="wc-back-heading">Impact & Scale</h4>
+                    </div>
+                    <div className="waf-body centered-body">
+                      <div className="wc-metrics-grid">
+                        {currentItem.metrics.map((m, idx) => (
+                          <div key={idx} className="wc-metric-item">
+                            <div className="wc-metric-number">
+                              {m.prefix}
+                              <CountUpMetric target={m.num} trigger={animatedIndices[activeIndex]} />
+                              {m.suffix}
+                            </div>
+                            <div className="wc-metric-label">{m.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -470,8 +481,28 @@ const SuccessStoriesSection = () => {
           ))}
         </div>
 
+        {/* Redesigned Success Stories Button */}
         <div className={`success-cta reveal delay-400 ${isVisible ? 'active' : ''}`}>
-          <Link to="/connect" className="btn-primary">Start Your Success Story</Link>
+          <Link to="/connect" className="btn-primary">
+            <span>Start Your Success Story</span>
+            <svg 
+              width="20" 
+              height="16" 
+              viewBox="0 0 20 16" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ transition: 'transform 0.3s ease' }}
+            >
+              <path 
+                d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                fill="currentColor"
+              />
+              <path 
+                d="M1 9V7H0V9H1Z" 
+                fill="currentColor" 
+              />
+            </svg>
+          </Link>
         </div>
 
       </div>
@@ -572,9 +603,33 @@ function HomePage() {
             )}
           </div>
 
+          {/* Redesigned Jureo Button */}
           <div className={`reveal delay-300 ${jureoVisible ? 'active' : ''}`}>
-            <a href={appData.jureo.buttonLink} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              {appData.jureo.buttonText}
+            <a 
+              href={appData.jureo.buttonLink} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-primary"
+              aria-label={appData.jureo.buttonText}
+            >
+              <span>{appData.jureo.buttonText}</span>
+              <svg 
+                width="20" 
+                height="16" 
+                viewBox="0 0 20 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ transition: 'transform 0.3s ease' }}
+              >
+                <path 
+                  d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                  fill="currentColor"
+                />
+                <path 
+                  d="M1 9V7H0V9H1Z" 
+                  fill="currentColor" 
+                />
+              </svg>
             </a>
           </div>
         </section>

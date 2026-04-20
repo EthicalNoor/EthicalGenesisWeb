@@ -5,25 +5,49 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 import capabilitiesData from '../data/capabilities.json';
 import '../styles/capabilities.css';
 
-// Video Imports
-import cap1Vid from '../img/vid/cap1.mp4';
-import cap2Vid from '../img/vid/cap2.mp4';
-import cap3Vid from '../img/vid/cap3.mp4';
-import cap4Vid from '../img/vid/cap4.mp4';
-import cap5Vid from '../img/vid/cap5.mp4';
-import cap6Vid from '../img/vid/cap6.mp4';
-
 // Hero Background Image
 
-import HeroCapabilities from '../img/company-3.avif';
+import HeroCapabilities from '../assets/img/company-3.avif';
 
-const videoMap = {
-  'generative-ai': cap1Vid,
-  'agentic-ai': cap2Vid,
-  'llm-rag': cap3Vid,
-  'knowledge-graphs': cap4Vid,
-  'ml-engineering': cap5Vid,
-  'autonomous-workflows': cap6Vid
+// --- NEW NARRATIVE IMAGE IMPORTS (FIXED TO .jpg) ---
+import cap1_1 from '../assets/img/cap-1.1.jpg';
+import cap1_2 from '../assets/img/cap-1.2.jpg';
+import cap1_3 from '../assets/img/cap-1.3.jpg';
+import cap1_4 from '../assets/img/cap-1.4.jpg';
+
+import cap2_1 from '../assets/img/cap-2.1.jpg';
+import cap2_2 from '../assets/img/cap-2.2.jpg';
+import cap2_3 from '../assets/img/cap-2.3.jpg';
+import cap2_4 from '../assets/img/cap-2.4.jpg';
+
+import cap3_1 from '../assets/img/cap-3.1.jpg';
+import cap3_2 from '../assets/img/cap-3.2.jpg';
+import cap3_3 from '../assets/img/cap-3.3.jpg';
+import cap3_4 from '../assets/img/cap-3.4.jpg';
+
+import cap4_1 from '../assets/img/cap-4.1.jpg';
+import cap4_2 from '../assets/img/cap-4.2.jpg';
+import cap4_3 from '../assets/img/cap-4.3.jpg';
+import cap4_4 from '../assets/img/cap-4.4.jpg';
+
+import cap5_1 from '../assets/img/cap-5.1.jpg';
+import cap5_2 from '../assets/img/cap-5.2.jpg';
+import cap5_3 from '../assets/img/cap-5.3.jpg';
+import cap5_4 from '../assets/img/cap-5.4.jpg';
+
+import cap6_1 from '../assets/img/cap-6.1.jpg';
+import cap6_2 from '../assets/img/cap-6.2.jpg';
+import cap6_3 from '../assets/img/cap-6.3.jpg';
+import cap6_4 from '../assets/img/cap-6.4.jpg';
+
+// --- IMAGE MAPPING OBJECT ---
+const imageMap = {
+  cap1_1, cap1_2, cap1_3, cap1_4,
+  cap2_1, cap2_2, cap2_3, cap2_4,
+  cap3_1, cap3_2, cap3_3, cap3_4,
+  cap4_1, cap4_2, cap4_3, cap4_4,
+  cap5_1, cap5_2, cap5_3, cap5_4,
+  cap6_1, cap6_2, cap6_3, cap6_4
 };
 
 // Analytics Mock Hook
@@ -57,11 +81,14 @@ const ScrollNarrative = ({ narrative, activeId }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Init measurement
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeId]); // Re-attach if capability changes
+  }, [activeId]);
 
   const activeBlockIndex = Math.min(3, Math.floor(scrollProgress / 0.25));
 
   if (!narrative || narrative.length === 0) return null;
+
+  // Premium fallback image just in case a narrative object in JSON is missing the "image" key
+  const fallbackImg = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop";
 
   return (
     <section className="cp-nar-scroll-container" ref={scrollContainerRef}>
@@ -80,12 +107,30 @@ const ScrollNarrative = ({ narrative, activeId }) => {
 
             return (
               <div key={`${activeId}-${block.id}`} className={`cp-nar-flow-block ${visibilityStatus}`}>
-                <div className={`cp-nar-node-container align-${block.align}`}>
+
+                {/* NEW SPLIT LAYOUT: Reverses flex direction based on alignment */}
+                <div className={`cp-nar-row align-${block.align}`}>
+
+                  {/* Center Dot perfectly positioned on the line */}
                   <div className="cp-nar-node-dot"></div>
-                  <div className={`cp-nar-node-content ${block.highlight ? 'highlight-box' : ''}`}>
-                    <span className={`cp-nar-tag ${block.highlight ? 'highlight' : ''}`}>{block.tag}</span>
-                    <p>{block.content}</p>
+
+                  {/* Text Side */}
+                  <div className="cp-nar-text-side">
+                    <div className={`cp-nar-node-content ${block.highlight ? 'highlight-box' : ''}`}>
+                      <span className={`cp-nar-tag ${block.highlight ? 'highlight' : ''}`}>{block.tag}</span>
+                      <p>{block.content}</p>
+                    </div>
                   </div>
+
+                  {/* Image Side - Automatically mirrors text */}
+                  <div className="cp-nar-image-side">
+                    <div className="cp-nar-image-wrapper">
+                      {/* UPDATED: Uses the imageMap to pull the local imported file */}
+                      <img src={imageMap[block.image] || fallbackImg} alt={block.tag} loading="lazy" />
+                      <div className="cp-nar-image-overlay"></div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             );
@@ -311,23 +356,6 @@ export default function CapabilitiesPage() {
           {/* --- MERGED NARRATIVE SCROLL (The Story) --- */}
           <ScrollNarrative narrative={selectedCap.narrative} activeId={selectedCap.slug} />
 
-          {/* --- RESPONSIVE CAPABILITY VIDEO SECTION --- */}
-          {selectedCap && videoMap[selectedCap.slug] && (
-            <div className="cp-capability-video-wrapper">
-              <video
-                className="cp-capability-video"
-                autoPlay
-                loop
-                muted
-                playsInline
-                key={videoMap[selectedCap.slug]}
-              >
-                <source src={videoMap[selectedCap.slug]} type="video/mp4" />
-              </video>
-              <div className="cp-video-overlay"></div>
-            </div>
-          )}
-
           {/* INTERACTIVE FLOWCHART WITH CALLOUT */}
           <div className="cp-flowchart-container">
             <h3 className="section-main-heading">Deployment Lifecycle</h3>
@@ -409,13 +437,33 @@ export default function CapabilitiesPage() {
             </div>
           </div>
 
-          {/* CTA */}
+{/* CTA */}
           <div className="cp-cta-block">
             <h2 className="section-main-heading">Ready to Architect the Future?</h2>
             <div className="cp-cta-buttons">
-              <Link to="/connect" className="btn-primary" onClick={() => trackEvent('cta_click', { type: 'poc' })}>
-                Start a PoC
+              
+              {/* Redesigned Pill Button with Trailing Icon */}
+              <Link to="/connect" className="btn-primary" aria-label="Start a PoC" onClick={() => trackEvent('cta_click', { type: 'poc' })}>
+                <span>Start a PoC</span>
+                <svg 
+                  width="20" 
+                  height="16" 
+                  viewBox="0 0 20 16" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ transition: 'transform 0.3s ease' }}
+                >
+                  <path 
+                    d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                    fill="currentColor"
+                  />
+                  <path 
+                    d="M1 9V7H0V9H1Z" 
+                    fill="currentColor" 
+                  />
+                </svg>
               </Link>
+
               <Link to="/connect" className="btn-outline" onClick={() => trackEvent('cta_click', { type: 'tech_spec' })}>
                 Request Technical Spec
               </Link>

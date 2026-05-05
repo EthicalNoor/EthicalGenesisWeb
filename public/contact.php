@@ -1,13 +1,11 @@
 <?php
-// contact.php - Production Ready
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// contact.php - Ethical Genesis (Native PHP Mail - Admin Notification Only)
 
 // 1. Setup CORS & Headers securely
 $allowed_origins = [
-    'http://localhost:5173', // Vite local dev
-    'https://www.ethicalgenesis.ai', // Your production domain
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://www.ethicalgenesis.ai',
     'https://ethicalgenesis.ai'
 ];
 
@@ -16,8 +14,7 @@ $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowed_origins)) {
     header("Access-Control-Allow-Origin: $origin");
 } else {
-    // If not in allowed list, reject CORS
-    header("Access-Control-Allow-Origin: null");
+    header("Access-Control-Allow-Origin: *"); // Fallback for local testing
 }
 
 header("Access-Control-Allow-Methods: POST, OPTIONS");
@@ -41,20 +38,12 @@ if (isset($_SESSION['last_submit_time'])) {
     }
 }
 
-// 3. Process Input (Supports both application/json and multipart/form-data)
-$input_data = [];
-$content_type = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+// 3. Process Input
+$rest_json = file_get_contents("php://input");
+$input_data = json_decode($rest_json, true) ?? $_POST;
 
-if (strpos($content_type, 'application/json') !== false) {
-    $raw_input = file_get_contents('php://input');
-    $input_data = json_decode($raw_input, true);
-} else {
-    $input_data = $_POST;
-}
-
-// 4. Honeypot Spam Check
+// 4. Honeypot Spam Check (Traps bots instantly)
 if (!empty($input_data['honeypot'])) {
-    // Silently accept to fool bots, but do nothing
     http_response_code(200);
     echo json_encode(["status" => "success", "message" => "Message sent."]);
     exit;
@@ -63,7 +52,7 @@ if (!empty($input_data['honeypot'])) {
 // 5. Sanitize and Validate
 $name = isset($input_data["name"]) ? strip_tags(trim($input_data["name"])) : '';
 $email = isset($input_data["email"]) ? filter_var(trim($input_data["email"]), FILTER_SANITIZE_EMAIL) : '';
-$message = isset($input_data["message"]) ? htmlspecialchars(trim($input_data["message"])) : '';
+$message = isset($input_data["message"]) ? strip_tags(trim($input_data["message"])) : '';
 
 if (empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
@@ -71,77 +60,48 @@ if (empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL
     exit;
 }
 
-// Update last submit time for rate limiting
 $_SESSION['last_submit_time'] = time();
 
-// 6. Require PHPMailer (Ensure you ran `composer require phpmailer/phpmailer`)
-require 'vendor/autoload.php';
+// ============================================================================
+// EMAIL: SEND INQUIRY TO ETHICAL GENESIS ADMIN 
+// ============================================================================
+$admin_to = "info@ethicalgenesis.ai";
+$admin_subject = "New Enterprise AI Inquiry from " . $name;
 
-$mail = new PHPMailer(true);
+$admin_body = "You have received a new inquiry via the Ethical Genesis website.\n\n";
+$admin_body .= "Name: " . $name . "\n";
+$admin_body .= "Email: " . $email . "\n\n";
+$admin_body .= "Message:\n" . $message . "\n";
 
-try {
-    // Server settings
-    $mail->isSMTP();
-    $mail->Host       = 'smtp.yourprovider.com'; // e.g., smtp.gmail.com or smtp.zoho.com
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'noreply@ethicalgenesis.ai'; // SMTP username
-    $mail->Password   = 'YOUR_APP_PASSWORD';         // SMTP password or App Password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
-    $mail->CharSet    = 'UTF-8';
+// Strict anti-spam headers
+$admin_headers = "MIME-Version: 1.0\r\n";
+$admin_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$admin_headers .= "From: Ethical Genesis Website <info@ethicalgenesis.ai>\r\n"; 
+$admin_headers .= "Reply-To: " . $name . " <" . $email . ">\r\n";
+$admin_headers .= "X-Mailer: PHP/" . phpversion();
 
-    // --------------------------------------------------------
-    // Email 1: To the Admin
-    // --------------------------------------------------------
-    $mail->setFrom('noreply@ethicalgenesis.ai', 'Ethical Genesis Website');
-    $mail->addAddress('info@ethicalgenesis.ai', 'Ethical Genesis Admin');
-    $mail->addReplyTo($email, $name);
+// ============================================================================
+// EXECUTE EMAIL (With Localhost Bypass for Testing)
+// ============================================================================
+$admin_sent = false;
 
-    $mail->isHTML(true);
-    $mail->Subject = 'New Enterprise AI Inquiry from ' . $name;
-    $mail->Body    = "
-        <h3>New Inquiry via Ethical Genesis</h3>
-        <p><strong>Name:</strong> {$name}</p>
-        <p><strong>Email:</strong> {$email}</p>
-        <p><strong>Message:</strong></p>
-        <blockquote style='border-left: 4px solid #3b82f6; padding-left: 10px;'>
-            " . nl2br($message) . "
-        </blockquote>
-    ";
-    
-    $mail->send();
+// Check if we are running on localhost (127.0.0.1 or ::1)
+if ($_SERVER['REMOTE_ADDR'] === '127.0.0.1' || $_SERVER['REMOTE_ADDR'] === '::1') {
+    // FAKE SUCCESS FOR LOCAL TESTING (Bypasses the mail function since Windows has no SMTP server)
+    $admin_sent = true; 
+    error_log("Local Test: Email to Admin simulated successfully.");
+} else {
+    // REAL EXECUTION FOR PRODUCTION
+    // The -f flag helps prevent GoDaddy emails from bouncing
+    $admin_sent = mail($admin_to, $admin_subject, $admin_body, $admin_headers, "-finfo@ethicalgenesis.ai");
+}
 
-    // --------------------------------------------------------
-    // Email 2: Auto-Reply to the User
-    // --------------------------------------------------------
-    $mail->clearAddresses();
-    $mail->clearReplyTos();
-    
-    $mail->addAddress($email, $name);
-    $mail->addReplyTo('info@ethicalgenesis.ai', 'Ethical Genesis Support');
-    
-    $mail->Subject = 'We have received your message - Ethical Genesis';
-    $mail->Body    = "
-        <div style='font-family: Arial, sans-serif; color: #111827; line-height: 1.6;'>
-            <h2>Thank you for reaching out, {$name}.</h2>
-            <p>This is an automated confirmation that we have received your inquiry regarding our enterprise AI solutions.</p>
-            <p>Our engineering and consulting team is reviewing your message and will follow up with you shortly.</p>
-            <br>
-            <p>Best regards,<br><strong>The Ethical Genesis Team</strong></p>
-            <p style='color: #6b7280; font-size: 12px;'>This email was automatically generated. Please do not reply directly to this address unless required.</p>
-        </div>
-    ";
-
-    $mail->send();
-
-    // Success Response
+// Respond back to React
+if ($admin_sent) {
     http_response_code(200);
     echo json_encode(["status" => "success", "message" => "Message sent successfully."]);
-
-} catch (Exception $e) {
-    // Log error to a secure file, do NOT expose detailed SMTP errors to the frontend
-    error_log("Mail Error: {$mail->ErrorInfo}");
-    
+} else {
     http_response_code(500);
-    echo json_encode(["status" => "error", "message" => "A server error occurred while sending your message. Please try again later."]);
+    echo json_encode(["status" => "error", "message" => "Server failed to send email. Please check host configuration."]);
 }
+?>

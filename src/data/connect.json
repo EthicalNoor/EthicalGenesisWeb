@@ -15,7 +15,7 @@
   "form": {
     "successMessage": {
       "title": "Message Successfully Sent.",
-      "desc": "Thank you for reaching out. We have received your message and an auto-reply confirmation has been sent to your email. Our team will get back to you shortly."
+      "desc": "Thank you for reaching out. We have securely received your message. Our engineering and advisory team will review your inquiry and get back to you shortly."
     }
   }
 }

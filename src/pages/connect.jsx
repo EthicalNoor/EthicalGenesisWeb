@@ -1,7 +1,8 @@
+// src/pages/connect.jsx
+
 import React, { useState, useEffect } from 'react';
 import connectData from '../data/connect.json';
 import '../styles/connect.css';
-import emailjs from '@emailjs/browser';
 
 export default function ConnectPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,17 +16,15 @@ export default function ConnectPage() {
     honeypot: '' 
   });
 
-  // demo need to replace by official
-  const YOUR_SERVICE_ID = "service_jga9uoa"; 
-  const YOUR_TEMPLATE_ID = "template_4660upo";
-  const YOUR_PUBLIC_KEY = "LbAG0xoa3ZGK3YZhM";
+  // Automatically determines API URL dynamically based on environment
+  const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:8000/contact.php' 
+    : 'https://ethicalgenesis.ai/contact.php'; 
 
-  // Ensure page loads at the very top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Handle Input Changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -34,50 +33,56 @@ export default function ConnectPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic Honeypot spam check
-    if (formData.honeypot) {
-      return; 
-    }
+    // Spam Trap: If bot fills the hidden field, silently stop.
+    if (formData.honeypot) return; 
 
     setIsSubmitting(true);
     setErrorMessage('');
 
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      message: formData.message,
-    };
-
-    emailjs.send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, templateParams, YOUR_PUBLIC_KEY)
-      .then((result) => {
-          console.log('SUCCESS!', result.text);
-          setIsSubmitted(true);
-          setIsSubmitting(false);
-          setFormData({ name: '', email: '', message: '', honeypot: '' });
-      }, (error) => {
-          console.log('FAILED...', error.text);
-          setErrorMessage('Failed to send message. Please try again later.');
-          setIsSubmitting(false);
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          honeypot: formData.honeypot
+        })
       });
+
+      const result = await response.json();
+
+      if (response.ok && result.status === 'success') {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '', honeypot: '' });
+      } else {
+        throw new Error(result.message || 'Failed to send message.');
+      }
+    } catch (error) {
+      console.error('Submission Error:', error);
+      setErrorMessage('Network error. Please check your connection or try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="conn-page-wrapper">
-      
-      {/* Background Ambience */}
       <div className="conn-bg-mesh"></div>
-
       <div className="conn-container">
         <div className="conn-grid">
 
-          {/* --- LEFT COLUMN: Info --- */}
+          {/* LEFT COLUMN: Info */}
           <div className="conn-info-side">
             <h1 className="conn-heading">{connectData.info.heading}</h1>
             <p className="conn-subheading">{connectData.info.subHeading}</p>
-            
             <div className="conn-channels">
               {connectData.info.channels.map((channel, idx) => (
                 <div key={idx} className="conn-channel">
@@ -88,7 +93,7 @@ export default function ConnectPage() {
             </div>
           </div>
 
-          {/* --- RIGHT COLUMN: Form Card --- */}
+          {/* RIGHT COLUMN: Form Card */}
           <div className="conn-form-side">
             {isSubmitted ? (
               <div className="conn-success-state">
@@ -108,7 +113,7 @@ export default function ConnectPage() {
               <form className="conn-form" onSubmit={handleSubmit}>
                 {errorMessage && <div className="conn-error-message">{errorMessage}</div>}
                 
-                {/* Honeypot Field (Hidden from real users) */}
+                {/* Honeypot Field */}
                 <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" value={formData.honeypot} onChange={handleChange} />
 
                 <div className="conn-input-wrapper">

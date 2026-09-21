@@ -67,7 +67,7 @@ export default function CompanyPage() {
           </div>
           <div className={`cmp-split-right ${originVisible ? 'visible' : ''}`}>
             <div className="cmp-image-wrapper">
-              <img src={innoBgImage} alt="Ethical Genesis Office" loading="lazy" />
+              <img src={innoBgImage} alt="Ethical Genesis AI Office" loading="lazy" />
               <div className="cmp-image-glow"></div>
             </div>
           </div>

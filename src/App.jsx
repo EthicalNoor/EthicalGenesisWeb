@@ -169,7 +169,7 @@ function SplashScreen({ onComplete }) {
     <>
       <style>{splashCSS}</style>
       <div className="lw-loader-wrap" ref={wrapRef}>
-        <img src={logo} alt="Ethical Genesis Logo" className="lw-logo" />
+        <img src={logo} alt="Ethical Genesis AI Logo" className="lw-logo" />
         <div className="lw-loading-text">Loading...</div>
         <div className="lw-progress-container">
           <div className="lw-progress-bar"></div>
@@ -309,7 +309,7 @@ const WhyChooseSection = () => {
 
   const dataLength = appData.whyChooseUs.items.length - 1;
   const activeIndex = Math.min(Math.round(progress * dataLength), dataLength);
-  
+
   // STRICT SYNCHRONIZATION: The circle now perfectly snaps to the exact center alignment 
   // simultaneously as the activeIndex changes, eliminating early/delayed drifting.
   const circleRotation = -90 + ((activeIndex / dataLength) * 180);
@@ -345,7 +345,7 @@ const WhyChooseSection = () => {
               onClick={() => handleInteraction(!isFlipped)}
             >
               <div className={`wc-flip-inner ${isFlipped ? 'is-flipped' : ''}`}>
-                
+
                 <div className="why-active-front">
                   {/* Content Fade Wrapper perfectly synced with the circle's rotation timing */}
                   <div key={`front-${activeIndex}`} className="wc-content-fade">
@@ -485,21 +485,21 @@ const SuccessStoriesSection = () => {
         <div className={`success-cta reveal delay-400 ${isVisible ? 'active' : ''}`}>
           <Link to="/connect" className="btn-primary">
             <span>Start Your Success Story</span>
-            <svg 
-              width="20" 
-              height="16" 
-              viewBox="0 0 20 16" 
-              fill="none" 
+            <svg
+              width="20"
+              height="16"
+              viewBox="0 0 20 16"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
               style={{ transition: 'transform 0.3s ease' }}
             >
-              <path 
-                d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+              <path
+                d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z"
                 fill="currentColor"
               />
-              <path 
-                d="M1 9V7H0V9H1Z" 
-                fill="currentColor" 
+              <path
+                d="M1 9V7H0V9H1Z"
+                fill="currentColor"
               />
             </svg>
           </Link>
@@ -517,7 +517,7 @@ function HomePage() {
   const [jureoRef, jureoVisible] = useScrollReveal();
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  
+
   const backgroundVideos = [bgVideo4];
 
   // Rotate videos every 10 seconds
@@ -605,29 +605,29 @@ function HomePage() {
 
           {/* Redesigned Jureo Button */}
           <div className={`reveal delay-300 ${jureoVisible ? 'active' : ''}`}>
-            <a 
-              href={appData.jureo.buttonLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={appData.jureo.buttonLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary"
               aria-label={appData.jureo.buttonText}
             >
               <span>{appData.jureo.buttonText}</span>
-              <svg 
-                width="20" 
-                height="16" 
-                viewBox="0 0 20 16" 
-                fill="none" 
+              <svg
+                width="20"
+                height="16"
+                viewBox="0 0 20 16"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ transition: 'transform 0.3s ease' }}
               >
-                <path 
-                  d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                <path
+                  d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z"
                   fill="currentColor"
                 />
-                <path 
-                  d="M1 9V7H0V9H1Z" 
-                  fill="currentColor" 
+                <path
+                  d="M1 9V7H0V9H1Z"
+                  fill="currentColor"
                 />
               </svg>
             </a>
@@ -672,7 +672,7 @@ export default function App() {
       <nav className="navbar">
         <div className="nav-logo">
           <Link to="/">
-            <img src={logo} alt="Ethical Genesis Logo" />
+            <img src={logo} alt="Ethical Genesis AI Logo" />
           </Link>
         </div>
 
@@ -734,7 +734,9 @@ export default function App() {
         </div>
 
         <div className={`footer-bottom reveal delay-100 ${footerVisible ? 'active' : ''}`}>
-          <p>{appData.footer.copyrightText}</p>
+          <p>
+            © {new Date().getFullYear()} Ethical Genesis AI LLP. All rights reserved.
+          </p>
           <div className="social-icons">
             <a
               href="https://www.linkedin.com/in/ethical-genesis-a59944329"

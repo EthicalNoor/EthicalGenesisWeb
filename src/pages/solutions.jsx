@@ -184,7 +184,9 @@ export default function SolutionsPage() {
       {/* 5. THE ADVANTAGE */}
       <section className="sol-advantage-section">
         <div className="sol-container">
-          <h2 className="sol-section-title section-main-heading">The Ethical Genesis Advantage</h2>
+          <h2 className="sol-section-title section-main-heading">
+            The Ethical Genesis AI Advantage
+          </h2>
           <div className="sol-advantage-grid">
             {solutionsData.advantages.map((adv, i) => (
               <div key={i} className="sol-adv-card">

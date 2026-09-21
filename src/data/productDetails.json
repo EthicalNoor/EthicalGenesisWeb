@@ -57,6 +57,67 @@
       }
     ]
   },
+  "grunth": {
+    "id": "grunth",
+    "badge": "Scripture Intelligence Platform",
+    "title": "Grunth — The Intelligent",
+    "highlightText": "Scripture Guide",
+    "hostedLink": "https://grunth.com",
+    "subtitle": "AI-powered spiritual guidance grounded in the Vedas, Puranas, Bhagavad Gita, and Ramayan. Ask anything — receive answers with exact shlokas, verse numbers, and paragraph-level citations from the original source PDFs.",
+    "heroImage": "https://images.unsplash.com/photo-1667162862361-e2dbce58db05?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmhhZ2F2YWQlMjBnaXRhfGVufDB8fDB8fHwy",
+    "description": "A first-of-its-kind Retrieval-Augmented Generation platform that transforms the foundational corpus of Sanatana Dharma into a live, conversational intelligence system.",
+    "detailedDescription": "Grunth ingests the entire foundational library of Hindu scriptures — the Vedas, the Mahapuranas, the Bhagavad Gita, and the Valmiki Ramayan — into a secure vector database. Seekers can ask any question, share a personal struggle, express joy, or request spiritual direction in natural language. Grunth retrieves the most contextually relevant passages, synthesizes a thoughtful and compassionate response, and returns exact shlokas along with full citations: the source book, chapter, verse number, and paragraph-level reference from the original PDF.",
+    "problemStatement": "The wisdom of Hindu scriptures is vast and fragmented across thousands of pages of Sanskrit and Hindi text. Spiritual seekers, students, and scholars spend years searching for relevant verses. Traditional keyword search returns isolated lines, not contextual guidance. There has never been a single intelligent system that understands a seeker's emotional and philosophical context and responds with precisely cited shlokas from the original source.",
+    "solution": "Grunth is a scripture-grounded AI platform. Ask any question — about grief, joy, relationships, dharma, or life decisions — and Grunth retrieves the exact shlokas and passages from its embedded scripture database, synthesizes a compassionate and meaningful answer, and returns complete citations down to the verse and paragraph level.",
+    "keyCapabilities": [
+      "Full Corpus Embedding — Vedas, Puranas, Bhagavad Gita, Valmiki Ramayan",
+      "Natural Language Spiritual Q&A",
+      "Exact Shloka Retrieval with Sanskrit Text & Translation",
+      "Paragraph-Level PDF Citations & Verse Numbers",
+      "Emotional & Philosophical Context Understanding",
+      "Zero-Hallucination Retrieval-Augmented Generation (RAG)"
+    ],
+    "useCases": [
+      "Daily Spiritual Guidance & Reflection",
+      "Understanding Dharma in Modern Life Decisions",
+      "Scripture Study for Students & Scholars",
+      "Emotional Support through Ancient Wisdom",
+      "Precise Verse Discovery with Verifiable Citations"
+    ],
+    "targetAudience": [
+      "Spiritual Seekers",
+      "Students of Vedanta & Sanskrit",
+      "Hindu Scholars & Researchers",
+      "Yoga & Meditation Practitioners",
+      "Anyone Seeking Scriptural Guidance"
+    ],
+    "stats": [
+      {
+        "value": "100%",
+        "label": "Cited from Original Sources"
+      },
+      {
+        "value": "4+",
+        "label": "Core Scripture Corpora Embedded"
+      },
+      {
+        "value": "Shloka",
+        "label": "Real-Time Verse Retrieval"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Grunth doesn't just answer — it points me to the exact shloka in the exact chapter of the exact book. It is like having a teacher who quotes the source every single time.",
+        "author": "Rohit Sharma",
+        "role": "Daily Practitioner"
+      },
+      {
+        "quote": "I shared something deeply personal and received guidance grounded in the Gita with precise verse citations. It felt both ancient and immediate.",
+        "author": "Ananya Iyer",
+        "role": "Yoga Instructor"
+      }
+    ]
+  },
   "legal-compliance": {
     "id": "legal-compliance",
     "badge": "Regulatory Intelligence",

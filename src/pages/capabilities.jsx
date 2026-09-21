@@ -1,15 +1,12 @@
 // src/pages/capabilities.jsx
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import capabilitiesData from '../data/capabilities.json';
 import '../styles/capabilities.css';
 
-// Hero Background Image
-
 import HeroCapabilities from '../assets/img/company-3.avif';
 
-// --- NEW NARRATIVE IMAGE IMPORTS (FIXED TO .jpg) ---
 import cap1_1 from '../assets/img/cap-1.1.jpg';
 import cap1_2 from '../assets/img/cap-1.2.jpg';
 import cap1_3 from '../assets/img/cap-1.3.jpg';
@@ -40,7 +37,6 @@ import cap6_2 from '../assets/img/cap-6.2.jpg';
 import cap6_3 from '../assets/img/cap-6.3.jpg';
 import cap6_4 from '../assets/img/cap-6.4.jpg';
 
-// --- IMAGE MAPPING OBJECT ---
 const imageMap = {
   cap1_1, cap1_2, cap1_3, cap1_4,
   cap2_1, cap2_2, cap2_3, cap2_4,
@@ -50,12 +46,10 @@ const imageMap = {
   cap6_1, cap6_2, cap6_3, cap6_4
 };
 
-// Analytics Mock Hook
 const trackEvent = (eventName, payload) => {
   console.log(`[Analytics] ${eventName}`, payload);
 };
 
-// --- MERGED SCROLL NARRATIVE COMPONENT ---
 const ScrollNarrative = ({ narrative, activeId }) => {
   const scrollContainerRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -79,7 +73,7 @@ const ScrollNarrative = ({ narrative, activeId }) => {
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Init measurement
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeId]);
 
@@ -87,18 +81,15 @@ const ScrollNarrative = ({ narrative, activeId }) => {
 
   if (!narrative || narrative.length === 0) return null;
 
-  // Premium fallback image just in case a narrative object in JSON is missing the "image" key
   const fallbackImg = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop";
 
   return (
     <section className="cp-nar-scroll-container" ref={scrollContainerRef}>
       <div className="cp-nar-sticky-viewport">
-        {/* Animated Connecting Line */}
         <div className="cp-nar-flow-line-track">
           <div className="cp-nar-flow-line-fill" style={{ height: `${scrollProgress * 100}%` }}></div>
         </div>
 
-        {/* Overlapping Content Blocks */}
         <div className="cp-nar-blocks-wrapper">
           {narrative.map((block, idx) => {
             let visibilityStatus = 'future';
@@ -107,14 +98,9 @@ const ScrollNarrative = ({ narrative, activeId }) => {
 
             return (
               <div key={`${activeId}-${block.id}`} className={`cp-nar-flow-block ${visibilityStatus}`}>
-
-                {/* NEW SPLIT LAYOUT: Reverses flex direction based on alignment */}
                 <div className={`cp-nar-row align-${block.align}`}>
-
-                  {/* Center Dot perfectly positioned on the line */}
                   <div className="cp-nar-node-dot"></div>
 
-                  {/* Text Side */}
                   <div className="cp-nar-text-side">
                     <div className={`cp-nar-node-content ${block.highlight ? 'highlight-box' : ''}`}>
                       <span className={`cp-nar-tag ${block.highlight ? 'highlight' : ''}`}>{block.tag}</span>
@@ -122,15 +108,12 @@ const ScrollNarrative = ({ narrative, activeId }) => {
                     </div>
                   </div>
 
-                  {/* Image Side - Automatically mirrors text */}
                   <div className="cp-nar-image-side">
                     <div className="cp-nar-image-wrapper">
-                      {/* UPDATED: Uses the imageMap to pull the local imported file */}
                       <img src={imageMap[block.image] || fallbackImg} alt={block.tag} loading="lazy" />
                       <div className="cp-nar-image-overlay"></div>
                     </div>
                   </div>
-
                 </div>
               </div>
             );
@@ -141,7 +124,6 @@ const ScrollNarrative = ({ narrative, activeId }) => {
   );
 };
 
-// Reusable Component for Step Details
 const StepDetailContent = ({ step }) => (
   <div className="cp-panel-content">
     <div className="cp-panel-header-inline">
@@ -188,60 +170,76 @@ export default function CapabilitiesPage() {
   const [selectedStep, setSelectedStep] = useState(null);
   const [isFlowHovered, setIsFlowHovered] = useState(false);
 
-  const scrollToDetails = () => {
-    setTimeout(() => {
-      if (detailRef.current) {
-        const navbarOffset = 130;
-        const elementPosition = detailRef.current.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - navbarOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
+  /*
+   * Robust scroll-to-detail.
+   * Previously a 200ms setTimeout assumed the new DOM was always ready.
+   * That caused a race condition: sometimes the ref still pointed to the
+   * old content. Now we wait for the render to settle using two rAFs,
+   * and we rely on `scroll-margin-top` in CSS for the navbar offset.
+   */
+  const scrollToDetails = useCallback((behavior = 'smooth') => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (!detailRef.current) return;
+        detailRef.current.scrollIntoView({
+          behavior,
+          block: 'start'
         });
-      }
-    }, 200);
-  };
+      });
+    });
+  }, []);
 
+  // Effect 1: Sync state from the URL hash
   useEffect(() => {
     trackEvent('page_view', { page: '/capabilities' });
 
     const hash = location.hash;
-    if (hash && hash.startsWith('#capability-')) {
-      const parts = hash.replace('#capability-', '').split('-step-');
-      const capSlug = parts[0];
-      const stepNum = parts[1] ? parseInt(parts[1], 10) : null;
-
-      const foundCap = capabilitiesData.find(c => c.slug === capSlug);
-      if (foundCap) {
-        setSelectedCap(foundCap);
-        if (stepNum) {
-          const foundStep = foundCap.steps?.find(s => s.id === stepNum);
-          if (foundStep) {
-            setSelectedStep(foundStep);
-            setIsFlowHovered(true);
-          }
-        } else {
-          setSelectedStep(null);
-          setIsFlowHovered(false);
-        }
-        scrollToDetails();
-      }
-    } else {
+    if (!hash || !hash.startsWith('#capability-')) {
       setSelectedCap(null);
       setSelectedStep(null);
       setIsFlowHovered(false);
       window.scrollTo(0, 0);
+      return;
+    }
+
+    const parts = hash.replace('#capability-', '').split('-step-');
+    const capSlug = parts[0];
+    const stepNum = parts[1] ? parseInt(parts[1], 10) : null;
+
+    const foundCap = capabilitiesData.find(c => c.slug === capSlug);
+    if (!foundCap) return;
+
+    setSelectedCap(foundCap);
+
+    if (stepNum) {
+      const foundStep = foundCap.steps?.find(s => s.id === stepNum);
+      if (foundStep) {
+        setSelectedStep(foundStep);
+        setIsFlowHovered(true);
+      }
+    } else {
+      setSelectedStep(null);
+      setIsFlowHovered(false);
     }
   }, [location.hash]);
 
+  // Effect 2: Scroll AFTER the detail section is actually rendered
+  useEffect(() => {
+    if (!selectedCap) return;
+    if (!location.hash || !location.hash.startsWith('#capability-')) return;
+    scrollToDetails();
+  }, [selectedCap?.slug, location.hash, scrollToDetails]);
+
   const handleSelectCap = (capSlug) => {
     trackEvent('capability_selected', { capability: capSlug });
-    navigate(`/capabilities#capability-${capSlug}`);
 
     if (selectedCap?.slug === capSlug) {
+      // Already active — just scroll back to the top of the detail view
       scrollToDetails();
+      return;
     }
+
+    navigate(`/capabilities#capability-${capSlug}`);
   };
 
   const handleHoverStep = (step) => {
@@ -260,15 +258,12 @@ export default function CapabilitiesPage() {
     }
   };
 
-  // RESTORED FIX: activeStepIdx is required for the timeline CSS variable to prevent the app from crashing!
   const activeStepIdx = selectedStep && selectedCap?.steps
     ? selectedCap.steps.findIndex(s => s.id === selectedStep.id)
     : 0;
 
   return (
     <div className="cap-page-container" style={{ position: 'relative' }}>
-
-      {/* --- STATIC HERO BACKGROUND IMAGE --- */}
       <div
         style={{
           position: 'absolute',
@@ -276,7 +271,6 @@ export default function CapabilitiesPage() {
           left: 0,
           width: '100%',
           height: '550px',
-          // UPDATED: Replaced Unsplash URL with the imported HeroCapabilities variable
           backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.4) 0%, var(--bg-primary) 100%), url(${HeroCapabilities})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -286,13 +280,11 @@ export default function CapabilitiesPage() {
         aria-hidden="true"
       />
 
-      {/* 1. HERO SECTION */}
       <section className="cp-hero" key={`hero-${selectedCap ? selectedCap.slug : 'default'}`} style={{ position: 'relative', zIndex: 1 }}>
         <h1 className="section-main-heading">Our Capabilities</h1>
         <p>Architecting enterprise intelligence through customized, high-performance AI workflows, models, and infrastructure.</p>
       </section>
 
-      {/* 2. HORIZONTAL CAPABILITIES CAROUSEL */}
       <section className="cp-carousel-wrapper" style={{ position: 'relative', zIndex: 1 }}>
         <button className="cp-arrow-btn left" onClick={() => scrollCarousel('left')} aria-label="Scroll left">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
@@ -307,7 +299,12 @@ export default function CapabilitiesPage() {
               role="button"
               tabIndex={0}
               aria-pressed={selectedCap?.slug === cap.slug}
-              onKeyDown={(e) => e.key === 'Enter' && handleSelectCap(cap.slug)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleSelectCap(cap.slug);
+                }
+              }}
             >
               <h3>{cap.title}</h3>
               <p>{cap.shortDescription}</p>
@@ -323,17 +320,14 @@ export default function CapabilitiesPage() {
         </button>
       </section>
 
-      {/* 3. DETAILED VIEW */}
       {selectedCap && (
         <section className="cp-detail-wrapper" ref={detailRef} tabIndex="-1" style={{ position: 'relative', zIndex: 1 }}>
-
           <div className="cp-overview">
             <div className="cp-pitch">
               <h2 className="section-main-heading">{selectedCap.title}</h2>
               <p>{selectedCap.elevatorPitch}</p>
 
               <div className="cp-metrics">
-                {/* Added optional chaining ?. to prevent crashes if JSON is missing data */}
                 {selectedCap.metrics?.map((m, i) => (
                   <div key={i} className="cp-metric">
                     <h4>{m.value}</h4>
@@ -353,10 +347,8 @@ export default function CapabilitiesPage() {
             </div>
           </div>
 
-          {/* --- MERGED NARRATIVE SCROLL (The Story) --- */}
           <ScrollNarrative narrative={selectedCap.narrative} activeId={selectedCap.slug} />
 
-          {/* INTERACTIVE FLOWCHART WITH CALLOUT */}
           <div className="cp-flowchart-container">
             <h3 className="section-main-heading">Deployment Lifecycle</h3>
             <p className="cp-flow-hint">Hover over a phase below to reveal architectural details.</p>
@@ -408,7 +400,6 @@ export default function CapabilitiesPage() {
             </div>
           </div>
 
-          {/* BOTTOM SECTIONS */}
           <div className="cp-bottom-sections">
             <div className="cp-snapshot">
               <h4 className="section-main-heading">Security Snapshot</h4>
@@ -437,30 +428,24 @@ export default function CapabilitiesPage() {
             </div>
           </div>
 
-{/* CTA */}
           <div className="cp-cta-block">
             <h2 className="section-main-heading">Ready to Architect the Future?</h2>
             <div className="cp-cta-buttons">
-              
-              {/* Redesigned Pill Button with Trailing Icon */}
               <Link to="/connect" className="btn-primary" aria-label="Start a PoC" onClick={() => trackEvent('cta_click', { type: 'poc' })}>
                 <span>Start a PoC</span>
-                <svg 
-                  width="20" 
-                  height="16" 
-                  viewBox="0 0 20 16" 
-                  fill="none" 
+                <svg
+                  width="20"
+                  height="16"
+                  viewBox="0 0 20 16"
+                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   style={{ transition: 'transform 0.3s ease' }}
                 >
-                  <path 
-                    d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                  <path
+                    d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z"
                     fill="currentColor"
                   />
-                  <path 
-                    d="M1 9V7H0V9H1Z" 
-                    fill="currentColor" 
-                  />
+                  <path d="M1 9V7H0V9H1Z" fill="currentColor" />
                 </svg>
               </Link>
 
@@ -469,10 +454,8 @@ export default function CapabilitiesPage() {
               </Link>
             </div>
           </div>
-
         </section>
       )}
-
     </div>
   );
 }

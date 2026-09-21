@@ -12,11 +12,12 @@ import prod3 from '../assets/img/prod-3.avif';
 import prod4 from '../assets/img/prod-4.avif';
 import prod5 from '../assets/img/prod-5.avif';
 import prod6 from '../assets/img/prod-6.webp';
+import prod7 from '../assets/img/prod-7.webp';
 import heroBgImage from '../assets/img/company-page.png'; // Replaces Unsplash for Hero
 
 // Map JSON string keys to actual imported files
 const imageMap = {
-  prod1, prod2, prod3, prod4, prod5, prod6
+  prod1, prod2, prod3, prod4, prod5, prod6,prod7
 };
 
 // Highly performant scroll reveal hook

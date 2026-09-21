@@ -5,7 +5,6 @@
   min-height: 100vh;
   background: var(--bg-primary, #0b0f19);
   color: #fff;
-  /* FIX: Changed from 'hidden' to 'clip' to allow position: sticky to function properly */
   overflow-x: clip;
   position: relative;
 }
@@ -33,7 +32,7 @@
 .sol-hero-grid {
   position: absolute;
   inset: -50%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
@@ -58,12 +57,11 @@
 }
 
 body.light-theme .sol-hero-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 }
 
-/* Base Animations */
 @keyframes solFadeUp {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -82,10 +80,7 @@ body.light-theme .sol-hero-grid {
   padding: 0 2rem;
 }
 
-.sol-hero h1 {
-  /* Inherits size from global .section-main-heading */
-  margin: 1rem 0;
-}
+.sol-hero h1 { margin: 1rem 0; }
 
 .sol-hero p {
   font-size: 1.15rem;
@@ -117,7 +112,7 @@ body.light-theme .sol-hero-grid {
 .sol-rail-container::-webkit-scrollbar { display: none; }
 
 .sol-card {
-  flex: 0 0 calc(25% - 1.125rem); /* 4 cards perfectly fitted */
+  flex: 0 0 calc(25% - 1.125rem);
   min-width: 280px;
   background: transparent;
   border: none;
@@ -187,19 +182,22 @@ body.light-theme .sol-hero-grid {
   transition: color 0.3s ease;
 }
 
-.sol-card.active .sol-view-btn, .sol-card:hover .sol-view-btn {
+.sol-card.active .sol-view-btn,
+.sol-card:hover .sol-view-btn {
   color: var(--accent-color, #3b82f6);
 }
 
 /* 3. DYNAMIC PINNED SCROLL NARRATIVE */
 .sol-pinned-scroll-container {
-  height: 400vh; /* Creates 4 screens worth of scroll distance */
+  height: 400vh;
   position: relative;
+  /* Navbar offset for scrollIntoView() */
+  scroll-margin-top: var(--nav-offset);
 }
 
 .sol-sticky-viewport {
   position: sticky;
-  top: 130px; /* Sits exactly below fixed navbar */
+  top: var(--nav-offset);
   height: calc(100vh - 150px);
   display: flex;
   align-items: center;
@@ -207,7 +205,6 @@ body.light-theme .sol-hero-grid {
   overflow: hidden;
 }
 
-/* Center Animated Connecting Line */
 .sol-flow-line-track {
   position: absolute;
   top: 5%; bottom: 5%; left: 50%;
@@ -233,7 +230,6 @@ body.light-theme .sol-hero-grid {
   z-index: 2;
 }
 
-/* State-based Smooth Narrative Transitions */
 .sol-flow-block {
   position: absolute;
   width: 100%;
@@ -243,15 +239,8 @@ body.light-theme .sol-hero-grid {
   pointer-events: none;
 }
 
-/* Scroll Up -> Exits to Top */
-.sol-flow-block.past {
-  transform: translateY(-80px) scale(0.95);
-}
-/* Scroll Down -> Enters from Bottom */
-.sol-flow-block.future {
-  transform: translateY(80px) scale(0.95);
-}
-/* Currently Viewed Section */
+.sol-flow-block.past { transform: translateY(-80px) scale(0.95); }
+.sol-flow-block.future { transform: translateY(80px) scale(0.95); }
 .sol-flow-block.active {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -259,26 +248,11 @@ body.light-theme .sol-hero-grid {
   z-index: 10;
 }
 
-/* Dynamic Alignments for Editorial Feel */
-.sol-node-container {
-  position: relative;
-  width: 50%;
-}
-.sol-node-container.align-left {
-  margin-right: auto;
-  padding-right: 4rem;
-}
-.sol-node-container.align-right {
-  margin-left: auto;
-  padding-left: 4rem;
-}
-.sol-node-container.align-center {
-  margin: 0 auto;
-  width: 70%;
-  text-align: center;
-}
+.sol-node-container { position: relative; width: 50%; }
+.sol-node-container.align-left { margin-right: auto; padding-right: 4rem; }
+.sol-node-container.align-right { margin-left: auto; padding-left: 4rem; }
+.sol-node-container.align-center { margin: 0 auto; width: 70%; text-align: center; }
 
-/* Visual Connection Dots */
 .sol-node-dot {
   position: absolute;
   top: 50%;
@@ -290,7 +264,6 @@ body.light-theme .sol-hero-grid {
   box-shadow: 0 0 15px var(--accent-color, #3b82f6);
   z-index: 3;
 }
-/* Flawlessly aligns dot with the 50% centerline */
 .sol-node-container.align-left .sol-node-dot { right: -8px; }
 .sol-node-container.align-right .sol-node-dot { left: -8px; }
 .sol-node-container.align-center .sol-node-dot {
@@ -299,7 +272,6 @@ body.light-theme .sol-hero-grid {
   transform: translateX(-50%);
 }
 
-/* Content Boxes inside the Flow */
 .sol-node-content {
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(16px);
@@ -336,9 +308,7 @@ body.light-theme .sol-hero-grid {
 }
 .sol-powered-text { color: var(--accent-color, #3b82f6) !important; font-weight: 600; }
 
-/* ==========================================================================
-   ALTERNATING OUTCOMES LAYOUT
-   ========================================================================== */
+/* OUTCOMES */
 .sol-outcomes-list {
   display: flex;
   flex-direction: column;
@@ -373,13 +343,11 @@ body.light-theme .sol-hero-grid {
   border-right: 3px solid var(--accent-color, #3b82f6);
 }
 
-/* Light theme overrides for outcomes */
 body.light-theme .sol-outcome-item {
   background: rgba(0, 0, 0, 0.03);
   border-color: var(--border-color);
   color: var(--text-primary);
 }
-
 
 /* 4 & 5. SECTIONS (Industries & Advantages) */
 .sol-section-title {
@@ -441,15 +409,6 @@ body.light-theme .sol-outcome-item {
 .sol-cta-box p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem auto; }
 .sol-cta-buttons { display: flex; gap: 1.5rem; justify-content: center; }
 
-/* REDUCED MOTION FALLBACK */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 /* RESPONSIVE DESIGN */
 @media (max-width: 992px) {
   .sol-card { flex: 0 0 calc(50% - 0.75rem); }
@@ -458,13 +417,13 @@ body.light-theme .sol-outcome-item {
 @media (max-width: 768px) {
   .sol-page-container { padding-top: 100px; }
   .sol-card { flex: 0 0 85%; }
-  
+
   /* Stack the Narrative Flow for Mobile */
   .sol-flow-line-track {
     left: 20px;
     transform: none;
   }
-  
+
   .sol-node-container,
   .sol-node-container.align-left,
   .sol-node-container.align-right,
@@ -483,11 +442,12 @@ body.light-theme .sol-outcome-item {
     transform: translateY(-50%);
     right: auto;
   }
-  
+
   .sol-node-content { padding: 2rem 1.5rem; }
-  
+
   .sol-outcome-item { width: 100%; }
-  .sol-outcome-item:nth-child(odd), .sol-outcome-item:nth-child(even) {
+  .sol-outcome-item:nth-child(odd),
+  .sol-outcome-item:nth-child(even) {
     align-self: center;
     text-align: left;
     border-right: none;

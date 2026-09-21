@@ -16,6 +16,16 @@
       "buttonText": "Explore Jureo"
     },
     {
+      "id": "grunth",
+      "label": "Scripture Intelligence Platform",
+      "title": "Grunth — The Intelligent Scripture Guide",
+      "heading": "AI Guidance Grounded in Vedas, Puranas, Bhagavad Gita & Ramayan",
+      "desc": "Ask anything — grief, joy, doubt, or a request for guidance. Grunth answers from the embedded Hindu scripture corpus with exact shlokas, verse numbers, and paragraph-level citations from the original PDFs.",
+      "image": "prod7",
+      "link": "/products/grunth",
+      "buttonText": "Explore Grunth"
+    },
+    {
       "id": "community-spirit",
       "label": "EdTech & Local Commerce",
       "title": "Community Spirit Loyalty Platform",

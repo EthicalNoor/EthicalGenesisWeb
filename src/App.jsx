@@ -20,7 +20,6 @@ import ProductDetail from './pages/ProductDetail';
 import logo from './assets/img/logo.png';
 import videoPoster from './assets/img/video-poster.png';
 
-// Import all 4 background videos
 import bgVideo4 from './assets/vid/bv4.mp4';
 
 import cap1 from './assets/img/cap1.png';
@@ -30,12 +29,8 @@ import cap4 from './assets/img/cap4.png';
 import cap5 from './assets/img/cap5.png';
 import cap6 from './assets/img/cap6.png';
 
-// Mapping string keys from JSON to actual imported image variables
-const imageMap = {
-  cap1, cap2, cap3, cap4, cap5, cap6
-};
+const imageMap = { cap1, cap2, cap3, cap4, cap5, cap6 };
 
-// Mapping SVG Icons for Why Choose Us based on their JSON ID
 const whyChooseIcons = {
   1: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" /></svg>,
   2: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 21v-7m0-4V3m8 18v-9m0-4V3m8 18v-5m0-4V3M1 14h6m-6-6h6m2 8h6M9 8h6m2 8h6m-6-6h6" /></svg>,
@@ -45,7 +40,6 @@ const whyChooseIcons = {
   6: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
 };
 
-// Custom Hook for Scroll Reveal Animation
 const useScrollReveal = () => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -88,7 +82,7 @@ const splashCSS = `
   }
 
   .lw-logo {
-    width: 220px; 
+    width: 220px;
     height: auto;
     margin-bottom: 30px;
     object-fit: contain;
@@ -103,7 +97,7 @@ const splashCSS = `
   }
 
   .lw-loading-text {
-    color: #94a3b8; 
+    color: #94a3b8;
     font-size: 0.85rem;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -135,7 +129,7 @@ const splashCSS = `
     left: 0;
     height: 100%;
     width: 30%;
-    background: #3b82f6; 
+    background: #3b82f6;
     border-radius: 2px;
     animation: smoothSweep 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
@@ -153,6 +147,7 @@ function SplashScreen({ onComplete }) {
     const wrap = wrapRef.current;
     if (!wrap) return;
 
+    // Reduced loader duration for faster content access.
     const timer = setTimeout(() => {
       wrap.style.transform = "translateY(-100%)";
       wrap.style.opacity = "0";
@@ -160,7 +155,7 @@ function SplashScreen({ onComplete }) {
         if (wrap) wrap.style.display = "none";
         if (onComplete) onComplete();
       }, 800);
-    }, 2000);
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -184,7 +179,6 @@ function SplashScreen({ onComplete }) {
 const CapabilitiesSlider = () => {
   const scrollRef = useRef(null);
 
-  // Smoothly scrolls exactly one card width when an arrow is clicked
   const scrollCarousel = (direction) => {
     if (scrollRef.current) {
       const scrollAmount = scrollRef.current.clientWidth;
@@ -225,8 +219,6 @@ const CapabilitiesSlider = () => {
       </div>
 
       <div className="cap-slider-wrapper">
-
-        {/* LEFT ARROW */}
         <button className="hm-slider-arrow left" onClick={() => scrollCarousel('left')} aria-label="Previous Capability">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
         </button>
@@ -250,11 +242,9 @@ const CapabilitiesSlider = () => {
           ))}
         </div>
 
-        {/* RIGHT ARROW */}
         <button className="hm-slider-arrow right" onClick={() => scrollCarousel('right')} aria-label="Next Capability">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
         </button>
-
       </div>
     </section>
   );
@@ -265,7 +255,6 @@ const CountUpMetric = ({ target, trigger }) => {
 
   useEffect(() => {
     if (!trigger) return;
-    let start = 0;
     const duration = 1200;
     const startTime = performance.now();
 
@@ -284,35 +273,76 @@ const CountUpMetric = ({ target, trigger }) => {
   return <span>{count}</span>;
 };
 
+/*
+ * ============================================================
+ * WHY CHOOSE SECTION — FIXED SCROLL ARCHITECTURE
+ * ============================================================
+ * Previously:
+ *   - Section was hardcoded to 300vh, giving only 200vh of
+ *     scroll room for 6 cards.
+ *   - Math.round() produced uneven card stages.
+ *
+ * Now:
+ *   - Section height is dynamic: (itemCount + 1) * 100svh
+ *     so each card gets exactly one viewport of scroll time.
+ *   - activeIndex uses Math.floor(progress * itemCount) for
+ *     even, predictable card transitions.
+ *   - Scroll handler is throttled with requestAnimationFrame.
+ *   - Progress state bails out if the delta is tiny, avoiding
+ *     useless re-renders.
+ */
 const WhyChooseSection = () => {
   const wrapperRef = useRef(null);
   const [progress, setProgress] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [animatedIndices, setAnimatedIndices] = useState({});
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!wrapperRef.current) return;
-      const { top, height } = wrapperRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const scrollableDistance = height - windowHeight;
+  const items = appData.whyChooseUs.items;
+  const itemCount = items.length;
+  const lastIndex = Math.max(itemCount - 1, 0);
 
-      let p = -top / scrollableDistance;
-      p = Math.max(0, Math.min(1, p));
-      setProgress(p);
+  useEffect(() => {
+    let rafId = 0;
+
+    const updateProgress = () => {
+      const section = wrapperRef.current;
+      if (!section) return;
+
+      const { top, height } = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const scrollableDistance = Math.max(height - viewportHeight, 1);
+      const nextProgress = Math.max(0, Math.min(1, -top / scrollableDistance));
+
+      setProgress((prev) =>
+        Math.abs(prev - nextProgress) < 0.001 ? prev : nextProgress
+      );
+    };
+
+    const handleScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateProgress);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateProgress);
+    };
   }, []);
 
-  const dataLength = appData.whyChooseUs.items.length - 1;
-  const activeIndex = Math.min(Math.round(progress * dataLength), dataLength);
+  const activeIndex =
+    itemCount <= 1
+      ? 0
+      : Math.min(lastIndex, Math.floor(progress * itemCount));
 
-  // STRICT SYNCHRONIZATION: The circle now perfectly snaps to the exact center alignment 
-  // simultaneously as the activeIndex changes, eliminating early/delayed drifting.
-  const circleRotation = -90 + ((activeIndex / dataLength) * 180);
+  const circleRotation =
+    itemCount <= 1
+      ? -90
+      : -90 + (activeIndex / lastIndex) * 180;
 
   useEffect(() => {
     setIsFlipped(false);
@@ -325,10 +355,14 @@ const WhyChooseSection = () => {
     }
   };
 
-  const currentItem = appData.whyChooseUs.items[activeIndex];
+  const currentItem = items[activeIndex];
 
   return (
-    <section className="why-choose-wrap" ref={wrapperRef}>
+    <section
+      className="why-choose-wrap"
+      ref={wrapperRef}
+      style={{ height: `${(itemCount + 1) * 100}svh` }}
+    >
       <div className="why-choose-sticky">
         <div className="why-bg-grid"></div>
         <div className="why-bg-glow"></div>
@@ -339,22 +373,19 @@ const WhyChooseSection = () => {
 
             <div
               className="wc-flip-container"
-              /* REMOVED key to prevent whole-card unmounting; we now smoothly cross-fade internal content */
               onMouseEnter={() => handleInteraction(true)}
               onMouseLeave={() => handleInteraction(false)}
               onClick={() => handleInteraction(!isFlipped)}
             >
               <div className={`wc-flip-inner ${isFlipped ? 'is-flipped' : ''}`}>
-
                 <div className="why-active-front">
-                  {/* Content Fade Wrapper perfectly synced with the circle's rotation timing */}
                   <div key={`front-${activeIndex}`} className="wc-content-fade">
                     <div className="waf-header">
                       <h3 className="why-active-title">{currentItem.title}</h3>
                     </div>
                     <div className="waf-body">
                       <p className="why-active-desc">{currentItem.desc}</p>
-                      <div className="waf-hover-hint">Hover for impact ➔</div>
+                      <div className="waf-hover-hint">Explore Impact ➔</div>
                     </div>
                   </div>
                 </div>
@@ -380,7 +411,6 @@ const WhyChooseSection = () => {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -391,8 +421,8 @@ const WhyChooseSection = () => {
             <div className="why-circle-positioner">
               <div className="why-circle-arc"></div>
               <div className="why-circle" style={{ transform: `rotate(${circleRotation}deg)` }}>
-                {appData.whyChooseUs.items.map((item, idx) => {
-                  const itemAngle = 90 - (idx * (180 / dataLength));
+                {items.map((item, idx) => {
+                  const itemAngle = 90 - (idx * (180 / Math.max(lastIndex, 1)));
                   const inverseAngle = -(itemAngle + circleRotation);
                   const isActive = idx === activeIndex;
 
@@ -431,7 +461,6 @@ const SuccessStoriesSection = () => {
     >
       <div className="success-overlay"></div>
       <div className="success-container">
-
         <div className={`success-header-wrap reveal ${isVisible ? 'active' : ''}`}>
           <span className="section-tag">{appData.successStories.tag}</span>
           <h2 className="success-main-title section-main-heading">{appData.successStories.title}</h2>
@@ -445,7 +474,6 @@ const SuccessStoriesSection = () => {
               className={`sc-flip-container reveal delay-${(index + 1) * 100} ${isVisible ? 'active' : ''}`}
             >
               <div className="sc-flip-inner">
-                {/* FRONT OF CARD */}
                 <div className="sc-front">
                   <div className="sc-client-profile">
                     <div className="sc-avatar">{story.clientName.charAt(0)}</div>
@@ -458,10 +486,9 @@ const SuccessStoriesSection = () => {
                     <h5>The Challenge</h5>
                     <p>"{story.challenge}"</p>
                   </div>
-                  <div className="sc-hover-hint">Hover for Solution ➔</div>
+                  <div className="sc-hover-hint">Explore Solution ➔</div>
                 </div>
 
-                {/* BACK OF CARD */}
                 <div className="sc-back">
                   <div className="sc-solution-brief">
                     <h5>The Solution</h5>
@@ -481,7 +508,6 @@ const SuccessStoriesSection = () => {
           ))}
         </div>
 
-        {/* Redesigned Success Stories Button */}
         <div className={`success-cta reveal delay-400 ${isVisible ? 'active' : ''}`}>
           <Link to="/connect" className="btn-primary">
             <span>Start Your Success Story</span>
@@ -497,22 +523,15 @@ const SuccessStoriesSection = () => {
                 d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z"
                 fill="currentColor"
               />
-              <path
-                d="M1 9V7H0V9H1Z"
-                fill="currentColor"
-              />
+              <path d="M1 9V7H0V9H1Z" fill="currentColor" />
             </svg>
           </Link>
         </div>
-
       </div>
     </section>
   );
 };
 
-// ----------------------------------------------------
-// EXTRACTED HOME PAGE COMPONENT
-// ----------------------------------------------------
 function HomePage() {
   const [jureoRef, jureoVisible] = useScrollReveal();
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -520,18 +539,16 @@ function HomePage() {
 
   const backgroundVideos = [bgVideo4];
 
-  // Rotate videos every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % backgroundVideos.length);
-    }, 10000); // 10 seconds
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      {/* Hero Section */}
       <section className="hero-wrapper">
         <div className="hero-video-container">
           {backgroundVideos.map((vid, index) => (
@@ -542,6 +559,7 @@ function HomePage() {
               loop
               muted
               playsInline
+              poster={videoPoster}
               style={{
                 position: 'absolute',
                 top: 0,
@@ -569,10 +587,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Content Layer */}
       <div className="content-layer">
-
-        {/* Product Section: Jureo */}
         <section className="jureo-section" ref={jureoRef}>
           <span className={`section-tag reveal ${jureoVisible ? 'active' : ''}`}>
             {appData.jureo.tag}
@@ -603,7 +618,6 @@ function HomePage() {
             )}
           </div>
 
-          {/* Redesigned Jureo Button */}
           <div className={`reveal delay-300 ${jureoVisible ? 'active' : ''}`}>
             <a
               href={appData.jureo.buttonLink}
@@ -625,16 +639,12 @@ function HomePage() {
                   d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z"
                   fill="currentColor"
                 />
-                <path
-                  d="M1 9V7H0V9H1Z"
-                  fill="currentColor"
-                />
+                <path d="M1 9V7H0V9H1Z" fill="currentColor" />
               </svg>
             </a>
           </div>
         </section>
 
-        {/* Sections */}
         <CapabilitiesSlider />
         <WhyChooseSection />
         <SuccessStoriesSection />
@@ -643,9 +653,6 @@ function HomePage() {
   );
 }
 
-// ----------------------------------------------------
-// MAIN APP COMPONENT WITH ROUTING
-// ----------------------------------------------------
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [footerRef, footerVisible] = useScrollReveal();
@@ -663,15 +670,27 @@ export default function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <Router>
       <nav className="navbar">
         <div className="nav-logo">
-          <Link to="/">
+          <Link to="/" onClick={closeMobileMenu}>
             <img src={logo} alt="Ethical Genesis AI Logo" />
           </Link>
         </div>
@@ -680,18 +699,23 @@ export default function App() {
           className="mobile-menu-btn"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Navigation"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="primary-navigation"
         >
           {isMobileMenuOpen ? '✕' : '☰'}
         </button>
 
-        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li><NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink></li>
-          <li><NavLink to="/company" onClick={() => setIsMobileMenuOpen(false)}>Company</NavLink></li>
-          <li><NavLink to="/capabilities" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</NavLink></li>
-          <li><NavLink to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products</NavLink></li>
-          <li><NavLink to="/intelligence" onClick={() => setIsMobileMenuOpen(false)}>Intelligence</NavLink></li>
-          <li><NavLink to="/join-us" onClick={() => setIsMobileMenuOpen(false)}>Join Us</NavLink></li>
-          <li><NavLink to="/connect" onClick={() => setIsMobileMenuOpen(false)}>Connect</NavLink></li>
+        <ul
+          id="primary-navigation"
+          className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}
+        >
+          <li><NavLink to="/" onClick={closeMobileMenu}>Home</NavLink></li>
+          <li><NavLink to="/company" onClick={closeMobileMenu}>Company</NavLink></li>
+          <li><NavLink to="/capabilities" onClick={closeMobileMenu}>Capabilities</NavLink></li>
+          <li><NavLink to="/products" onClick={closeMobileMenu}>Products</NavLink></li>
+          <li><NavLink to="/intelligence" onClick={closeMobileMenu}>Intelligence</NavLink></li>
+          <li><NavLink to="/join-us" onClick={closeMobileMenu}>Join Us</NavLink></li>
+          <li><NavLink to="/connect" onClick={closeMobileMenu}>Connect</NavLink></li>
         </ul>
       </nav>
 
@@ -710,7 +734,6 @@ export default function App() {
 
       <footer className="footer" ref={footerRef}>
         <div className={`footer-grid reveal ${footerVisible ? 'active' : ''}`}>
-
           <div className="footer-column nav-column">
             <h4>Navigation</h4>
             <ul>
@@ -730,7 +753,6 @@ export default function App() {
               {appData.footer.contactEmail}
             </a>
           </div>
-
         </div>
 
         <div className={`footer-bottom reveal delay-100 ${footerVisible ? 'active' : ''}`}>
@@ -739,7 +761,7 @@ export default function App() {
           </p>
           <div className="social-icons">
             <a
-              href="https://www.linkedin.com/in/ethical-genesis-a59944329"
+              href="https://www.linkedin.com/company/ethical-genesis-ai/posts/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -766,7 +788,7 @@ export default function App() {
             </a>
 
             <a
-              href="#youtube"
+              href="https://youtu.be/IJJ8AVRb6jE?si=_sNpO8GDwqEgy1DU"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"

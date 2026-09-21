@@ -19,18 +19,12 @@
 }
 
 .nav-logo img {
-  /* Slightly increased baseline height for better readability */
-  height: 60px; 
+  height: 60px;
   width: auto;
-  
-  /* Forces the browser to render the image crisply without pixelation */
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  
-  /* Boosts brightness and contrast specifically for the default dark theme */
   filter: brightness(1.15) contrast(1.1);
-  
   transition: height 0.3s ease, filter 0.3s ease;
   will-change: filter, transform;
 }
@@ -59,7 +53,6 @@
   transition: color 0.3s ease;
 }
 
-/* This makes it blue when you hover AND when you are on the page */
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--accent-color);
@@ -117,9 +110,22 @@
   letter-spacing: -0.02em;
 }
 
+/* ============================================================
+   HIGHLIGHT TEXT — MOBILE OVERFLOW FIX
+   ============================================================ */
 .highlight-text {
   color: var(--accent-color);
-  white-space: nowrap; /* This forces the text to stay on one line */
+  white-space: nowrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .highlight-text {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
 }
 
 .hero-subtitle {
@@ -263,7 +269,6 @@
   width: 100%;
 }
 
-/* --- Homepage Slider Arrows --- */
 .hm-slider-arrow {
   position: absolute;
   top: 50%;
@@ -297,14 +302,8 @@
   height: 24px;
 }
 
-/* Position arrows hanging off the edges of the box */
-.hm-slider-arrow.left {
-  left: -25px;
-}
-
-.hm-slider-arrow.right {
-  right: -25px;
-}
+.hm-slider-arrow.left { left: -25px; }
+.hm-slider-arrow.right { right: -25px; }
 
 body.light-theme .hm-slider-arrow {
   background: rgba(255, 255, 255, 0.9);
@@ -319,9 +318,7 @@ body.light-theme .hm-slider-arrow:hover {
 }
 
 @media (max-width: 768px) {
-  .hm-slider-arrow {
-    display: none; /* Hide arrows on mobile so users naturally swipe/scroll */
-  }
+  .hm-slider-arrow { display: none; }
 }
 
 .cap-slides-container {
@@ -354,7 +351,6 @@ body.light-theme .hm-slider-arrow:hover {
   padding: 4rem;
 }
 
-/* Left Content Side */
 .cap-slide-content {
   flex: 1;
   display: flex;
@@ -387,11 +383,8 @@ body.light-theme .hm-slider-arrow:hover {
   max-width: 90%;
 }
 
-.slide-action {
-  margin-top: auto;
-}
+.slide-action { margin-top: auto; }
 
-/* Right Image Side */
 .cap-slide-image {
   flex: 1;
   height: 400px;
@@ -421,41 +414,30 @@ body.light-theme .hm-slider-arrow:hover {
 }
 
 /* --- Buttons --- */
-/* src/App.css */
-
-/* --- Modern Pill-Shaped Button Redesign --- */
 .btn-primary {
-  display: inline-flex; /* Changed to inline-flex for text+icon alignment */
-  align-items: center; /* Vertically centers text and icon */
-  justify-content: center; /* Horizontally centers content */
-  gap: 0.75rem; /* Space between text and icon from your image */
-  
-  /* Create the gradient from your reference image's style, but using YOUR blue theme colors */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
   background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
   color: #fff;
-  
-  /* Styling for the text inside the button */
-  text-transform: uppercase; /* Match the "SIGN UP" from image */
-  font-weight: 700; /* Bold font weight */
-  font-size: 1.05rem; /* Maintain your original font size */
-  letter-spacing: 1px; /* Slight letter spacing for crispness */
-  
-  /* The core structural changes from your image */
-  padding: 1rem 2.5rem; /* Adjusted padding to look balanced as a pill */
-  border-radius: 9999px; /* This creates the perfect pill shape */
-  
-  border: none; /* No border as in the image */
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); /* Match your existing transition style */
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform, box-shadow;
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); /* Muted initial shadow */
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
 }
 
-/* Enhanced Hover State synchronized with your reference image's vibrant feel */
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-color) 100%); /* Reverse gradient for a playful feel */
-  transform: translateY(-4px) scale(1.03); /* More active movement */
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6); /* Much more prominent shadow on hover */
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-color) 100%);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
 }
 
 .btn-outline {
@@ -474,34 +456,32 @@ body.light-theme .hm-slider-arrow:hover {
 /* --- Capabilities Marquee --- */
 .marquee-wrap {
   position: relative;
-  width: 90%; 
-  max-width: 1050px; 
-  margin: 0 auto 4rem auto; 
+  width: 90%;
+  max-width: 1050px;
+  margin: 0 auto 4rem auto;
   overflow: hidden;
   padding: 1.25rem 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.05); 
-  border-radius: 100px; 
-  background: rgba(255, 255, 255, 0.015); 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.015);
   display: flex;
   align-items: center;
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.mfl, .mfr {
-  display: none;
-}
+.mfl, .mfr { display: none; }
 
 .marquee-track {
   display: flex;
   gap: 3rem;
   width: max-content;
-  animation: scrollMarquee 200s linear infinite; 
+  animation: scrollMarquee 200s linear infinite;
 }
 
 @keyframes scrollMarquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 1.5rem)); } 
+  100% { transform: translateX(calc(-50% - 1.5rem)); }
 }
 
 .marquee-item {
@@ -525,20 +505,23 @@ body.light-theme .hm-slider-arrow:hover {
 }
 
 .mi-dot.navy {
-  background-color: #8b5cf6; 
+  background-color: #8b5cf6;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
 }
 
 
 /* =========================================
    WHY CHOOSE ETHICAL GENESIS AI SECTION
+   NOTE: Section height is now controlled by
+   React (dynamic per number of cards) via
+   inline style. It is no longer hardcoded here.
 ========================================= */
 :root {
   --circle-radius: 380px;
 }
 
 .why-choose-wrap {
-  height: 300vh;
+  /* Height is set dynamically in JSX: (itemCount + 1) * 100svh */
   background: var(--bg-primary);
   border-top: 1px solid var(--border-color);
   position: relative;
@@ -550,12 +533,11 @@ body.light-theme .hm-slider-arrow:hover {
   height: 100vh;
   height: 100svh;
   width: 100%;
-  overflow: hidden; 
+  overflow: hidden;
   display: flex;
   align-items: center;
 }
 
-/* Subtle Animated Neural Grid Background */
 @keyframes panGrid {
   0% { background-position: 0 0; }
   100% { background-position: 50px 50px; }
@@ -599,17 +581,14 @@ body.light-theme .hm-slider-arrow:hover {
   z-index: 2;
 }
 
-/* --- Left Side: Premium 3D Flip Card --- */
 .why-content-side {
-  width: 55%; /* Expanded to reduce gap */
+  width: 55%;
   max-width: 700px;
   position: relative;
   z-index: 10;
 }
 
-.why-main-title {
-  margin-bottom: 2rem;
-}
+.why-main-title { margin-bottom: 2rem; }
 
 @keyframes cardFadeUp {
   0% { opacity: 0; transform: translateY(20px); }
@@ -618,7 +597,7 @@ body.light-theme .hm-slider-arrow:hover {
 
 .wc-flip-container {
   perspective: 1200px;
-  height: 380px; 
+  height: 380px;
   width: 100%;
   margin-bottom: 2rem;
   cursor: pointer;
@@ -629,21 +608,20 @@ body.light-theme .hm-slider-arrow:hover {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s cubic-bezier(0.2, 0.85, 0.3, 1.1); 
+  transition: transform 0.8s cubic-bezier(0.2, 0.85, 0.3, 1.1);
   transform-style: preserve-3d;
 }
 
 @media (hover: hover) {
   .wc-flip-container:hover .wc-flip-inner {
-    transform: scale(1.03) rotateY(180deg); 
+    transform: scale(1.03) rotateY(180deg);
   }
 }
 
 .wc-flip-inner.is-flipped {
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
-/* Refined Front and Back Styles for Sharp Text */
 .why-active-front,
 .why-active-back {
   position: absolute;
@@ -657,12 +635,11 @@ body.light-theme .hm-slider-arrow:hover {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(59, 130, 246, 0.03);
   display: flex;
   flex-direction: column;
-  padding: 0; /* Handled by header/body */
-  -webkit-font-smoothing: antialiased; /* Prevent blurring */
-  transform: rotateY(0deg) translateZ(1px); /* Hardware accel fix */
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  transform: rotateY(0deg) translateZ(1px);
 }
 
-/* Pseudo-element for blur to avoid text blurring in webkit */
 .why-active-front::before, .why-active-back::before {
   content: '';
   position: absolute;
@@ -673,12 +650,10 @@ body.light-theme .hm-slider-arrow:hover {
   z-index: -1;
 }
 
-/* --- Smooth Crossfade for Card Content --- */
 .wc-content-fade {
   display: flex;
   flex-direction: column;
   flex: 1;
-  /* Easing precisely matches the circle rotation below */
   animation: syncFade 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -687,7 +662,6 @@ body.light-theme .hm-slider-arrow:hover {
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Structured Card Internal Layout */
 .waf-header {
   padding: 2.5rem 3rem 1.5rem 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -709,7 +683,7 @@ body.light-theme .hm-slider-arrow:hover {
 }
 
 .why-active-title {
-  font-size: 1.75rem; /* Increased for stronger hierarchy */
+  font-size: 1.75rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -718,12 +692,12 @@ body.light-theme .hm-slider-arrow:hover {
 }
 
 .why-active-desc {
-  font-size: 1.18rem; /* Increased from 1.05rem for better readability */
-  font-weight: 400; /* Solidified font weight to prevent thin, hard-to-read text */
-  color: rgba(255, 255, 255, 0.92); /* Brighter, high-contrast white instead of muted gray */
-  line-height: 1.85; /* Expanded line height for breathing room */
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.85;
   margin: 0;
-  letter-spacing: 0.2px; /* Slight tracking for crispness */
+  letter-spacing: 0.2px;
 }
 
 .waf-hover-hint {
@@ -737,8 +711,8 @@ body.light-theme .hm-slider-arrow:hover {
 
 .why-active-back {
   transform: rotateY(180deg) translateZ(1px);
-  background: rgba(11, 15, 25, 0.85); 
-  border-color: rgba(59, 130, 246, 0.3); 
+  background: rgba(11, 15, 25, 0.85);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .wc-back-heading {
@@ -776,11 +750,9 @@ body.light-theme .hm-slider-arrow:hover {
   letter-spacing: 1px;
 }
 
-.wc-read-more {
-  display: inline-block;
-}
+.wc-read-more { display: inline-block; }
 
-/* --- Right Side: Enlarged Rotating Half-Circle --- */
+/* --- Right Side: Rotating Half-Circle --- */
 .why-circle-side {
   position: absolute;
   top: 0;
@@ -793,7 +765,7 @@ body.light-theme .hm-slider-arrow:hover {
 .why-circle-positioner {
   position: absolute;
   top: 50%;
-  right: calc(var(--circle-radius) * -0.15); /* Pulled closer to the cards */
+  right: calc(var(--circle-radius) * -0.15);
   width: 0;
   height: 0;
   display: flex;
@@ -814,7 +786,6 @@ body.light-theme .hm-slider-arrow:hover {
   position: absolute;
   width: 0;
   height: 0;
-  /* Premium, snappy easing curve syncing exactly with the card content fade */
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
@@ -829,7 +800,6 @@ body.light-theme .hm-slider-arrow:hover {
   position: absolute;
   top: 0;
   left: 0;
-  /* Counters the circle rotation with the exact same easing to keep icons perfectly upright */
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -870,7 +840,6 @@ body.light-theme .hm-slider-arrow:hover {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Enhanced Prominent Active State */
 .why-circle-item-inner.active {
   opacity: 1;
   transform: scale(1.3);
@@ -895,13 +864,13 @@ body.light-theme .hm-slider-arrow:hover {
 
 
 /* =========================================
-   CLIENT SUCCESS STORIES SECTION (FLIP CARDS)
+   CLIENT SUCCESS STORIES SECTION
 ========================================= */
 .success-section {
   padding: 8rem 2rem;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Professional Parallax */
+  background-attachment: fixed;
   border-top: 1px solid var(--border-color);
   position: relative;
   overflow: hidden;
@@ -941,7 +910,6 @@ body.light-theme .hm-slider-arrow:hover {
   margin-bottom: 4rem;
 }
 
-/* Compact Modern Flip Cards */
 .sc-flip-container {
   perspective: 1200px;
   height: 360px;
@@ -975,10 +943,9 @@ body.light-theme .hm-slider-arrow:hover {
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
-  transform: translateZ(1px); /* prevent sub-pixel blur */
+  transform: translateZ(1px);
 }
 
-/* Pseudo-element for smooth backdrop blur */
 .sc-front::before, .sc-back::before {
   content: '';
   position: absolute; inset: 0;
@@ -987,10 +954,7 @@ body.light-theme .hm-slider-arrow:hover {
   z-index: -1;
 }
 
-/* Front Side */
-.sc-front {
-  transform: rotateY(0deg) translateZ(1px);
-}
+.sc-front { transform: rotateY(0deg) translateZ(1px); }
 
 .sc-client-profile {
   display: flex;
@@ -1015,10 +979,7 @@ body.light-theme .hm-slider-arrow:hover {
   box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
 }
 
-.sc-client-info {
-  display: flex;
-  flex-direction: column;
-}
+.sc-client-info { display: flex; flex-direction: column; }
 
 .sc-client-name {
   font-size: 1.15rem;
@@ -1056,7 +1017,6 @@ body.light-theme .hm-slider-arrow:hover {
   letter-spacing: 1px;
 }
 
-/* Back Side */
 .sc-back {
   transform: rotateY(180deg) translateZ(1px);
   background: rgba(11, 15, 25, 0.85);
@@ -1087,9 +1047,7 @@ body.light-theme .hm-slider-arrow:hover {
   margin-top: auto;
 }
 
-.sc-metric-box {
-  text-align: center;
-}
+.sc-metric-box { text-align: center; }
 
 .sc-metric-val {
   font-size: 1.6rem;
@@ -1105,10 +1063,7 @@ body.light-theme .hm-slider-arrow:hover {
   letter-spacing: 0.5px;
 }
 
-.success-cta {
-  text-align: center;
-  margin-top: 1rem;
-}
+.success-cta { text-align: center; margin-top: 1rem; }
 
 /* =========================================
    FOOTER
@@ -1153,7 +1108,7 @@ body.light-theme .hm-slider-arrow:hover {
 .nav-column ul {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Splits links into two neat columns */
+  grid-template-columns: 1fr 1fr;
   gap: 1rem 2rem;
 }
 
@@ -1164,9 +1119,7 @@ body.light-theme .hm-slider-arrow:hover {
   text-decoration: none;
 }
 
-.nav-column ul a:hover {
-  color: var(--accent-color);
-}
+.nav-column ul a:hover { color: var(--accent-color); }
 
 .connect-desc {
   color: var(--text-secondary);
@@ -1175,11 +1128,10 @@ body.light-theme .hm-slider-arrow:hover {
   margin-bottom: 1.5rem;
 }
 
-/* Made the email larger and more premium */
 .connect-email {
   color: var(--accent-color);
   font-weight: 600;
-  font-size: 1.8rem; 
+  font-size: 1.8rem;
   text-decoration: none;
   display: inline-block;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -1221,26 +1173,25 @@ body.light-theme .hm-slider-arrow:hover {
   transform: translateY(-2px);
 }
 
-/* Scroll To Top Button */
 .scroll-to-top {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 50%;
-  width: 45px; 
+  width: 45px;
   height: 45px;
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   justify-content: center;
   color: var(--text-secondary);
-  cursor: pointer; 
+  cursor: pointer;
   transition: all 0.3s ease;
   margin-left: 1.5rem;
 }
 
-.scroll-to-top:hover { 
-  background: var(--accent-color); 
-  color: #fff; 
-  border-color: var(--accent-color); 
+.scroll-to-top:hover {
+  background: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
 }
@@ -1300,15 +1251,12 @@ body.light-theme .hm-slider-arrow:hover {
   .slide-desc { margin: 0 auto 2rem auto; }
   .cap-slide-image { width: 100%; height: 350px; }
 
-  /* ------------------------------------------
-     WHY CHOOSE US - TABLET RESTRUCTURING 
-  ------------------------------------------- */
   :root { --circle-radius: 240px; }
-  
+
   .why-choose-sticky {
     height: 100vh;
     height: 100svh;
-    overflow: hidden; 
+    overflow: hidden;
     align-items: center;
     justify-content: center;
   }
@@ -1322,18 +1270,18 @@ body.light-theme .hm-slider-arrow:hover {
   .why-circle-side {
     position: relative;
     width: 100%;
-    height: calc(var(--circle-radius) * 0.6 + 70px); 
+    height: calc(var(--circle-radius) * 0.6 + 70px);
     top: auto;
     right: auto;
     margin-bottom: 2rem;
-    order: 1; 
+    order: 1;
   }
 
   .why-circle-positioner {
     top: calc(var(--circle-radius) * -0.4);
     left: 50%;
     right: auto;
-    transform: rotate(-90deg); 
+    transform: rotate(-90deg);
   }
 
   .why-item-icon { transform: rotate(90deg); }
@@ -1343,16 +1291,15 @@ body.light-theme .hm-slider-arrow:hover {
     max-width: 650px;
     margin: 0 auto;
     text-align: center;
-    order: 2; 
+    order: 2;
     z-index: 10;
   }
-  
+
   .waf-header { padding: 2rem; }
   .waf-body { padding: 1.5rem 2rem 2.5rem 2rem; }
-  
+
   .wc-flip-container { height: 380px; }
 
-  /* Success Stories Tablet Adjustments */
   .success-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 
   .footer { padding: 5rem 2.5rem 2rem; }
@@ -1364,7 +1311,7 @@ body.light-theme .hm-slider-arrow:hover {
 
   .jureo-section { padding: 1rem 1.5rem; }
   .jureo-desc { font-size: 1rem; margin-bottom: 1.5rem; }
-  
+
   .play-button { width: 60px; height: 60px; }
   .play-icon { border-width: 10px 0 10px 16px; }
 
@@ -1376,14 +1323,36 @@ body.light-theme .hm-slider-arrow:hover {
   .btn-outline { width: 100%; text-align: center; }
 
   /* ------------------------------------------
-     WHY CHOOSE US - MOBILE RESTRUCTURING 
+     WHY CHOOSE US - MOBILE: NORMAL FLOW
+     Disable the scroll-pinned experience and
+     let content stack naturally.
   ------------------------------------------- */
   :root { --circle-radius: 180px; }
-  
-  .why-container { padding: 0 1.5rem; }
-  
-  .why-circle-side { height: calc(var(--circle-radius) * 0.6 + 50px); }
-  
+
+  .why-choose-wrap {
+    /* Override the inline dynamic height on mobile */
+    height: auto !important;
+  }
+
+  .why-choose-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    display: block;
+    padding: 4rem 0;
+  }
+
+  .why-container {
+    padding: 0 1.5rem;
+    transform: none;
+  }
+
+  .why-circle-side {
+    height: calc(var(--circle-radius) * 0.6 + 50px);
+  }
+
   .why-circle-item-inner {
     width: 60px;
     height: 60px;
@@ -1391,21 +1360,25 @@ body.light-theme .hm-slider-arrow:hover {
     left: -30px;
   }
   .why-item-icon svg { width: 26px; height: 26px; }
-  
+
   .wc-flip-container { height: 380px; margin-bottom: 1.5rem; }
   .waf-header { padding: 1.5rem; }
   .waf-body { padding: 1rem 1.5rem 2rem 1.5rem; }
-.why-active-desc { 
-    font-size: 1.05rem; 
-    line-height: 1.7; 
+  .why-active-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
   }
-  
+
   .wc-metrics-grid { flex-direction: column; gap: 1rem; }
   .wc-metric-number { font-size: 1.8rem; }
   .wc-read-more { width: 100%; text-align: center; }
 
-  /* Success Stories Mobile Adjustments */
-  .success-section { padding: 5rem 1.5rem; }
+  /* Success Stories Mobile */
+  .success-section {
+    padding: 5rem 1.5rem;
+    /* Fixed background-attachment is unreliable on mobile browsers */
+    background-attachment: scroll;
+  }
   .success-grid { grid-template-columns: 1fr; }
   .sc-flip-container { height: 400px; }
   .sc-front, .sc-back { padding: 2rem 1.5rem; }
@@ -1420,21 +1393,8 @@ body.light-theme .hm-slider-arrow:hover {
 }
 
 @media (max-width: 480px) {
-  .nav-logo img { height: 48px; } /* Increased slightly from 45px for better mobile clarity */
+  .nav-logo img { height: 48px; }
   .hero-title { font-size: 2.2rem; }
   .btn-primary { padding: 0.9rem 2rem; font-size: 1rem; width: 100%; }
   .capabilities-title { font-size: 1.6rem; margin-bottom: 10px; }
-}
-
-@media (max-height: 750px) {
-  .why-choose-sticky { 
-    align-items: center; 
-    padding-top: 0; 
-    overflow: hidden; 
-  }
-  .why-container {
-    transform: scale(0.85); 
-    transform-origin: center center;
-  }
-  .wc-flip-container { height: 360px; }
 }

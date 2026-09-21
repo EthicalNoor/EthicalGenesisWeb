@@ -1,6 +1,6 @@
-# Ethical Genesis | Enterprise AI Corporate Website
+# Ethical Genesis AI | Enterprise AI Corporate Website
 
-A modern, premium corporate website for Ethical Genesis, an enterprise AI consulting and product engineering firm. Built with **React** and **Vite**, this project features high-performance CSS animations, a responsive cinematic UI, and a fully JSON-driven content architecture.
+A modern, premium corporate website for Ethical Genesis AI, an enterprise AI consulting and product engineering firm. Built with **React** and **Vite**, this project features high-performance CSS animations, a responsive cinematic UI, and a fully JSON-driven content architecture.
 
 ---
 

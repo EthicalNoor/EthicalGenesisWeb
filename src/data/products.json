@@ -1,62 +1,77 @@
 {
   "hero": {
-    "tagline": "Enterprise AI Products & Automation Tools",
-    "mainHeading": "Enterprise AI Solutions Built for Scalable Impact.",
-    "subHeading": "Explore our ecosystem of specialized machine learning platforms and generative AI products, engineered to drive digital transformation and resolve complex operational bottlenecks."
+    "tagline": "Enterprise AI Platforms",
+    "mainHeading": "Enterprise AI Platforms for Automation, Intelligence & Scale",
+    "subHeading": "Explore our ecosystem of specialized machine learning platforms, generative AI tools, and enterprise automation SaaS solutions engineered to drive digital transformation."
   },
-  "flagship": {
-    "id": "jureo",
-    "label": "Flagship AI Platform",
-    "title": "Jureo — The Intelligent AI Paralegal.",
-    "desc": "Accelerate legal research and compliance with our advanced generative AI platform, featuring zero-hallucination semantic search, automated data intelligence extraction, and precise precedent mapping for law firms.",
-    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
-    "link": "/products/jureo"
-  },
-  "grid": {
-    "title": "Industry-Specific Data Intelligence",
-    "products": [
-      {
-        "id": "legal-compliance",
-        "title": "Legal & Compliance AI Engine",
-        "desc": "Automate risk assessment and clause analysis across massive corporate contracts using advanced machine learning algorithms.",
-        "image": "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?q=80&w=800&auto=format&fit=crop",
-        "span": "wide",
-        "link": "/products/legal-compliance"
-      },
-      {
-        "id": "fragrance-ai",
-        "title": "AI-Driven Fragrance Intelligence",
-        "desc": "Utilize predictive machine learning for innovative olfactory formulation and data-driven market trend forecasting.",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop",
-        "span": "square",
-        "link": "/products/fragrance-ai"
-      },
-      {
-        "id": "enterprise-chatbot",
-        "title": "Enterprise Generative AI Chatbot",
-        "desc": "Deploy secure, internal AI assistants utilizing Retrieval-Augmented Generation (RAG) grounded strictly in your proprietary data intelligence.",
-        "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop",
-        "span": "square",
-        "link": "/products/enterprise-chatbot"
-      },
-      {
-        "id": "automotive-ai",
-        "title": "Automotive Machine Learning Hub",
-        "desc": "Optimize operations with predictive telematics, intelligent supply chain automation, and data-driven automotive insights.",
-        "image": "https://images.unsplash.com/photo-1563720225642-1e9a21e428d0?q=80&w=800&auto=format&fit=crop",
-        "span": "square",
-        "link": "/products/automotive-ai"
-      },
-      {
-        "id": "bidding-system",
-        "title": "Intelligent Algorithmic Bidding System",
-        "desc": "Maximize ROI and secure higher win rates using real-time machine learning algorithms and automated auction intelligence.",
-        "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&auto=format&fit=crop",
-        "span": "wide-alt",
-        "link": "/products/bidding-system"
-      }
-    ]
-  },
+  "products": [
+    {
+      "id": "jureo",
+      "label": "Flagship Product",
+      "title": "Jureo — The Intelligent AI Paralegal",
+      "heading": "Patented AI Paralegal Solution for Law Firms & Corporate Teams",
+      "desc": "Accelerate legal research and compliance with our advanced generative AI platform. Master precedent mapping and automate fact extraction to scale your legal operations seamlessly.",
+      "image": "prod1",
+      "link": "/products/jureo",
+      "buttonText": "Explore Jureo"
+    },
+    {
+      "id": "grunth",
+      "label": "Scripture Intelligence Platform",
+      "title": "Grunth — The Intelligent Scripture Guide",
+      "heading": "AI Guidance Grounded in Vedas, Puranas, Bhagavad Gita & Ramayan",
+      "desc": "Ask anything — grief, joy, doubt, or a request for guidance. Grunth answers from the embedded Hindu scripture corpus with exact shlokas, verse numbers, and paragraph-level citations from the original PDFs.",
+      "image": "prod7",
+      "link": "/products/grunth",
+      "buttonText": "Explore Grunth"
+    },
+    {
+      "id": "community-spirit",
+      "label": "EdTech & Local Commerce",
+      "title": "Community Spirit Loyalty Platform",
+      "heading": "Digital Fundraising & Discount Ecosystem for Communities",
+      "desc": "Digitize local fundraising and loyalty programs. Connect schools, local businesses, and community members through a unified, scan-based discount and campaign management system.",
+      "image": "prod2",
+      "link": "/products/community-spirit",
+      "buttonText": "Explore Platform"
+    },
+    {
+      "id": "sfl",
+      "label": "Sports Tech Platform",
+      "title": "Intelligent Fantasy League System",
+      "desc": "Modernize sports management with an API-driven automation platform. Sync rosters, manage contracts, and scale your league operations with absolute precision.",
+      "image": "prod3",
+      "link": "/products/sfl",
+      "buttonText": "Explore System"
+    },
+    {
+      "id": "legal-compliance",
+      "label": "Regulatory Intelligence",
+      "title": "Compliance & Regulatory AI Engine",
+      "desc": "Streamline risk analysis for financial institutions with our AI-powered RegTech platform. Automate complex data pipelines and ensure robust compliance at enterprise scale.",
+      "image": "prod4",
+      "link": "/products/legal-compliance",
+      "buttonText": "Explore Engine"
+    },
+    {
+      "id": "fragrance-ai",
+      "label": "R&D Intelligence",
+      "title": "Fragrance Data Intelligence Platform",
+      "desc": "Unlock complex formulation data using LLM-based prompt engineering. Transform natural language into structured insights to accelerate your R&D workflows.",
+      "image": "prod5",
+      "link": "/products/fragrance-ai",
+      "buttonText": "Explore Platform"
+    },
+    {
+      "id": "enterprise-chatbot",
+      "label": "Enterprise Automation",
+      "title": "Enterprise Generative AI Chatbot",
+      "desc": "Deploy secure, conversational AI assistants powered by Retrieval-Augmented Generation (RAG). Deliver instant, verifiable answers grounded strictly in your proprietary data.",
+      "image": "prod6",
+      "link": "/products/enterprise-chatbot",
+      "buttonText": "Explore Assistant"
+    }
+  ],
   "banner": {
     "text": "All enterprise AI solutions are powered by our secure Zero-Retention Framework. Your proprietary data drives your digital transformation but never leaves your secure environment.",
     "button": "Discuss Custom AI Solutions",

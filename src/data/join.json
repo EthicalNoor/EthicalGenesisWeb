@@ -1,10 +1,10 @@
 {
   "hero": {
-    "tagline": "AI Engineering Careers at Ethical Genesis",
+    "tagline": "AI Engineering Careers at Ethical Genesis AI",
     "mainHeading": "Architect the Future of Enterprise AI Solutions.",
     "subHeading": "Join a premier team of machine learning engineers, data scientists, and AI researchers solving complex challenges in enterprise automation. We build scalable, highly secure generative AI and data intelligence systems that drive measurable digital transformation."
   },
-  "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
+  "image": "joinus1",
   "perks": [
     {
       "title": "Architectural Autonomy",
@@ -26,25 +26,25 @@
         "id": "role-1",
         "title": "Senior Machine Learning Engineer",
         "type": "Remote / Full-Time",
-        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20Senior%20ML%20Engineer"
+        "link": "mailto:info@ethicalgenesis.ai?subject=Application:%20Senior%20ML%20Engineer"
       },
       {
         "id": "role-2",
         "title": "Enterprise AI Solutions Architect",
         "type": "Remote / Full-Time",
-        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20AI%20Solutions%20Architect"
+        "link": "mailto:info@ethicalgenesis.ai?subject=Application:%20AI%20Solutions%20Architect"
       },
       {
         "id": "role-3",
         "title": "Full Stack Engineer (AI Automation Platforms)",
         "type": "Remote / Full-Time",
-        "link": "mailto:careers@ethicalgenesis.ai?subject=Application:%20Full%20Stack%20Engineer"
+        "link": "mailto:info@ethicalgenesis.ai?subject=Application:%20Full%20Stack%20Engineer"
       }
     ]
   },
   "cta": {
     "text": "Don't see your exact role? We are actively seeking exceptional talent to drive innovation in machine learning and data intelligence.",
     "button": "Pitch Your AI Engineering Role",
-    "email": "careers@ethicalgenesis.ai"
+    "email": "info@ethicalgenesis.ai"
   }
 }

@@ -5,7 +5,22 @@ import { Link } from 'react-router-dom';
 import productsData from '../data/products.json';
 import '../styles/products.css';
 
-// Reusable hook for scroll animations
+// --- LOCAL IMAGE IMPORTS ---
+import prod1 from '../assets/img/prod-1.avif';
+import prod2 from '../assets/img/prod-2.avif';
+import prod3 from '../assets/img/prod-3.avif';
+import prod4 from '../assets/img/prod-4.avif';
+import prod5 from '../assets/img/prod-5.avif';
+import prod6 from '../assets/img/prod-6.webp';
+import prod7 from '../assets/img/prod-7.webp';
+import heroBgImage from '../assets/img/company-page.png'; // Replaces Unsplash for Hero
+
+// Map JSON string keys to actual imported files
+const imageMap = {
+  prod1, prod2, prod3, prod4, prod5, prod6,prod7
+};
+
+// Highly performant scroll reveal hook
 const useReveal = () => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +33,7 @@ const useReveal = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
     );
     if (ref.current) observer.observe(ref.current);
     return () => { if (ref.current) observer.unobserve(ref.current); };
@@ -27,84 +42,168 @@ const useReveal = () => {
   return [ref, isVisible];
 };
 
+// 1. Flagship Product Component (Jureo gets special treatment)
+const FlagshipProduct = ({ product }) => {
+  const [ref, isVisible] = useReveal();
+
+  return (
+    <div ref={ref} className={`saas-flagship-wrapper ${isVisible ? 'visible' : ''}`}>
+      <div className="saas-flagship-glow"></div>
+      <div className="saas-flagship-card">
+        <div className="flagship-content">
+          <div className="flagship-badge">
+            <span className="pulse-dot"></span>
+            {product.label}
+          </div>
+          <h2>{product.title}</h2>
+          {product.heading && <h3 className="flagship-subheading">{product.heading}</h3>}
+          <p>{product.desc}</p>
+          <div className="flagship-action">
+            {/* Redesigned Pill Button with Trailing Icon */}
+            <Link to={product.link} className="btn-primary flagship-btn">
+              <span>{product.buttonText}</span>
+              <svg 
+                width="20" 
+                height="16" 
+                viewBox="0 0 20 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ transition: 'transform 0.3s ease' }}
+              >
+                <path 
+                  d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                  fill="currentColor"
+                />
+                <path d="M1 9V7H0V9H1Z" fill="currentColor" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+        <div className="flagship-visual">
+          <div className="flagship-image-container">
+            {/* Using the mapped local image */}
+            <img src={imageMap[product.image]} alt={product.title} loading="lazy" />
+            <div className="flagship-image-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 2. Alternating Product Rows (Stripe/Apple style sections)
+const AlternatingProduct = ({ product, index }) => {
+  const [ref, isVisible] = useReveal();
+  const isReversed = index % 2 !== 0; // Alternates left/right
+
+  return (
+    <section ref={ref} className={`saas-product-row ${isVisible ? 'visible' : ''} ${isReversed ? 'reversed' : ''}`}>
+      <div className="saas-row-container">
+        
+        <div className="saas-row-content">
+          <span className="saas-row-label">{product.label}</span>
+          <h2>{product.title}</h2>
+          <p>{product.desc}</p>
+          
+          {/* Redesigned Pill Button with Trailing Icon */}
+          <Link to={product.link} className="btn-primary" style={{ marginTop: '1rem' }}>
+            <span>{product.buttonText}</span>
+            <svg 
+              width="20" 
+              height="16" 
+              viewBox="0 0 20 16" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ transition: 'transform 0.3s ease' }}
+            >
+              <path 
+                d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" 
+                fill="currentColor"
+              />
+              <path d="M1 9V7H0V9H1Z" fill="currentColor" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="saas-row-visual">
+          <Link to={product.link} className="saas-image-wrapper">
+            {/* Using the mapped local image */}
+            <img src={imageMap[product.image]} alt={product.title} loading="lazy" />
+            <div className="saas-image-glass"></div>
+          </Link>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
 export default function ProductsPage() {
   const [heroRef, heroVisible] = useReveal();
-  const [flagshipRef, flagshipVisible] = useReveal();
-  const [gridRef, gridVisible] = useReveal();
   const [bannerRef, bannerVisible] = useReveal();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Always start at top
+    window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <div className="prod-page-container">
-      
-      {/* Abstract Background Layer */}
-      <div className="prod-bg-mesh"></div>
+  const flagshipProduct = productsData.products[0];
+  const otherProducts = productsData.products.slice(1);
 
-      {/* 1. HERO SECTION */}
-      <section className="prod-hero" ref={heroRef}>
-        <div className={`prod-hero-content ${heroVisible ? 'visible' : ''}`}>
+  return (
+    <div className="saas-page-container" style={{ position: 'relative' }}>
+      
+      {/* --- DYNAMIC HERO BACKGROUND IMAGE --- */}
+      <div 
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '600px',
+          /* Used local heroBgImage instead of Unsplash */
+          backgroundImage: `linear-gradient(to bottom, rgba(11, 15, 25, 0.5) 0%, var(--bg-primary) 100%), url(${heroBgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Background Base */}
+      <div className="saas-bg-ambient"></div>
+
+      {/* HERO SECTION (SEO Optimized H1) */}
+      <header className="saas-hero" ref={heroRef} style={{ position: 'relative', zIndex: 1 }}>
+        <div className={`saas-hero-inner ${heroVisible ? 'visible' : ''}`}>
           <span className="section-tag">{productsData.hero.tagline}</span>
           <h1 className="section-main-heading">{productsData.hero.mainHeading}</h1>
-          <p className="prod-subtitle">{productsData.hero.subHeading}</p>
+          <p>{productsData.hero.subHeading}</p>
+        </div>
+      </header>
+
+      {/* FLAGSHIP SHOWCASE (Jureo) */}
+      <section className="saas-flagship-section">
+        <div className="saas-container">
+          <FlagshipProduct product={flagshipProduct} />
         </div>
       </section>
 
-      {/* 2. FLAGSHIP SPOTLIGHT (Jureo) */}
-      <section className="prod-section" ref={flagshipRef}>
-        <div className="prod-container">
-          <div className={`prod-flagship-card ${flagshipVisible ? 'visible' : ''}`}>
-            <div className="prod-flagship-content">
-              <span className="prod-label">{productsData.flagship.label}</span>
-              <h2>{productsData.flagship.title}</h2>
-              <p>{productsData.flagship.desc}</p>
-              <Link to={productsData.flagship.link} className="btn-primary">
-                Explore Jureo <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-            <div className="prod-flagship-image">
-              <img src={productsData.flagship.image} alt={productsData.flagship.title} loading="lazy" />
-              <div className="prod-image-overlay"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ALTERNATING PRODUCT ECOSYSTEM */}
+      <div className="saas-ecosystem">
+        {otherProducts.map((product, index) => (
+          <AlternatingProduct key={product.id} product={product} index={index} />
+        ))}
+      </div>
 
-      {/* 3. INDUSTRY INTELLIGENCE (Bento Grid) */}
-      <section className="prod-section" ref={gridRef}>
-        <div className="prod-container">
-          <h2 className={`prod-section-title section-main-heading ${gridVisible ? 'visible' : ''}`}>
-            {productsData.grid.title}
-          </h2>
-          
-          <div className={`prod-bento-grid ${gridVisible ? 'visible' : ''}`}>
-            {productsData.grid.products.map((product) => (
-              <Link to={product.link} key={product.id} className={`prod-bento-item span-${product.span}`}>
-                <div 
-                  className="prod-bento-bg" 
-                  style={{ backgroundImage: `url(${product.image})` }}
-                ></div>
-                <div className="prod-bento-overlay"></div>
-                <div className="prod-bento-content">
-                  <h3>{product.title}</h3>
-                  <p>{product.desc}</p>
-                  <span className="prod-view-btn">View Product <span aria-hidden="true">→</span></span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. UNIFIED ENGINE BANNER */}
-      <section className="prod-banner-section" ref={bannerRef}>
-        <div className="prod-container">
-          <div className={`prod-banner-card ${bannerVisible ? 'visible' : ''}`}>
-            <div className="prod-banner-icon">
+      {/* UNIFIED ENGINE BANNER */}
+      <section className="saas-banner-section" ref={bannerRef}>
+        <div className="saas-container">
+          <div className={`saas-banner-card ${bannerVisible ? 'visible' : ''}`}>
+            <div className="saas-banner-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 8v4l3 3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <p>{productsData.banner.text}</p>

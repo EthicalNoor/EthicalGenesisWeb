@@ -12,6 +12,9 @@
   --accent-hover: #2563eb;
   --nav-bg: rgba(11, 15, 25, 0.85);
   --border-color: rgba(255, 255, 255, 0.1);
+
+  /* Global Layout Tokens */
+  --nav-offset: 130px;
 }
 
 * {
@@ -20,12 +23,27 @@
   box-sizing: border-box;
 }
 
+/*
+ * IMPORTANT:
+ * Use overflow-x: clip instead of hidden. Unlike `hidden`, `clip`
+ * does not create a scroll container, which is required for the
+ * position: sticky sections used across the site.
+ */
+html {
+  width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
+  width: 100%;
+  overflow-x: clip;
+  position: relative;
 }
 
 /* Ensure the logo turns crisp black in light mode */
@@ -42,6 +60,11 @@ a {
 button {
   cursor: pointer;
   font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Global Animation Classes */
@@ -63,7 +86,6 @@ button {
 
 /* ==========================================================================
    GLOBAL SECTION HEADING CONSISTENCY
-   Ensures all section titles across all pages use the exact same styling
    ========================================================================== */
 .section-main-heading,
 .jureo-title,
@@ -82,4 +104,27 @@ button {
   line-height: 1.2 !important;
   letter-spacing: -0.02em !important;
   color: var(--text-primary);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+
+/* ==========================================================================
+   GLOBAL ACCESSIBILITY: REDUCED MOTION
+   Respects the user's OS-level motion preference across the entire app.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

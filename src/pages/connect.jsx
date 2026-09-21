@@ -6,110 +6,137 @@ import '../styles/connect.css';
 
 export default function ConnectPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    honeypot: '' 
+  });
 
-  // Ensure page loads at the very top
+  // Automatically determines API URL dynamically based on environment
+  const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:8000/contact.php' 
+    : 'https://ethicalgenesis.ai/contact.php'; 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would normally send the data to your backend (Formspree, EmailJS, etc.)
-    setIsSubmitted(true);
+
+    // Spam Trap: If bot fills the hidden field, silently stop.
+    if (formData.honeypot) return; 
+
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          honeypot: formData.honeypot
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.status === 'success') {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '', honeypot: '' });
+      } else {
+        throw new Error(result.message || 'Failed to send message.');
+      }
+    } catch (error) {
+      console.error('Submission Error:', error);
+      setErrorMessage('Network error. Please check your connection or try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="conn-page-wrapper">
-      {/* Cinematic Background */}
-      <div 
-        className="conn-background" 
-        style={{ backgroundImage: `url(${connectData.background.image})` }}
-      >
-        <div className="conn-overlay"></div>
-      </div>
-
+      <div className="conn-bg-mesh"></div>
       <div className="conn-container">
-        {/* Floating Glassmorphism Command Center */}
-        <div className="conn-glass-panel animate-fade-up">
-          
-          {/* LEFT SIDE: Brand & Info */}
+        <div className="conn-grid">
+
+          {/* LEFT COLUMN: Info */}
           <div className="conn-info-side">
-            <div className="conn-brand">
-              {/* Premium SVG Logo Placeholder (Replace with your actual logo img if preferred) */}
-              <svg className="conn-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinejoin="round" strokeLinecap="round"/>
-              </svg>
-              <span className="conn-logo-text">Ethical Genesis</span>
-            </div>
-            
             <h1 className="conn-heading">{connectData.info.heading}</h1>
             <p className="conn-subheading">{connectData.info.subHeading}</p>
-
             <div className="conn-channels">
               {connectData.info.channels.map((channel, idx) => (
-                <div key={idx} className="conn-channel-item">
-                  <span className="conn-channel-label">{channel.label}</span>
-                  <a href={channel.value.includes('@') ? `mailto:${channel.value}` : '#'} className="conn-channel-value">
-                    {channel.value}
-                  </a>
+                <div key={idx} className="conn-channel">
+                  <h5>{channel.label}</h5>
+                  <p>{channel.value}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* RIGHT SIDE: Enterprise Intake Form */}
+          {/* RIGHT COLUMN: Form Card */}
           <div className="conn-form-side">
             {isSubmitted ? (
-              <div className="conn-success-state animate-fade-up">
-                <div className="conn-success-icon">✓</div>
+              <div className="conn-success-state">
+                <div className="conn-success-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
                 <h3>{connectData.form.successMessage.title}</h3>
                 <p>{connectData.form.successMessage.desc}</p>
-                <button className="btn-outline" onClick={() => setIsSubmitted(false)}>
-                  Submit Another Request
+                <button onClick={() => setIsSubmitted(false)} className="btn-outline conn-reset-btn">
+                  Send Another Message
                 </button>
               </div>
             ) : (
               <form className="conn-form" onSubmit={handleSubmit}>
-                <div className="conn-form-row">
-                  <div className="conn-input-group">
-                    <label>Full Name</label>
-                    <input type="text" required placeholder="Jane Doe" />
-                  </div>
-                  <div className="conn-input-group">
-                    <label>Work Email</label>
-                    <input type="email" required placeholder="jane@company.com" />
-                  </div>
+                {errorMessage && <div className="conn-error-message">{errorMessage}</div>}
+                
+                {/* Honeypot Field */}
+                <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" value={formData.honeypot} onChange={handleChange} />
+
+                <div className="conn-input-wrapper">
+                  <input type="text" name="name" id="name" required placeholder=" " value={formData.name} onChange={handleChange} disabled={isSubmitting} />
+                  <label htmlFor="name">Full Name</label>
                 </div>
 
-                <div className="conn-input-group">
-                  <label>Company Name</label>
-                  <input type="text" required placeholder="Enterprise Corp Ltd." />
+                <div className="conn-input-wrapper">
+                  <input type="email" name="email" id="email" required placeholder=" " value={formData.email} onChange={handleChange} disabled={isSubmitting} />
+                  <label htmlFor="email">Corporate Email</label>
                 </div>
 
-                <div className="conn-input-group">
-                  <label>Area of Interest</label>
-                  <div className="conn-select-wrapper">
-                    <select required defaultValue="">
-                      {connectData.form.interests.map((interest, idx) => (
-                        <option key={idx} value={idx === 0 ? "" : interest} disabled={idx === 0}>
-                          {interest}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                <div className="conn-input-wrapper">
+                  <textarea rows="5" name="message" id="message" required placeholder=" " value={formData.message} onChange={handleChange} disabled={isSubmitting}></textarea>
+                  <label htmlFor="message">How can we assist you?</label>
                 </div>
 
-                <div className="conn-input-group">
-                  <label>Project Scope</label>
-                  <textarea 
-                    rows="4" 
-                    required 
-                    placeholder="Briefly describe your core operational challenge or architecture goals..."
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="conn-submit-btn">
-                  Request Architecture Review <span aria-hidden="true">→</span>
+                <button type="submit" className="conn-submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <span className="conn-loader"></span>
+                  ) : (
+                    <>Send Request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></>
+                  )}
                 </button>
               </form>
             )}
